@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CIWU OMNI v2.0</title>
+  <title>CIWU OMNI v2.0 | Medical Intelligence</title>
   <link rel="stylesheet" href="/css/style.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet"/>
 </head>
@@ -20,31 +20,51 @@
   <main class="dashboard-grid">
     <section class="glass-panel data-card">
       <h2>✦ Knowledge Core</h2>
-      <div id="stats-container">
-        <div class="stats-grid">
-          <div class="stat-item"><div class="stat-value" id="entity-count">Loading...</div><div class="stat-label">Entities</div></div>
-          <div class="stat-item"><div class="stat-value" id="relation-count">Loading...</div><div class="stat-label">Relations</div></div>
-          <div class="stat-item"><div class="stat-value" id="knowledge-count">Loading...</div><div class="stat-label">Knowledge</div></div>
-        </div>
+      <div class="stats-grid">
+        <div class="stat-item"><div class="stat-value" id="entity-count">Loading...</div><div class="stat-label">Entities</div></div>
+        <div class="stat-item"><div class="stat-value" id="relation-count">Loading...</div><div class="stat-label">Relations</div></div>
+        <div class="stat-item"><div class="stat-value" id="knowledge-count">Loading...</div><div class="stat-label">Knowledge</div></div>
       </div>
     </section>
 
     <section class="glass-panel chat-card">
       <h2>❖ Neural Interface</h2>
       <div class="chat-window" id="chat-window">
-        <div class="chat-message system">Welcome to CIWU OMNI v2.0. Your lineage is protected.</div>
+        <div class="chat-message system">⚡ Welcome. Your lineage is protected. What's urgent?</div>
       </div>
       <div class="input-area">
-        <input type="text" id="user-input" placeholder="Enter query..."/>
-        <button id="send-btn">TRANSMIT</button>
+        <input type="text" id="user-input" placeholder="Ex: Analyze mother's longevity..."/>
+        <button id="send-btn">TRANSMIT ⚡</button>
       </div>
+      <div class="quick-actions">
+        <button class="quick-btn" onclick="quickAsk('mother longevity supplement')">👤 Mother</button>
+        <button class="quick-btn" onclick="quickAsk('upload dna data')">🧬 DNA</button>
+        <button class="quick-btn" onclick="quickAsk('skin condition treatment')">🩺 Skin</button>
+        <button class="quick-btn" onclick="quickAsk('set up escrow')">💰 Escrow</button>
+      </div>
+    </section>
+
+    <section class="glass-panel upload-card">
+      <h2>📂 Medical Upload Portal</h2>
+      <div class="upload-zone" id="upload-zone">
+        <p>Drag medical records, DNA files, or photos here</p>
+        <button class="upload-btn">SELECT FILES</button>
+      </div>
+      <p class="upload-hint">Supported: PDF, TXT, JPG, PNG (Blood panels, 23andMe, Photos)</p>
     </section>
   </main>
 
   <footer class="glass-panel footer-card">
     <p>Protected by Zero-Access Encryption • European Jurisdiction • Open Source</p>
+    <p class="small">ZORTEX Matrix Elite • Neurotex Core • Vortex Engine • Active</p>
   </footer>
 
+  <script>
+    function quickAsk(text) {
+      document.getElementById('user-input').value = text;
+      document.getElementById('send-btn').click();
+    }
+  </script>
   <script src="/js/app.js"></script>
 </body>
 </html>
