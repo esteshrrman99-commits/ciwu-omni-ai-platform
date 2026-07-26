@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CIWU OMNI v2.0</title>
+  <!-- Your existing CSS and JS here -->
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/nodejs-mobile/0.4.1/nodejs-mobile.min.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h1>Loading CIWU OMNI v2.0...</h1>
+    <p>Initializing neural core...</p>
+  </div>
+  <script>
+    // Start Node.js mobile runtime
+    if (typeof nodejsMobile !== 'undefined') {
+      nodejsMobile.start({
+        script: 'assets/nodejs/server.js',
+        onComplete: function() {
+          document.getElementById('app').innerHTML = '<h1>CIWU OMNI v2.0 ACTIVE</h1><p>Server running on localhost:3000</p>';
+          // Now load your actual UI
+          window.location.href = '/index.html';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CIWU OMNI v2.0</title>
+  <link rel="stylesheet" href="/css/style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <div class="ambient-bg"></div>
+  <header class="hero-section">
+    <div class="glass-panel hero-card">
+      <h1 class="glow-text">CIWU OMNI v2.0</h1>
+      <p class="subtitle">Eternal Intelligence Engine</p>
+      <div class="status-indicator"><span class="pulse"></span> NEURAL CORE ONLINE</div>
+    </div>
+  </header>
+
+  <main class="dashboard-grid">
+    <section class="glass-panel data-card">
+      <h2>✦ Knowledge Core</h2>
+      <div id="stats-container">
+        <div class="stats-grid">
+          <div class="stat-item"><div class="stat-value" id="entity-count">Loading...</div><div class="stat-label">Entities</div></div>
+          <div class="stat-item"><div class="stat-value" id="relation-count">Loading...</div><div class="stat-label">Relations</div></div>
+          <div class="stat-item"><div class="stat-value" id="knowledge-count">Loading...</div><div class="stat-label">Knowledge</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="glass-panel chat-card">
+      <h2>❖ Neural Interface</h2>
+      <div class="chat-window" id="chat-window">
+        <div class="chat-message system">Welcome to CIWU OMNI v2.0. Your lineage is protected.</div>
+      </div>
+      <div class="input-area">
+        <input type="text" id="user-input" placeholder="Enter query..."/>
+        <button id="send-btn">TRANSMIT</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="glass-panel footer-card">
+    <p>Protected by Zero-Access Encryption • European Jurisdiction • Open Source</p>
+  </footer>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>

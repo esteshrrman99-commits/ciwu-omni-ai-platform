@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">CIWU OMNI v2.0</string>
+    <string name="title_activity_main">CIWU OMNI v2.0</string>
+    <string name="package_name">com.ciwu.omni</string>
+    <string name="custom_url_scheme">com.ciwu.omni</string>
+</resources>
