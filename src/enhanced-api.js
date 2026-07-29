@@ -70,16 +70,44 @@ const embeddedKnowledge = [
       const masterData = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
       
       if (masterData.data && masterData.data.entities) {
-        masterData.data.entities.forEach(([name, type, desc]) => {
-          dbEons.run(`INSERT INTO entities (name, type, description) VALUES (?, ?, ?)`, [name, type, desc]);
-        });
+        masterData.data.entities.forEach((item, idx) => {
+        try {
+          let name, type, desc;
+          if (Array.isArray(item) && item.length >= 3) {
+            [name, type, desc] = item;
+          } else if (typeof item === 'object' && item.name) {
+            name = item.name;
+            type = item.type || item.Type || 'unknown';
+            desc = item.description || item.desc || '';
+          } else {
+            return;
+          }
+          dbEons.run('INSERT INTO entities (name, type, description) VALUES (?, ?, ?)', [name, type, desc]);
+        } catch (err) {
+          if (idx < 3) console.error('Entity error', idx, err.message);
+        }
+      });
         entityCount = masterData.data.entities.length;
       }
       
       if (masterData.data && masterData.data.relations) {
-        masterData.data.relations.forEach(([source, rel, target]) => {
-          dbEons.run(`INSERT INTO relations (source, target, relation_type) VALUES (?, ?, ?)`, [source, target, rel]);
-        });
+        masterData.data.relations.forEach((item, idx) => {
+        try {
+          let source, rel, target;
+          if (Array.isArray(item) && item.length >= 3) {
+            [source, rel, target] = item;
+          } else if (typeof item === 'object' && item.source) {
+            source = item.source;
+            target = item.target;
+            rel = item.relation_type || item.relationType || item.type || 'related';
+          } else {
+            return;
+          }
+          dbEons.run('INSERT INTO relations (source, target, relation_type) VALUES (?, ?, ?)', [source, target, rel]);
+        } catch (err) {
+          if (idx < 3) console.error('Relation error', idx, err.message);
+        }
+      });
         relationCount = masterData.data.relations.length;
       }
       
