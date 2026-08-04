@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>CIWU OMNI v4.0 - Zortex Omega</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:linear-gradient(135deg,#0a0a0f 0%,#1a1a2e 100%);color:#fff;font-family:'Segoe UI',sans-serif;min-height:100vh;padding:20px}
+.container{max-width:1200px;margin:0 auto}
+.header{text-align:center;margin-bottom:30px}
+.header h1{font-size:2.5rem;background:linear-gradient(90deg,#00d2ff,#6d4aff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
+.header p{color:#4facfe;letter-spacing:2px;margin-bottom:12px}
+.status-badge{display:inline-flex;align-items:center;padding:8px 16px;border-radius:20px;background:rgba(0,255,136,0.15);color:#00ff88;font-size:0.9rem;border:1px solid rgba(0,255,136,0.3)}
+.dot{width:10px;height:10px;border-radius:50%;background:#00ff88;margin-right:8px;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:30px 0}
+.card{background:rgba(30,30,50,0.8);border:1px solid rgba(109,76,170,0.3);border-radius:12px;padding:20px;transition:all 0.3s;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#00d2ff,#6d4aff,#ff0080)}
+.card:hover{transform:translateY(-5px);box-shadow:0 10px 30px rgba(109,76,170,0.3);border-color:#6d4aff}
+.card h3{font-size:1.3rem;color:#00d2ff;margin-bottom:10px}
+.mod-status{display:inline-flex;align-items:center;padding:4px 10px;border-radius:15px;font-size:0.7rem;margin-bottom:12px;background:rgba(0,255,136,0.15);color:#00ff88;border:1px solid rgba(0,255,136,0.3)}
+.stat-row{display:flex;justify-content:space-around;margin-top:12px}
+.stat-val{font-size:1.5rem;font-weight:700;color:#6d4aff}
+.stat-lbl{font-size:0.65rem;color:#8b8b99;text-transform:uppercase;letter-spacing:1px}
+.features{margin-top:12px;padding-left:18px;font-size:0.8rem;color:#ccc;line-height:1.5}
+.features li{margin-bottom:4px}
+.chat-box{background:rgba(20,20,35,0.8);border-radius:12px;padding:25px;margin-top:30px;border:1px solid rgba(109,76,170,0.3)}
+.chat-box h3{color:#00d2ff;margin-bottom:12px}
+.upload-area{border:2px dashed rgba(109,76,170,0.5);border-radius:8px;padding:15px;text-align:center;margin:12px 0;cursor:pointer;color:#aaa;font-size:0.9rem}
+.upload-area:hover{border-color:#6d4aff;color:#fff}
+#fileInput{display:none}
+.chat-input-row{display:flex;gap:10px;margin-top:12px}
+.chat-input{flex:1;padding:14px;border:2px solid #6d4aff;border-radius:8px;background:rgba(10,10,15,0.8);color:#fff;font-size:1rem;outline:none}
+.chat-input:focus{border-color:#00d2ff;box-shadow:0 0 10px rgba(0,210,255,0.3)}
+.btn-send{padding:14px 20px;background:#6d4aff;color:#fff;border:none;border-radius:8px;font-size:1rem;cursor:pointer}
+.btn-send:hover{background:#5a3add}
+.btn-voice{padding:14px 18px;background:#00d2ff;color:#000;border:none;border-radius:8px;font-size:1rem;cursor:pointer}
+.btn-voice:hover{background:#00b8e0}
+.btn-voice.listening{background:#ff0080;color:#fff;animation:pulse 1s infinite}
+.chat-out{background:rgba(10,10,15,0.6);padding:18px;border-radius:8px;margin-top:16px;min-height:80px;white-space:pre-wrap;line-height:1.6;border-left:3px solid #6d4aff;max-height:500px;overflow-y:auto}
+.footer{text-align:center;margin-top:30px;padding:18px;color:#6b6b7b;font-size:0.8rem;border-top:1px solid rgba(109,76,170,0.2)}
+.file-preview{display:inline-block;background:rgba(109,76,170,0.2);padding:4px 10px;border-radius:4px;margin:4px;font-size:0.8rem}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>CIWU OMNI v4.0</h1>
+    <p>ZORTEX OMEGA - Autonomous Medical Intelligence</p>
+    <div class="status-badge"><span class="dot"></span>ALL SYSTEMS ONLINE</div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h3>ZORTEX MATRIX</h3>
+      <div class="mod-status"><span class="dot"></span>Gene Therapy Active</div>
+      <div class="stat-row"><div><div class="stat-val" id="zortex-c">0</div><div class="stat-lbl">Nodes</div></div></div>
+      <ul class="features"><li>CRISPR-Cas9 Delivery</li><li>Telomere Extension</li><li>Epigenetic Reprogramming</li></ul>
+    </div>
+    <div class="card">
+      <h3>CORTEX KNOWLEDGE</h3>
+      <div class="mod-status"><span class="dot"></span>Universal Engine</div>
+      <div class="stat-row"><div><div class="stat-val" id="cortex-c">0</div><div class="stat-lbl">Facts</div></div></div>
+      <ul class="features"><li>Medical Domain Expertise</li><li>Longevity Research DB</li><li>Family Protection</li></ul>
+    </div>
+    <div class="card">
+      <h3>VORTEX ENGINE</h3>
+      <div class="mod-status"><span class="dot"></span>Regeneration Active</div>
+      <div class="stat-row"><div><div class="stat-val" id="vortex-c">0</div><div class="stat-lbl">Units</div></div></div>
+      <ul class="features"><li>Stem Cell Therapy</li><li>Tissue Regeneration</li><li>Organ Repair</li></ul>
+    </div>
+    <div class="card">
+      <h3>EONS MATRIX</h3>
+      <div class="mod-status"><span class="dot"></span>Temporal Active</div>
+      <div class="stat-row"><div><div class="stat-val" id="eons-e">0</div><div class="stat-lbl">Entities</div></div><div><div class="stat-val" id="eons-r">0</div><div class="stat-lbl">Relations</div></div></div>
+      <ul class="features"><li>Cross-domain Linking</li><li>Predictive Analytics</li><li>Multi-scale Modeling</li></ul>
+    </div>
+    <div class="card">
+      <h3>NEUROTEX CORE</h3>
+      <div class="mod-status"><span class="dot"></span>Neural Active</div>
+      <div class="stat-row"><div><div class="stat-val" id="neuro-c">0</div><div class="stat-lbl">Nodes</div></div></div>
+      <ul class="features"><li>Brain-Computer Interface</li><li>Cognitive Enhancement</li><li>Memory Prosthesis</li></ul>
+    </div>
+  </div>
+
+  <div class="chat-box">
+    <h3>🧠 CIWU OMNI AUTONOMOUS MEDICAL AI</h3>
+    <p style="color:#aaa;font-size:0.9rem">Speak, type, or upload medical records. Ask about any disease, longevity, or DNA optimization.</p>
+
+    <div class="upload-area" id="uploadArea">
+      📎 Drop or tap to upload medical records, lab results, DNA data, or scan images
+      <div id="filePreview"></div>
+    </div>
+    <input type="file" id="fileInput" multiple accept="image/*,.pdf,.txt,.csv">
+
+    <div class="chat-input-row">
+      <button class="btn-voice" id="voiceBtn">🎤</button>
+      <input type="text" id="chatInput" class="chat-input" placeholder="Ask: 'How do I cure diabetes?' or 'Give me longevity protocol'">
+      <button class="btn-send" id="sendBtn">SEND</button>
+    </div>
+    <div class="chat-out" id="chatOut">🤖 <b>CIWU OMNI v4.0 READY</b><br>Neural cores synchronized. All modules online.<br>Awaiting your command...</div>
+  </div>
+
+  <div class="footer">Protected by Zero-Access Encryption • CIWU OMNI v4.0 Zortex Omega</div>
+</div>
+
+<script>
+var uploadedFiles=[];
+
+async function updateStats(){
+  try{
+    var r=await fetch('/api/stats');
+    var d=await r.json();
+    document.getElementById('eons-e').textContent=d.entities||0;
+    document.getElementById('eons-r').textContent=d.relations||0;
+    document.getElementById('cortex-c').textContent=d.knowledge||0;
+    document.getElementById('zortex-c').textContent=Math.round((d.entities||1)*0.3);
+    document.getElementById('vortex-c').textContent=Math.round((d.entities||1)*0.25);
+    document.getElementById('neuro-c').textContent=Math.round((d.entities||1)*0.2);
+  }catch(e){console.error(e)}
+}
+
+document.getElementById('uploadArea').addEventListener('click',function(){
+  document.getElementById('fileInput').click();
+});
+
+document.getElementById('fileInput').addEventListener('change',function(e){
+  var files=e.target.files;
+  var preview=document.getElementById('filePreview');
+  preview.innerHTML='';
+  uploadedFiles=[];
+  for(var i=0;i<files.length;i++){
+    uploadedFiles.push(files[i]);
+    var span=document.createElement('span');
+    span.className='file-preview';
+    span.textContent='📎 '+files[i].name;
+    preview.appendChild(span);
+  }
+});
+
+async function sendMessage(){
+  var input=document.getElementById('chatInput');
+  var msg=input.value.trim();
+  if(!msg)return;
+  var out=document.getElementById('chatOut');
+  out.innerHTML='🤖 <b>PROCESSING...</b><br>Activating reasoning chain...';
+
+  var formData=new FormData();
+  formData.append('message',msg);
+  for(var i=0;i<uploadedFiles.length;i++){
+    formData.append('images',uploadedFiles[i]);
+  }
+
+  try{
+    var r=await fetch('/api/chat',{method:'POST',body:formData});
+    var d=await r.json();
+    out.textContent='';
+    out.innerHTML='🤖 \n'+(d.response||d.error||'Error');
+    input.value='';
+    uploadedFiles=[];
+    document.getElementById('filePreview').innerHTML='';
+  }catch(err){
+    out.innerHTML='❌ Error: '+err.message;
+  }
+}
+
+document.getElementById('sendBtn').addEventListener('click',sendMessage);
+document.getElementById('chatInput').addEventListener('keypress',function(e){
+  if(e.key==='Enter')sendMessage();
+});
+
+// Voice recognition (Web Speech API)
+var recognition=null;
+if('webkitSpeechRecognition'in window||'SpeechRecognition'in window){
+  var SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  recognition=new SR();
+  recognition.continuous=false;
+  recognition.interimResults=false;
+  recognition.lang='en-US';
+
+  recognition.onresult=function(event){
+    var transcript=event.results[0][0].transcript;
+    document.getElementById('chatInput').value=transcript;
+    document.getElementById('voiceBtn').classList.remove('listening');
+    document.getElementById('voiceBtn').textContent='🎤';
+    sendMessage();
+  };
+
+  recognition.onerror=function(event){
+    document.getElementById('voiceBtn').classList.remove('listening');
+    document.getElementById('voiceBtn').textContent='🎤';
+  };
+
+  recognition.onend=function(){
+    document.getElementById('voiceBtn').classList.remove('listening');
+    document.getElementById('voiceBtn').textContent='🎤';
+  };
+}
+
+document.getElementById('voiceBtn').addEventListener('click',function(){
+  if(!recognition){
+    alert('Voice recognition not available in this browser. Try Chrome.');
+    return;
+  }
+  var btn=document.getElementById('voiceBtn');
+  if(btn.classList.contains('listening')){
+    recognition.stop();
+    btn.classList.remove('listening');
+    btn.textContent='🎤';
+  }else{
+    recognition.start();
+    btn.classList.add('listening');
+    btn.textContent='🔴 LISTENING';
+  }
+});
+
+updateStats();
+setInterval(updateStats,5000);
+</script>
+</body>
+</html>
