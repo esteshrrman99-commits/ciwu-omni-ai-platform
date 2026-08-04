@@ -5,12 +5,38 @@ const multer = require('multer');
 const MedicalAI = require('./advanced-chat');
 const AutoEvolution = require('./auto-evolution');
 const PatientNavigation = require('./patient-nav');
+const VideoDiagnostic = require('./video-diagnostic');
 
 const app = express();
 app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
-const upload = multer({ dest: '/tmp/uploads/' });
+// Configure multer for both images and videos
+const storage = multer.diskStorage({
+  destination: '/tmp/uploads/',
+  filename: function(req, file, cb){
+    cb(null, Date.now() + '-' + file.originalname);
+  }
+});
+const upload = multer({ 
+  dest: '/tmp/uploads/',
+  limits: { fileSize: 50 * 1024 * 1024 }, // 50MB max
+  fileFilter: function(req, file, cb){
+    const allowedImages = /jpeg|jpg|png|gif|pdf|txt|csv/;
+    const allowedVideos = /mp4|mov|avi|mkv|webm/;
+    const extname = allowedImages.test(file.originalname.toLowerCase()) || 
+                    allowedVideos.test(file.originalname.toLowerCase()) ||
+                    allowedImages.test(file.mimetype.toLowerCase()) ||
+                    allowedVideos.test(file.mimetype.toLowerCase());
+    
+    if(extname){
+      cb(null,true);
+    }else{
+      cb(new Error('Only images, videos, and documents are allowed'));
+    }
+  }
+});
 
 let dbEntities = 0;
 let dbRelations = 0;
@@ -36,6 +62,7 @@ const kb = loadData();
 const medicalAI = new MedicalAI(kb);
 const autoEvolution = new AutoEvolution();
 const patientNav = new PatientNavigation();
+const videoDiag = new VideoDiagnostic();
 
 // Auto-scan every 24 hours
 setInterval(async () => {
@@ -96,6 +123,19 @@ app.post('/api/chat', upload.array('images', 5), async (req, res) => {
   }
 });
 
+// VIDEO ANALYSIS ENDPOINT
+app.post('/api/analyze-video', upload.single('video'), async (req, res) => {
+  if (!req.file) return res.status(400).json({ error: 'Video file required' });
+  
+  try {
+    const result = await videoDiag.analyzeVideo(req.file);
+    res.json(result);
+  } catch(err) {
+    console.log('Video analysis error:', err.message);
+    res.status(500).json({ error: 'Video analysis failed: ' + err.message });
+  }
+});
+
 app.post('/api/generate-packet', (req, res) => {
   try {
     const { patientData, treatment } = req.body;
@@ -139,5 +179,6 @@ const PORT = process.env.PORT || 10000;
 app.listen(PORT, () => {
   console.log('CIWU OMNI v4.0 Server running on port ' + PORT);
   console.log('Patient Navigation System active');
+  console.log('Video Diagnostic AI active');
   console.log('Auto-Evolution Engine initialized');
 });
