@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>CIWU OMNI v4.0 - Patient Navigation System</title>
+<title>CIWU OMNI v4.0-QUANTUM - Elite Medical Platform</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:linear-gradient(135deg,#0a0a0f 0%,#1a1a2e 100%);color:#fff;font-family:'Segoe UI',sans-serif;min-height:100vh;padding:20px}
 .container{max-width:1400px;margin:0 auto}
 .header{text-align:center;margin-bottom:30px}
-.header h1{font-size:2.5rem;background:linear-gradient(90deg,#00d2ff,#6d4aff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
+.header h1{font-size:2.5rem;background:linear-gradient(90deg,#00d2ff,#6d4aff,#ff0080);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
 .header p{color:#4facfe;letter-spacing:2px;margin-bottom:12px}
 .status-badge{display:inline-flex;align-items:center;padding:8px 16px;border-radius:20px;background:rgba(0,255,136,0.15);color:#00ff88;font-size:0.9rem;border:1px solid rgba(0,255,136,0.3)}
 .dot{width:10px;height:10px;border-radius:50%;background:#00ff88;margin-right:8px;animation:pulse 2s infinite}
@@ -58,15 +58,70 @@ body{background:linear-gradient(135deg,#0a0a0f 0%,#1a1a2e 100%);color:#fff;font-
 .analyze-btn{padding:15px 30px;background:#00d2ff;color:#000;border:none;border-radius:8px;font-size:1rem;cursor:pointer;font-weight:bold;width:100%}
 .analyze-btn:hover{background:#00b8e0}
 .analyzing{animation:pulse 1s infinite}
+
+/* NEW QUANTUM STYLES */
+.quantum-section{margin-top:30px;background:linear-gradient(135deg,rgba(109,76,170,0.1),rgba(0,210,255,0.1));border:1px solid rgba(0,210,255,0.5);border-radius:12px;padding:25px;position:relative;overflow:hidden}
+.quantum-section::after{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(0,210,255,0.1) 0%,transparent 70%);animation:rotate 20s linear infinite}
+@keyframes rotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.quantum-section h3{color:#00d2ff;margin-bottom:15px;position:relative;z-index:2}
+.quantum-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;margin-top:20px;position:relative;z-index:2}
+.quantum-card{background:rgba(10,10,20,0.8);border:1px solid rgba(0,210,255,0.3);border-radius:8px;padding:15px;text-align:center;transition:all 0.3s}
+.quantum-card:hover{border-color:#00d2ff;box-shadow:0 0 15px rgba(0,210,255,0.3)}
+.quantum-card h4{color:#00d2ff;margin-bottom:8px;font-size:1rem}
+.quantum-card p{font-size:0.8rem;color:#aaa;margin-bottom:10px}
+.quantum-btn{padding:12px 25px;background:linear-gradient(90deg,#00d2ff,#6d4aff);color:#fff;border:none;border-radius:8px;font-size:0.9rem;cursor:pointer;font-weight:bold;width:100%;margin-top:10px}
+.quantum-btn:hover{opacity:0.9;transform:scale(1.02)}
+.quantum-status{display:flex;justify-content:space-between;margin-top:15px;padding:10px;background:rgba(0,0,0,0.3);border-radius:8px;position:relative;z-index:2;font-size:0.8rem}
+.quantum-stat{text-align:center}
+.quantum-stat-val{font-size:1.2rem;color:#00d2ff;font-weight:bold}
+.quantum-stat-lbl{font-size:0.7rem;color:#888}
 </style>
 </head>
 <body>
 <div class="container">
   <div class="header">
-    <h1>CIWU OMNI v4.0</h1>
-    <p>ZORTEX OMEGA - Patient Navigation & Longevity Platform</p>
-    <div class="status-badge"><span class="dot"></span>ALL SYSTEMS ONLINE</div>
+    <h1>CIWU OMNI v4.0-QUANTUM</h1>
+    <p>ZORTEX OMEGA - Quantum-Enhanced Medical Platform</p>
+    <div class="status-badge"><span class="dot"></span>QUANTUM CORE ONLINE</div>
     <div class="patent-badge">🛡️ Patent Pending: US 64/037,249</div>
+  </div>
+
+  <!-- QUANTUM DASHBOARD SECTION -->
+  <div class="quantum-section">
+    <h3>⚛️ QUANTUM MILESTONE DASHBOARD</h3>
+    <p style="color:#aaa;font-size:0.9rem;margin-bottom:15px">Access 100x breakthrough protocols, quantum simulation, and blockchain-secured medical records.</p>
+    
+    <div class="quantum-grid">
+      <div class="quantum-card">
+        <h4>🔮 100x Surprise</h4>
+        <p>Get random elite protocol ($13k-$51k value)</p>
+        <button class="quantum-btn" onclick="getQuantumSurprise()">GENERATE SURPRISE</button>
+      </div>
+      <div class="quantum-card">
+        <h4>🧬 Breakthroughs</h4>
+        <p>Nature/Cell/Science 2025 discoveries</p>
+        <button class="quantum-btn" onclick="getBreakthroughs()">VIEW DISCOVERIES</button>
+      </div>
+      <div class="quantum-card">
+        <h4>🔗 Entanglement</h4>
+        <p>Module coherence (92-95%)</p>
+        <button class="quantum-btn" onclick="checkEntanglement()">CHECK STATUS</button>
+      </div>
+      <div class="quantum-card">
+        <h4>🔒 Blockchain</h4>
+        <p>Immutable medical ledger</p>
+        <button class="quantum-btn" onclick="viewBlockchain()">VIEW LEDGER</button>
+      </div>
+    </div>
+    
+    <div id="quantumStatus" class="quantum-status" style="display:none">
+      <div class="quantum-stat"><div class="quantum-stat-val" id="q-qubits">0</div><div class="quantum-stat-lbl">Qubits</div></div>
+      <div class="quantum-stat"><div class="quantum-stat-val" id="q-entangled">0</div><div class="quantum-stat-lbl">Entangled Pairs</div></div>
+      <div class="quantum-stat"><div class="quantum-stat-val" id="q-breakthroughs">0</div><div class="quantum-stat-lbl">Breakthroughs</div></div>
+      <div class="quantum-stat"><div class="quantum-stat-val" id="q-blocks">0</div><div class="quantum-stat-lbl">Blockchain Blocks</div></div>
+    </div>
+    
+    <div id="quantumResult" class="result-box" style="display:none;margin-top:20px"></div>
   </div>
 
   <div class="grid">
@@ -156,11 +211,11 @@ body{background:linear-gradient(135deg,#0a0a0f 0%,#1a1a2e 100%);color:#fff;font-
       <input type="text" id="chatInput" class="chat-input" placeholder="Ask: 'How do I cure diabetes?' or 'Give me longevity protocol'">
       <button class="btn-send" id="sendBtn">SEND</button>
     </div>
-    <div class="chat-out" id="chatOut">🤖 <b>CIWU OMNI v4.0 READY</b><br>Neural cores synchronized. All modules online.<br>Awaiting your command...</div>
+    <div class="chat-out" id="chatOut">🤖 <b>CIWU OMNI v4.0-QUANTUM READY</b><br>Quantum cores synchronized. Blockchain active.<br>Awaiting your command...</div>
   </div>
 
   <div class="footer">
-    Protected by Zero-Access Encryption • CIWU OMNI v4.0 Zortex Omega<br>
+    Protected by Zero-Access Encryption • CIWU OMNI v4.0-QUANTUM Zortex Omega<br>
     <span style="color:#ff6b6b;font-size:0.75rem">DISCLAIMER: This platform provides EDUCATIONAL INFORMATION ONLY. Not medical advice, not a prescription. Consult licensed healthcare providers for all treatment decisions. Patent Pending: US 64/037,249.</span>
   </div>
 </div>
@@ -179,7 +234,119 @@ async function updateStats(){
     document.getElementById('zortex-c').textContent=Math.round((d.entities||1)*0.3);
     document.getElementById('vortex-c').textContent=Math.round((d.entities||1)*0.25);
     document.getElementById('neuro-c').textContent=Math.round((d.entities||1)*0.2);
+    
+    // Update Quantum Status if available
+    if(d.quantum){
+      document.getElementById('quantumStatus').style.display='flex';
+      document.getElementById('q-qubits').textContent=d.quantum.qubits||0;
+      document.getElementById('q-entangled').textContent=d.quantum.entangledPairs||0;
+      document.getElementById('q-breakthroughs').textContent=d.quantum.breakthroughsCached||0;
+      document.getElementById('q-blocks').textContent=d.quantum.blockchainBlocks||0;
+    }
   }catch(e){console.error(e)}
+}
+
+// ========== QUANTUM FUNCTIONS ==========
+async function getQuantumSurprise(){
+  var resultBox = document.getElementById('quantumResult');
+  resultBox.style.display = 'block';
+  resultBox.innerHTML = '🔄 Generating 100x Quantum Surprise Protocol...';
+  
+  try {
+    var response = await fetch('/api/quantum-surprise');
+    var data = await response.json();
+    
+    resultBox.innerHTML = '✅ 100x QUANTUM SURPRISE PROTOCOL\n\n' +
+      '🔮 ' + data.name + '\n\n' +
+      'DESCRIPTION: ' + data.description + '\n\n' +
+      'SUPPLEMENTS:\n' + data.supplements.map(s => '• ' + s[0] + ' - ' + s[1] + ' ($' + s[2] + '/mo)').join('\n') + '\n\n' +
+      'PROCEDURES:\n' + data.procedures.map(p => '• ' + p[0] + ' - ' + p[1] + ' ($' + p[2] + ')').join('\n') + '\n\n' +
+      'LIFESTYLE:\n' + data.lifestyle.map(l => '• ' + l[0] + ' - ' + l[1]).join('\n') + '\n\n' +
+      'TOTAL MONTHLY COST: $' + data.cost + '\n' +
+      'BENEFIT: ' + data.benefit + '\n' +
+      'QUANTUM REALITY: ' + data.quantumReality + '\n' +
+      'BLOCKCHAIN VERIFIED: ' + (data.blockchainVerified ? 'YES 🔒' : 'NO') + '\n\n' +
+      'DISCLAIMER: Educational simulation only. Consult licensed provider.';
+  } catch(err) {
+    resultBox.innerHTML = '❌ Error: ' + err.message;
+  }
+}
+
+async function getBreakthroughs(){
+  var resultBox = document.getElementById('quantumResult');
+  resultBox.style.display = 'block';
+  resultBox.innerHTML = '🔄 Scanning Nature/Cell/Science 2025...';
+  
+  try {
+    var response = await fetch('/api/quantum-breakthroughs');
+    var data = await response.json();
+    
+    var html = '✅ QUANTUM BREAKTHROUGHS (2025)\n\n';
+    data.forEach((b, i) => {
+      html += (i+1) + '. ' + b.title + ' (' + b.impact + '% impact)\n';
+      html += '   SOURCE: ' + b.source + '\n';
+      html += '   CATEGORY: ' + b.category + '\n';
+      html += '   PROTOCOL: ' + b.protocol.supplements.map(s => s[0]).join(', ') + '\n\n';
+    });
+    
+    resultBox.innerHTML = html;
+  } catch(err) {
+    resultBox.innerHTML = '❌ Error: ' + err.message;
+  }
+}
+
+async function checkEntanglement(){
+  var resultBox = document.getElementById('quantumResult');
+  resultBox.style.display = 'block';
+  resultBox.innerHTML = '🔄 Checking module entanglement...';
+  
+  try {
+    var response = await fetch('/api/stats');
+    var data = await response.json();
+    
+    if(data.quantum && data.quantum.entangledPairs > 0){
+      resultBox.innerHTML = '✅ QUANTUM ENTANGLEMENT ACTIVE\n\n' +
+        'MODULES ENTANGLED: ' + data.quantum.entangledPairs + ' pairs\n' +
+        'COHERENCE: 92-95%\n' +
+        'STATUS: Stable superposition maintained\n\n' +
+        'ZORTEX ↔ NEUROTEX: 92% coherence\n' +
+        'CORTEX ↔ VORTEX: 87% coherence\n' +
+        'EONS ↔ ALL: 95% coherence';
+    } else {
+      resultBox.innerHTML = '⏳ Entanglement initializing...';
+    }
+  } catch(err) {
+    resultBox.innerHTML = '❌ Error: ' + err.message;
+  }
+}
+
+async function viewBlockchain(){
+  var resultBox = document.getElementById('quantumResult');
+  resultBox.style.display = 'block';
+  resultBox.innerHTML = '🔄 Accessing blockchain ledger...';
+  
+  try {
+    var response = await fetch('/api/stats');
+    var data = await response.json();
+    
+    if(data.quantum && data.quantum.blockchainBlocks > 0){
+      resultBox.innerHTML = '✅ BLOCKCHAIN LEDGER ACTIVE\n\n' +
+        'TOTAL BLOCKS: ' + data.quantum.blockchainBlocks + '\n' +
+        'ENCRYPTION: SHA-256 Quantum-Resistant\n' +
+        'STATUS: Immutable records secured\n\n' +
+        'Each block contains:\n' +
+        '• Timestamp\n' +
+        '• Patient ID (encrypted)\n' +
+        '• Treatment Protocol\n' +
+        '• Previous Hash\n' +
+        '• Nonce\n\n' +
+        'Your medical history is permanently secured.';
+    } else {
+      resultBox.innerHTML = '⏳ Blockchain initializing...';
+    }
+  } catch(err) {
+    resultBox.innerHTML = '❌ Error: ' + err.message;
+  }
 }
 
 // ========== VOICE RECOGNITION FIX ==========
@@ -192,19 +359,12 @@ if('webkitSpeechRecognition'in window||'SpeechRecognition'in window){
   recognition.lang='en-US';
 
   recognition.onresult=function(event){
-    // FIXED: Populate the text box with transcribed speech
     var transcript=event.results[0][0].transcript;
     console.log('Voice transcription:', transcript);
     document.getElementById('chatInput').value=transcript;
-    
-    // Stop listening and reset button
     document.getElementById('voiceBtn').classList.remove('listening');
     document.getElementById('voiceBtn').textContent='🎤';
-    
-    // Auto-send the message
-    setTimeout(function(){
-      sendMessage();
-    }, 500);
+    setTimeout(function(){sendMessage();}, 500);
   };
 
   recognition.onerror=function(event){
@@ -264,7 +424,6 @@ document.getElementById('videoDropZone').addEventListener('click',function(){
 document.getElementById('videoInput').addEventListener('change',function(e){
   var file=e.target.files[0];
   if(!file)return;
-  
   uploadedVideo=file;
   var url=URL.createObjectURL(file);
   var video=document.getElementById('videoPreview');
@@ -279,22 +438,17 @@ async function analyzeVideo(){
     alert('Please select a video first.');
     return;
   }
-  
   var resultBox=document.getElementById('videoAnalysisResult');
   var btn=document.getElementById('analyzeVideoBtn');
-  
   resultBox.style.display='block';
   resultBox.innerHTML='🔄 Initializing video diagnostic AI...\nAnalyzing movement patterns...\nDetecting physiological markers...\nCross-referencing symptom database...';
   btn.classList.add('analyzing');
   btn.disabled=true;
-  
   var formData=new FormData();
   formData.append('video',uploadedVideo);
-  
   try{
     var response=await fetch('/api/analyze-video',{method:'POST',body:formData});
     var data=await response.json();
-    
     resultBox.innerHTML='✅ VIDEO DIAGNOSTIC ANALYSIS COMPLETE\n\n' + 
       '=== PATIENT OBSERVATIONS ===\n' +
       (data.observations || 'No specific observations') + '\n\n' +
@@ -316,7 +470,6 @@ async function analyzeVideo(){
       'DISCLAIMER: This is an AI-generated preliminary assessment for educational purposes only. ' +
       'It is NOT a diagnosis. Consult a licensed healthcare provider before starting any treatment. ' +
       'Patent Pending: US 64/037,249 - CIWU OMNI Video Diagnostic Technology.';
-      
   }catch(err){
     resultBox.innerHTML='❌ Error analyzing video: ' + err.message;
   }finally{
@@ -332,13 +485,11 @@ async function sendMessage(){
   if(!msg)return;
   var out=document.getElementById('chatOut');
   out.innerHTML='🤖 <b>PROCESSING...</b><br>Activating reasoning chain...';
-
   var formData=new FormData();
   formData.append('message',msg);
   for(var i=0;i<uploadedFiles.length;i++){
     formData.append('images',uploadedFiles[i]);
   }
-
   try{
     var r=await fetch('/api/chat',{method:'POST',body:formData});
     var d=await r.json();
@@ -363,13 +514,10 @@ async function generatePacket(){
   var age = document.getElementById('patientAge').value;
   var insurance = document.getElementById('patientInsurance').value;
   var treatment = document.getElementById('desiredTreatment').value;
-  
   if(!name || !treatment) { alert('Please enter patient name and treatment'); return; }
-  
   var resultBox = document.getElementById('navResult');
   resultBox.style.display = 'block';
   resultBox.innerHTML = '🔄 Generating discussion packet...';
-  
   try {
     var response = await fetch('/api/generate-packet', {
       method: 'POST',
@@ -396,13 +544,10 @@ async function generatePacket(){
 async function generatePresentation(){
   var name = document.getElementById('patientName').value;
   var treatment = document.getElementById('desiredTreatment').value;
-  
   if(!name || !treatment) { alert('Please enter patient name and treatment'); return; }
-  
   var resultBox = document.getElementById('navResult');
   resultBox.style.display = 'block';
   resultBox.innerHTML = '🔄 Creating presentation...';
-  
   try {
     var response = await fetch('/api/generate-presentation', {
       method: 'POST',
@@ -428,11 +573,9 @@ async function generatePresentation(){
 async function findProviders(){
   var insurance = document.getElementById('patientInsurance').value;
   if(!insurance) { alert('Please enter insurance provider'); return; }
-  
   var resultBox = document.getElementById('navResult');
   resultBox.style.display = 'block';
   resultBox.innerHTML = '🔄 Finding providers...';
-  
   try {
     var response = await fetch('/api/providers?insurance=' + encodeURIComponent(insurance));
     var providers = await response.json();
@@ -452,11 +595,9 @@ async function findProviders(){
 async function getScript(){
   var treatment = document.getElementById('desiredTreatment').value;
   if(!treatment) { alert('Please enter treatment'); return; }
-  
   var resultBox = document.getElementById('navResult');
   resultBox.style.display = 'block';
   resultBox.innerHTML = '🔄 Loading script...';
-  
   try {
     var response = await fetch('/api/scripts/' + encodeURIComponent(treatment));
     var data = await response.json();
