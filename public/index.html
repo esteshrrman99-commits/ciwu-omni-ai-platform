@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>CIWU OMNI v4.0 - Zortex Omega</title>
+<title>CIWU OMNI v4.0 - Patient Navigation System</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:linear-gradient(135deg,#0a0a0f 0%,#1a1a2e 100%);color:#fff;font-family:'Segoe UI',sans-serif;min-height:100vh;padding:20px}
-.container{max-width:1200px;margin:0 auto}
+.container{max-width:1400px;margin:0 auto}
 .header{text-align:center;margin-bottom:30px}
 .header h1{font-size:2.5rem;background:linear-gradient(90deg,#00d2ff,#6d4aff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
 .header p{color:#4facfe;letter-spacing:2px;margin-bottom:12px}
@@ -41,14 +41,23 @@ body{background:linear-gradient(135deg,#0a0a0f 0%,#1a1a2e 100%);color:#fff;font-
 .chat-out{background:rgba(10,10,15,0.6);padding:18px;border-radius:8px;margin-top:16px;min-height:80px;white-space:pre-wrap;line-height:1.6;border-left:3px solid #6d4aff;max-height:500px;overflow-y:auto}
 .footer{text-align:center;margin-top:30px;padding:18px;color:#6b6b7b;font-size:0.8rem;border-top:1px solid rgba(109,76,170,0.2)}
 .file-preview{display:inline-block;background:rgba(109,76,170,0.2);padding:4px 10px;border-radius:4px;margin:4px;font-size:0.8rem}
+.nav-section{margin-top:30px;background:rgba(20,20,35,0.8);border:1px solid rgba(109,76,170,0.3);border-radius:12px;padding:25px}
+.nav-section h3{color:#00d2ff;margin-bottom:15px}
+.nav-form{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;margin-bottom:20px}
+.nav-input{padding:12px;border:2px solid #6d4aff;border-radius:8px;background:rgba(10,10,15,0.8);color:#fff;font-size:0.9rem;width:100%}
+.nav-btn{padding:12px 20px;background:#00d2ff;color:#000;border:none;border-radius:8px;font-size:0.9rem;cursor:pointer;font-weight:bold}
+.nav-btn:hover{background:#00b8e0}
+.result-box{background:rgba(10,10,15,0.6);padding:18px;border-radius:8px;margin-top:15px;white-space:pre-wrap;line-height:1.6;border-left:3px solid #00d2ff;max-height:400px;overflow-y:auto;font-size:0.9rem}
+.patent-badge{background:linear-gradient(90deg,#6d4aff,#00d2ff);color:#fff;padding:4px 12px;border-radius:15px;font-size:0.75rem;display:inline-block;margin-top:10px}
 </style>
 </head>
 <body>
 <div class="container">
   <div class="header">
     <h1>CIWU OMNI v4.0</h1>
-    <p>ZORTEX OMEGA - Autonomous Medical Intelligence</p>
+    <p>ZORTEX OMEGA - Patient Navigation & Longevity Platform</p>
     <div class="status-badge"><span class="dot"></span>ALL SYSTEMS ONLINE</div>
+    <div class="patent-badge">🛡️ Patent Pending: US 64/037,249</div>
   </div>
 
   <div class="grid">
@@ -84,6 +93,24 @@ body{background:linear-gradient(135deg,#0a0a0f 0%,#1a1a2e 100%);color:#fff;font-
     </div>
   </div>
 
+  <div class="nav-section">
+    <h3>📋 PATIENT NAVIGATION SYSTEM</h3>
+    <p style="color:#aaa;font-size:0.9rem;margin-bottom:15px">Generate doctor-ready discussion packets, find providers, and get insurance coverage info.</p>
+    
+    <div class="nav-form">
+      <input type="text" id="patientName" class="nav-input" placeholder="Patient Name">
+      <input type="number" id="patientAge" class="nav-input" placeholder="Age">
+      <input type="text" id="patientInsurance" class="nav-input" placeholder="Insurance Provider (e.g., BlueCross)">
+      <input type="text" id="desiredTreatment" class="nav-input" placeholder="Treatment (e.g., Metformin, HBOT)">
+      <button class="nav-btn" onclick="generatePacket()">Generate Discussion Packet</button>
+      <button class="nav-btn" onclick="generatePresentation()">Create Presentation</button>
+      <button class="nav-btn" onclick="findProviders()">Find Providers</button>
+      <button class="nav-btn" onclick="getScript()">Get Calling Script</button>
+    </div>
+    
+    <div id="navResult" class="result-box" style="display:none;"></div>
+  </div>
+
   <div class="chat-box">
     <h3>🧠 CIWU OMNI AUTONOMOUS MEDICAL AI</h3>
     <p style="color:#aaa;font-size:0.9rem">Speak, type, or upload medical records. Ask about any disease, longevity, or DNA optimization.</p>
@@ -102,7 +129,10 @@ body{background:linear-gradient(135deg,#0a0a0f 0%,#1a1a2e 100%);color:#fff;font-
     <div class="chat-out" id="chatOut">🤖 <b>CIWU OMNI v4.0 READY</b><br>Neural cores synchronized. All modules online.<br>Awaiting your command...</div>
   </div>
 
-  <div class="footer">Protected by Zero-Access Encryption • CIWU OMNI v4.0 Zortex Omega</div>
+  <div class="footer">
+    Protected by Zero-Access Encryption • CIWU OMNI v4.0 Zortex Omega<br>
+    <span style="color:#ff6b6b;font-size:0.75rem">DISCLAIMER: This platform provides EDUCATIONAL INFORMATION ONLY. Not medical advice, not a prescription. Consult licensed healthcare providers for all treatment decisions. Patent Pending: US 64/037,249.</span>
+  </div>
 </div>
 
 <script>
@@ -170,7 +200,116 @@ document.getElementById('chatInput').addEventListener('keypress',function(e){
   if(e.key==='Enter')sendMessage();
 });
 
-// Voice recognition (Web Speech API)
+// Navigation functions
+async function generatePacket(){
+  var name = document.getElementById('patientName').value;
+  var age = document.getElementById('patientAge').value;
+  var insurance = document.getElementById('patientInsurance').value;
+  var treatment = document.getElementById('desiredTreatment').value;
+  
+  if(!name || !treatment) { alert('Please enter patient name and treatment'); return; }
+  
+  var resultBox = document.getElementById('navResult');
+  resultBox.style.display = 'block';
+  resultBox.innerHTML = '🔄 Generating discussion packet...';
+  
+  try {
+    var response = await fetch('/api/generate-packet', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        patientData: { name: name, age: age, insurance: insurance, biomarkers: ['Pending labs'] },
+        treatment: treatment
+      })
+    });
+    var data = await response.json();
+    resultBox.innerHTML = '✅ DISCUSSION PACKET GENERATED\n\n' + 
+      'PATIENT: ' + data.patientInfo.name + ' (Age: ' + data.patientInfo.age + ')\n' +
+      'TREATMENT: ' + treatment + '\n\n' +
+      'RATIONALE:\n' + data.treatmentRationale + '\n\n' +
+      'RESEARCH SUPPORT:\n' + data.researchSupport.join('\n') + '\n\n' +
+      'INSURANCE COVERAGE:\n' + data.insuranceCoverage.join('\n') + '\n\n' +
+      'RECOMMENDED PROVIDERS:\n' + data.providerRecommendations.map(p => '- ' + p.name + ' (' + p.phone + ')').join('\n') + '\n\n' +
+      'DISCLAIMER: ' + data.disclaimer;
+  } catch(err) {
+    resultBox.innerHTML = '❌ Error: ' + err.message;
+  }
+}
+
+async function generatePresentation(){
+  var name = document.getElementById('patientName').value;
+  var treatment = document.getElementById('desiredTreatment').value;
+  
+  if(!name || !treatment) { alert('Please enter patient name and treatment'); return; }
+  
+  var resultBox = document.getElementById('navResult');
+  resultBox.style.display = 'block';
+  resultBox.innerHTML = '🔄 Creating presentation...';
+  
+  try {
+    var response = await fetch('/api/generate-presentation', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        patientData: { name: name, age: document.getElementById('patientAge').value, biomarkers: ['Pending'] },
+        treatment: treatment
+      })
+    });
+    var data = await response.json();
+    resultBox.innerHTML = '✅ PRESENTATION GENERATED\n\n' +
+      'SLIDE 1: ' + data.slides[0].title + '\n' + data.slides[0].content + '\n\n' +
+      'SLIDE 2: ' + data.slides[1].title + '\n' + data.slides[1].content + '\n\n' +
+      'SLIDE 3: ' + data.slides[2].title + '\n' + data.slides[2].content + '\n\n' +
+      'SLIDE 4: ' + data.slides[3].title + '\n' + data.slides[3].content + '\n\n' +
+      'PATENT REFERENCE: ' + data.patentReference + '\n\n' +
+      'DISCLAIMER: ' + data.disclaimer;
+  } catch(err) {
+    resultBox.innerHTML = '❌ Error: ' + err.message;
+  }
+}
+
+async function findProviders(){
+  var insurance = document.getElementById('patientInsurance').value;
+  if(!insurance) { alert('Please enter insurance provider'); return; }
+  
+  var resultBox = document.getElementById('navResult');
+  resultBox.style.display = 'block';
+  resultBox.innerHTML = '🔄 Finding providers...';
+  
+  try {
+    var response = await fetch('/api/providers?insurance=' + encodeURIComponent(insurance));
+    var providers = await response.json();
+    resultBox.innerHTML = '✅ MATCHING PROVIDERS FOUND\n\n' +
+      providers.map(p => 
+        '👨‍⚕️ ' + p.name + ' (' + p.specialty + ')\n' +
+        '📞 ' + p.phone + ' | 📧 ' + p.email + '\n' +
+        '🏥 Accepts: ' + p.acceptsInsurance.join(', ') + '\n' +
+        '💻 Telehealth: ' + (p.telehealth ? 'Yes' : 'No') + '\n' +
+        '⭐ Specialties: ' + p.specialties.join(', ') + '\n\n'
+      ).join('');
+  } catch(err) {
+    resultBox.innerHTML = '❌ Error: ' + err.message;
+  }
+}
+
+async function getScript(){
+  var treatment = document.getElementById('desiredTreatment').value;
+  if(!treatment) { alert('Please enter treatment'); return; }
+  
+  var resultBox = document.getElementById('navResult');
+  resultBox.style.display = 'block';
+  resultBox.innerHTML = '🔄 Loading script...';
+  
+  try {
+    var response = await fetch('/api/scripts/' + encodeURIComponent(treatment));
+    var data = await response.json();
+    resultBox.innerHTML = '✅ CALLING SCRIPT\n\n' + data.script;
+  } catch(err) {
+    resultBox.innerHTML = '❌ Error: ' + err.message;
+  }
+}
+
+// Voice recognition
 var recognition=null;
 if('webkitSpeechRecognition'in window||'SpeechRecognition'in window){
   var SR=window.SpeechRecognition||window.webkitSpeechRecognition;
