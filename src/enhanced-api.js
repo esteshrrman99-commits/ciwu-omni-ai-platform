@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const multer = require('multer');
 const MedicalAI = require('./advanced-chat');
+const AutoEvolution = require('./auto-evolution');
 
 const app = express();
 app.use(express.json({ limit: '50mb' }));
@@ -40,6 +41,17 @@ function loadData() {
 
 var kb = loadData();
 var medicalAI = new MedicalAI(kb);
+var autoEvolution = new AutoEvolution();
+
+// Auto-scan every 24 hours
+setInterval(async () => {
+  await autoEvolution.applyAutoUpgrade();
+}, 86400000);
+
+// Initial scan on startup
+setTimeout(async () => {
+  await autoEvolution.applyAutoUpgrade();
+}, 5000);
 
 app.get('/api/stats', function(req, res) {
   res.json({
@@ -48,8 +60,18 @@ app.get('/api/stats', function(req, res) {
     knowledge: dbKnowledge,
     version: '4.0',
     modules: { zortex: 'online', cortex: 'online', vortex: 'online', eons: 'online', neurotex: 'online' },
+    autoEvolution: {
+      lastScan: autoEvolution.lastScan,
+      upgradesApplied: autoEvolution.upgradesApplied,
+      breakthroughs: autoEvolution.breakthroughs.length
+    },
     timestamp: new Date().toISOString()
   });
+});
+
+app.get('/api/surprise', function(req, res) {
+  const surprise = autoEvolution.generateSurpriseProtocol();
+  res.json(surprise);
 });
 
 app.post('/api/chat', upload.array('images', 5), async function(req, res) {
@@ -105,4 +127,5 @@ app.get('/', function(req, res) {
 var PORT = process.env.PORT || 10000;
 app.listen(PORT, function() {
   console.log('🌐 CIWU OMNI v4.0 Server running on port ' + PORT);
+  console.log('🤖 Auto-Evolution Engine: Scanning for breakthroughs...');
 });
