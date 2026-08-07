@@ -955,3 +955,128 @@ setInterval(updateStats,5000);
     }
   </script>
   <!-- END ABIJAH FRONTEND INTEGRATION -->
+
+<script>
+// Video Upload with Abijah - FIXED VERSION
+async function uploadWithAbijah() {
+  const fileInput = document.querySelector('input[type="file"][accept*="video"]'); // More specific selector
+  const file = fileInput ? fileInput.files[0] : null;
+  
+  if (!file) {
+    alert("Please select a video first, darling!");
+    return;
+  }
+
+  const formData = new FormData();
+  formData.append('video', file);
+
+  const statusDiv = document.getElementById('abijah-video-status');
+  if (statusDiv) {
+    statusDiv.style.display = 'block';
+    statusDiv.innerHTML = "🎥 <strong>Abijah is watching your video, sweetheart...</strong><br>Please wait while I analyze this for you.";
+  }
+
+  try {
+    const res = await fetch('https://ciwu-omni-ai-platform.onrender.com/api/analyze-video', {
+      method: 'POST',
+      body: formData
+    });
+
+    if (!res.ok) {
+      throw new Error('Upload failed');
+    }
+
+    const data = await res.json();
+    
+    if (statusDiv) {
+      statusDiv.innerHTML = `
+        <strong>💜 Abijah's Analysis:</strong><br><br>
+        ${data.analysis}<br><br>
+        <button onclick="speak('${data.analysis.replace(/'/g, "\\'").replace(/\n/g, '\\n')}')" style="background:#9b7cf5;color:white;border:none;padding:8px 15px;border-radius:20px;cursor:pointer;margin-top:10px;">🔊 Read Aloud</button>
+      `;
+    }
+
+    if (data.readAloud) {
+      speak(data.analysis);
+    }
+
+  } catch (e) {
+    console.error("Upload error:", e);
+    if (statusDiv) {
+      statusDiv.innerHTML = "Oh dear, I had trouble analyzing the video, darling. Let's try again in a moment.";
+    }
+  }
+}
+
+// Improved speak function
+function speak(text) {
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.pitch = 1.15;
+    u.rate = 0.9;
+    u.volume = 0.9;
+    
+    const voices = window.speechSynthesis.getVoices();
+    const v = voices.find(x => 
+      x.name.includes('Female') || 
+      x.name.includes('Zira') || 
+      x.name.includes('Google US English Female') ||
+      x.name.includes('Samantha')
+    );
+    if (v) u.voice = v;
+    
+    window.speechSynthesis.speak(u);
+  } else {
+    alert("Sorry, sweetheart, your browser doesn't support voice. Try Chrome or Safari!");
+  }
+}
+
+// Voice command listener
+if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  const recognition = new SpeechRecognition();
+  recognition.continuous = false;
+  recognition.interimResults = false;
+  recognition.lang = 'en-US';
+
+  document.addEventListener('keydown', (e) => {
+    if (e.altKey && e.shiftKey && e.key === 'Alt') { // Alt+Shift
+      e.preventDefault();
+      recognition.start();
+      if (typeof alert === 'function') {
+        alert("Listening, darling! What can I help you with?");
+      }
+    }
+  });
+
+  recognition.onresult = (event) => {
+    const transcript = event.results[0][0].transcript;
+    console.log("Voice input:", transcript);
+    
+    // Send to Abijah chat if the chat is open
+    const chatWindow = document.getElementById('abijah-chat');
+    if (chatWindow && chatWindow.classList.contains('open')) {
+      const inputField = document.getElementById('abijah-input');
+      if (inputField) {
+        inputField.value = transcript;
+        sendAbijah();
+      }
+    } else {
+      // Just show the transcript
+      alert("You said: " + transcript);
+    }
+  };
+
+  recognition.onerror = (event) => {
+    console.error("Voice recognition error:", event.error);
+    alert("Oh dear, I had trouble hearing you, darling. Try again!");
+  };
+
+  recognition.onend = () => {
+    console.log("Voice recognition ended");
+  };
+} else {
+  console.log("Speech recognition not supported in this browser");
+}
+</script>
