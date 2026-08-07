@@ -209,7 +209,8 @@ body{background:linear-gradient(135deg,#0a0a0f 0%,#1a1a2e 100%);color:#fff;font-
     <div class="chat-input-row">
       <button class="btn-voice" id="voiceBtn">🎤</button>
       <input type="text" id="chatInput" class="chat-input" placeholder="Ask: 'How do I cure diabetes?' or 'Give me longevity protocol'">
-      <button class="btn-send" id="sendBtn">SEND</button>
+      <button onclick="uploadWithAbijah()">SEND with Abijah</button>
+<div id="abijah-video-status" style="margin-top:10px;color:#6d4aff;"></div>
     </div>
     <div class="chat-out" id="chatOut">🤖 <b>CIWU OMNI v4.0-QUANTUM READY</b><br>Quantum cores synchronized. Blockchain active.<br>Awaiting your command...</div>
   </div>
@@ -881,3 +882,76 @@ setInterval(updateStats,5000);
     }, 2000);
   </script>
   <!-- ABIJAH INTEGRATION END -->
+
+  <!-- ABIJAH FRONTEND INTEGRATION -->
+  <script>
+    // Video Upload with Abijah
+    async function uploadWithAbijah() {
+      const fileInput = document.querySelector('input[type="file"]'); // Adjust selector based on your HTML
+      const file = fileInput.files[0];
+      if (!file) {
+        alert("Please select a video first, darling!");
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append('video', file);
+
+      const statusDiv = document.getElementById('abijah-video-status');
+      statusDiv.innerHTML = "🎥 Abijah is watching your video, sweetheart...";
+
+      try {
+        const res = await fetch('https://ciwu-omni-ai-platform.onrender.com/api/analyze-video', {
+          method: 'POST',
+          body: formData
+        });
+
+        const data = await res.json();
+        statusDiv.innerHTML = `<strong>Abijah's Analysis:</strong><br>${data.analysis}<br><br><button onclick="speak('${data.analysis.replace(/'/g, "\\'")}')">🔊 Read Aloud</button>`;
+
+        if (data.readAloud) {
+          speak(data.analysis);
+        }
+      } catch (e) {
+        statusDiv.innerHTML = "Oh dear, I had trouble analyzing, darling. Try again soon.";
+      }
+    }
+
+    // Voice Command Listener (optional)
+    if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      const recognition = new SpeechRecognition();
+      recognition.continuous = false;
+      recognition.interimResults = false;
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Alt' && e.shiftKey) { // Press Alt+Shift to start listening
+          recognition.start();
+          alert("Listening, darling! What can I help you with?");
+        }
+      });
+
+      recognition.onresult = (event) => {
+        const transcript = event.results[0][0].transcript;
+        sendAbijah(transcript); // Send to Abijah chat
+      };
+
+      recognition.onerror = (event) => {
+        console.error("Voice recognition error:", event.error);
+      };
+    }
+
+    function speak(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.pitch = 1.15;
+        u.rate = 0.9;
+        const voices = window.speechSynthesis.getVoices();
+        const v = voices.find(x => x.name.includes('Female') || x.name.includes('Zira'));
+        if (v) u.voice = v;
+        window.speechSynthesis.speak(u);
+      }
+    }
+  </script>
+  <!-- END ABIJAH FRONTEND INTEGRATION -->
