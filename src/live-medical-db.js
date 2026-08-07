@@ -1,60 +1,77 @@
 const axios = require('axios');
-const xml2js = require('xml2js');
+const { parseStringPromise } = require('xml2js');
 
 class LiveMedicalDB {
   constructor() {
-    this.ncbiBaseUrl = 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils';
+    this.ncbiApiKey = process.env.NCBI_API_KEY || '';
+    this.apiUrl = 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils';
   }
 
-  // Search PubMed for latest research on a condition
-  async searchPubMed(query, maxResults = 5) {
-    console.log(`🔍 Searching PubMed for: "${query}"...`);
-    
+  async searchPubMed(query) {
     try {
-      // Step 1: Get IDs
-      const esearchUrl = `${this.ncbiBaseUrl}/esearch.fcgi?db=pubmed&term=${encodeURIComponent(query)}&retmode=json&retmax=${maxResults}`;
-      const searchRes = await axios.get(esearchUrl);
-      const ids = searchRes.data.esearchresult.idlist;
-
-      if (ids.length === 0) return [];
-
-      // Step 2: Get Details (Abstracts)
-      const efetchUrl = `${this.ncbiBaseUrl}/efetch.fcgi?id=${ids.join(',')}&db=pubmed&retmode=xml`;
-      const fetchRes = await axios.get(efetchUrl);
+      const searchTerm = encodeURIComponent(query);
+      const url = `${this.apiUrl}/esearch.fcgi?db=pubmed&term=${searchTerm}&retmode=json&retmax=10${this.ncbiApiKey ? `&api_key=${this.ncbiApiKey}` : ''}`;
       
-      const parser = new xml2js.Parser();
-      const result = await parser.parseStringPromise(fetchRes.data);
+      const response = await axios.get(url, { timeout: 15000 });
       
-      const articles = result.PubmedArticleSet.PubmedArticle.map(article => ({
-        title: article.MedlineCitation.Article.ArticleTitle[0],
-        authors: article.MedlineCitation.Article.AuthorList[0].Author.map(a => a.LastName ? a.LastName[0] + (a.Initials ? ', ' + a.Initials[0] : '') : 'Unknown'),
-        journal: article.MedlineCitation.Article.Journal[0].Title[0],
-        year: article.MedlineCitation.DateCompleted ? article.MedlineCitation.DateCompleted[0].Year[0] : 'N/A',
-        abstract: article.MedlineCitation.Article.Abstract ? (article.MedlineCitation.Article.Abstract[0].AbstractText ? article.MedlineCitation.Article.Abstract[0].AbstractText[0]._ : 'No abstract') : 'No abstract',
-        pmid: article.MedlineCitation.PMID[0]
-      }));
+      if (!response.data.esearchresult || !response.data.esearchresult.idlist) {
+        return [];
+      }
+
+      const ids = response.data.esearchresult.idlist;
+      const articles = [];
+
+      // Fetch details for each article
+      for (const id of ids) {
+        try {
+          const summaryUrl = `${this.apiUrl}/esummary.fcgi?id=${id}&db=pubmed&retmode=json${this.ncbiApiKey ? `&api_key=${this.ncbiApiKey}` : ''}`;
+          const summaryRes = await axios.get(summaryUrl, { timeout: 10000 });
+          
+          if (summaryRes.data.result[id]) {
+            const article = summaryRes.data.result[id];
+            articles.push({
+              id: article.uid,
+              title: article.title,
+              authors: article.authorlist ? article.authorlist.map(a => a.name).join(', ') : 'Unknown',
+              journal: article.fulljournalname,
+              pubDate: article.pubdate,
+              abstract: article.abstracttext || 'Abstract not available',
+              url: `https://pubmed.ncbi.nlm.nih.gov/${id}/`
+            });
+          }
+        } catch(err) {
+          // Skip individual failures
+        }
+      }
 
       return articles;
-    } catch (err) {
-      console.error('PubMed API Error:', err.message);
+    } catch(err) {
+      console.error('PubMed search error:', err.message);
       return [];
     }
   }
 
-  // Get clinical trials status
-  async getClinicalTrials(condition) {
-    console.log(`🏥 Checking ClinicalTrials.gov for: "${condition}"...`);
+  async getClinicalTrials(query) {
     try {
-      const url = `https://clinicaltrials.gov/api/v2/studies?query.ptTerm=${encodeURIComponent(condition)}&pageSize=3`;
-      const res = await axios.get(url);
-      return res.data.studies.map(s => ({
-        nctId: s.protocolSection.identificationModule.nctId,
-        title: s.protocolSection.identificationModule.title,
-        phase: s.protocolSection.statusModule.phase || 'Not specified',
-        recruitment: s.protocolSection.statusModule.recruitmentStatus || 'Unknown'
+      const searchTerm = encodeURIComponent(query);
+      const url = `https://clinicaltrials.gov/api/v2/studies?query.cond=${searchTerm}&pageSize=10`;
+      
+      const response = await axios.get(url, { timeout: 15000 });
+      
+      if (!response.data.studies || response.data.studies.length === 0) {
+        return [];
+      }
+
+      return response.data.studies.map(trial => ({
+        id: trial.nctId,
+        title: trial.protocolSection?.identificationModule?.briefTitle || 'Untitled',
+        status: trial.protocolSection?.enrollmentModule?.overallStatus || 'Unknown',
+        condition: trial.protocolSection?.conditionsModule?.conditions?.[0] || query,
+        url: `https://clinicaltrials.gov/study/${trial.nctId}`,
+        phase: trial.protocolSection?.designModule?.studyPhases?.[0] || 'Not specified'
       }));
-    } catch (err) {
-      console.error('Clinical Trials API Error:', err.message);
+    } catch(err) {
+      console.error('Clinical Trials search error:', err.message);
       return [];
     }
   }
