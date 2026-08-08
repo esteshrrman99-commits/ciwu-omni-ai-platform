@@ -12,6 +12,7 @@ const RealVisionEngine = require('./real-vision-engine');
 const LiveMedicalDB = require('./live-medical-db');
 const AuthVault = require('./auth-vault');
 const app = express();
+const m3GovernanceRouter = require("./routes/m3-governance");
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 app.use(express.static(path.join(__dirname, '..', 'public')));
@@ -242,6 +243,7 @@ try {
 
   if (typeof app !== 'undefined' && app.use) {
     app.use('/api/eons', eonsResearchRouter);
+    app.use('/api/m3', m3GovernanceRouter);
     console.log('✓ EONS CORTEX research API mounted at /api/eons');
   }
 } catch (e) {
