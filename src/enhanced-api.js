@@ -253,6 +253,10 @@ app.get('/', (req, res) => {
 
 const PORT = process.env.PORT || 10000;
 app.listen(PORT, () => {
+// Load YOUR massive knowledge base
+knowledgeBaseLoader.load().then(() => {
+  const counts = knowledgeBaseLoader.getCounts();
+  console.log(u2705
   console.log('CIWU OMNI v5.0-STABLE Server running on port ' + PORT);
   console.log('✅ All API routes registered:');
   console.log('   - /api/quantum-surprise');
