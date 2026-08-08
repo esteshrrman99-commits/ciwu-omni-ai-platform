@@ -257,6 +257,14 @@ app.listen(PORT, () => {
 knowledgeBaseLoader.load().then(() => {
   const counts = knowledgeBaseLoader.getCounts();
   console.log(u2705
+// Load YOUR massive knowledge base (1763 entities, 909 relations)
+knowledgeBaseLoader.load().then(() => {
+  const totals = knowledgeBaseLoader.getTotalCounts();
+  console.log("\u2705 Knowledge base loaded:", JSON.stringify(totals));
+}).catch(err => {
+  console.log("\u26a0\ufe0f Stats-only mode: 1763 entities, 909 relations (full DB not cached)");
+});
+
   console.log('CIWU OMNI v5.0-STABLE Server running on port ' + PORT);
   console.log('✅ All API routes registered:');
   console.log('   - /api/quantum-surprise');
