@@ -5,10 +5,7 @@
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
-    "dev": "node src/server.js",
-    "eons:status": "node eons-cli.js status",
-    "eons:discover": "node eons-cli.js discover",
-    "eons:classify": "node eons-cli.js classify"
+    "dev": "node src/server.js"
   },
   "dependencies": {
     "@capacitor/android": "^8.4.2",

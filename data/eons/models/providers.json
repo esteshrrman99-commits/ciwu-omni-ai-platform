@@ -1,0 +1,64 @@
+{
+  "providers": [
+    {
+      "id": "openai",
+      "name": "OpenAI",
+      "type": "api",
+      "enabled": true
+    },
+    {
+      "id": "google",
+      "name": "Google",
+      "type": "api",
+      "enabled": true
+    },
+    {
+      "id": "anthropic",
+      "name": "Anthropic",
+      "type": "api",
+      "enabled": true
+    },
+    {
+      "id": "xai",
+      "name": "xAI",
+      "type": "api",
+      "enabled": true
+    },
+    {
+      "id": "deepseek",
+      "name": "DeepSeek",
+      "type": "api",
+      "enabled": true
+    },
+    {
+      "id": "mistral",
+      "name": "Mistral",
+      "type": "api",
+      "enabled": true
+    },
+    {
+      "id": "meta",
+      "name": "Meta",
+      "type": "open_weight",
+      "enabled": true
+    },
+    {
+      "id": "qwen",
+      "name": "Qwen",
+      "type": "open_weight",
+      "enabled": true
+    },
+    {
+      "id": "huggingface",
+      "name": "Hugging Face",
+      "type": "registry",
+      "enabled": true
+    },
+    {
+      "id": "custom",
+      "name": "Custom Provider",
+      "type": "custom",
+      "enabled": true
+    }
+  ]
+}

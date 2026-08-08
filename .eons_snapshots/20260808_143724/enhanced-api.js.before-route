@@ -228,26 +228,3 @@ app.get('/', (req, res) => {
 const PORT = process.env.PORT || 10000;
 app.listen(PORT, () => {
 });
-
-/*
- * EONS OMNIMODEL FRONTIER ROUTE
- * Installed by install-eons-cortex.sh
- *
- * The route is intentionally isolated so the existing
- * CIWU backend remains intact.
- */
-try {
-  const eonsResearchRouter =
-    require('./eons-research-api');
-
-  if (typeof app !== 'undefined' && app.use) {
-    app.use('/api/eons', eonsResearchRouter);
-    console.log('✓ EONS CORTEX research API mounted at /api/eons');
-  }
-} catch (e) {
-  console.warn(
-    'EONS route could not be mounted automatically:',
-    e.message
-  );
-}
-
