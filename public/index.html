@@ -856,7 +856,7 @@ setInterval(updateStats,5000);
       messagesDiv.scrollTop = messagesDiv.scrollHeight;
 
       try {
-        const res = await fetch('https://ciwu-omni-ai-platform.onrender.com/api/chat', {
+        const res = await fetch('/api/chat', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ message: msg })
@@ -905,7 +905,7 @@ setInterval(updateStats,5000);
       statusDiv.innerHTML = "🎥 Abijah is watching your video, sweetheart...";
 
       try {
-        const res = await fetch('https://ciwu-omni-ai-platform.onrender.com/api/analyze-video', {
+        const res = await fetch('/api/analyze-video', {
           method: 'POST',
           body: formData
         });
@@ -981,7 +981,7 @@ async function uploadWithAbijah() {
   }
 
   try {
-    const res = await fetch('https://ciwu-omni-ai-platform.onrender.com/api/analyze-video', {
+    const res = await fetch('/api/analyze-video', {
       method: 'POST',
       body: formData
     });

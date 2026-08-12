@@ -1,4 +1,5 @@
 const express = require('express');
+const eonsModelsRouter = require('./routes/eons-models');
 const fs = require('fs');
 const path = require('path');
 const multer = require('multer');
@@ -14,9 +15,15 @@ const AuthVault = require('./auth-vault');
 const app = express();
 const m3GovernanceRouter = require("./routes/m3-governance");
 app.use(express.json({ limit: '50mb' }));
+app.use('/api/eons-models', eonsModelsRouter);
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 app.use(express.static(path.join(__dirname, '..', 'public')));
-const upload = multer({ dest: '/tmp/uploads/', limits: { fileSize: 100 * 1024 * 1024 } });
+const uploadDir = path.join(__dirname, '..', '.runtime', 'uploads');
+fs.mkdirSync(uploadDir, { recursive: true });
+const upload = multer({
+  dest: uploadDir,
+  limits: { fileSize: 100 * 1024 * 1024 }
+});
 let dbEntities = 0, dbRelations = 0, dbKnowledge = 0;
 function loadData() {
   try {

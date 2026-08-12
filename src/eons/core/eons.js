@@ -4,10 +4,10 @@ const fs = require('fs');
 const path = require('path');
 
 class EONS {
-  constructor(root) {
+  constructor(root = path.resolve(__dirname, '../../..')) {
     this.root = root;
     this.registryPath = path.join(
-      root,
+      this.root,
       'data/eons/models/registry.json'
     );
   }

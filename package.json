@@ -2,10 +2,10 @@
   "name": "ciwu-omni-ai-platform",
   "version": "2.0.0",
   "description": "CIWU OMNI v2.0 - Luxury AI Platform",
-  "main": "src/server.js",
+  "main": "src/enhanced-api.js",
   "scripts": {
-    "start": "node src/server.js",
-    "dev": "node src/server.js",
+    "start": "node src/enhanced-api.js",
+    "dev": "node src/enhanced-api.js",
     "eons:status": "node eons-cli.js status",
     "eons:discover": "node eons-cli.js discover",
     "eons:classify": "node eons-cli.js classify"
