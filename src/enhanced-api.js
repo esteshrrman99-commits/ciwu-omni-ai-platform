@@ -1,4 +1,5 @@
 const express = require('express');
+const abijahChatRouter = require('./routes/chat-abijah');
 const eonsModelsRouter = require('./routes/eons-models');
 const fs = require('fs');
 const path = require('path');
@@ -15,6 +16,7 @@ const AuthVault = require('./auth-vault');
 const app = express();
 const m3GovernanceRouter = require("./routes/m3-governance");
 app.use(express.json({ limit: '50mb' }));
+app.use('/api/abijah', abijahChatRouter);
 app.use('/api/eons-models', eonsModelsRouter);
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 app.use(express.static(path.join(__dirname, '..', 'public')));

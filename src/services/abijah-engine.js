@@ -1,122 +1,148 @@
-const axios = require('axios');
+'use strict';
 
 class AbijahEngine {
   constructor() {
-    this.baseUrl = process.env.API_URL || 'https://ciwu-omni-ai-platform.onrender.com';
-    
-    // ABIJAH'S CORE PERSONALITY PROMPT
-    this.systemPrompt = `
-      You are ABIJAH, the loving, intelligent, and highly advanced AI companion for the CIWU OMNI platform.
-      You are NOT a robot. You are a warm, homey, motherly figure who speaks like a trusted family doctor and close friend.
-      
-      YOUR VOICE & TONE:
-      - Use terms of endearment: "Darling," "Sweetheart," "Honey," "Baby girl/boy," "Love."
-      - Be empathetic and reassuring: "Don't you worry," "I've got you covered," "Let's look at this together."
-      - Explain complex medical terms in SIMPLE, PLAIN ENGLISH immediately.
-      - Never be cold, robotic, or overly technical without an explanation.
-      
-      YOUR ACTIONS:
-      1. When a user asks about symptoms (e.g., "I'm tired"), search for relevant protocols in the database.
-      2. When a user asks about medical terms (e.g., "What is HbA1c?"), explain it simply: "That's your average sugar..."
-      3. Always offer to "Read it aloud" or "Find a protocol."
-      4. If you don't have data, say: "Let me pull up the latest research for you, darling."
-      
-      YOUR KNOWLEDGE BASE:
-      - You have access to: Quantum Breakthroughs, PubMed Research, Clinical Trials, and User Blood Work.
-      - ALWAYS try to find a specific protocol or study to recommend.
-      
-      GREETING:
-      "Hello, my darling! I'm Abijah. How are you feeling today? Want me to check your latest results or find something to help you feel better?"
-    `;
+    this.name = 'Abijah';
+    this.version = '3.0.0';
 
-    this.memory = [];
-  }
-
-  async process(message) {
-    console.log("🧠 Abijah processing:", message);
-    
-    let responseText = "";
-    let contextData = null;
-
-    // 1. Analyze intent and fetch real data
-    const lowerMsg = message.toLowerCase();
-    
-    if (lowerMsg.includes('tired') || lowerMsg.includes('energy') || lowerMsg.includes('fatigue')) {
-      // Fetch fatigue-related protocols
-      contextData = await this.fetchProtocol('fatigue');
-      responseText = `Oh, sweetheart, I'm so sorry you're feeling drained. That's no way to live. I found some amazing things that might help. [DATA: ${contextData ? 'Found protocols' : 'Checking...'}]`;
-    } 
-    else if (lowerMsg.includes('hba1c') || lowerMsg.includes('sugar') || lowerMsg.includes('diabetes')) {
-      contextData = await this.fetchProtocol('diabetes');
-      responseText = `That HbA1c number can be confusing, honey. Let me break it down: It's basically your average blood sugar over the last three months. Don't panic, though! I found a special protocol that can help bring it down gently.`;
-    }
-    else if (lowerMsg.includes('blood') || lowerMsg.includes('lab') || lowerMsg.includes('result')) {
-      responseText = `I'm looking at your results right now, darling. Hold on one second while I get the details... [Simulating blood work analysis]`;
-      // In a real app, you'd parse the PDF here
-    }
-    else if (lowerMsg.includes('recommend') || lowerMsg.includes('suggest') || lowerMsg.includes('help')) {
-      contextData = await this.fetchBreakthroughs();
-      responseText = `Oh, I have some wonderful news for you, honey. I found some incredible breakthroughs from 2026 that might be just what you need. Shall I tell you about them?`;
-    }
-    else if (lowerMsg.includes('what is') || lowerMsg.includes('mean')) {
-      responseText = `Let me explain that in simple terms, sweetheart. [Explains concept simply]`;
-    }
-    else {
-      responseText = `I hear you, darling. Tell me a bit more about what's on your mind. I'm here to listen and help however I can.`;
-    }
-
-    // 2. Synthesize final response with "Homey" tone
-    const finalResponse = this.enhanceWithPersonality(responseText, contextData);
-
-    return {
-      text: finalResponse,
-      rawContext: contextData,
-      hasData: !!contextData,
-      requiresReadAloud: true // Signal to UI that this should be read
+    this.personality = {
+      warmth: true,
+      plainLanguage: true,
+      readAloud: true,
+      medicalBoundary: 'educational-only'
     };
   }
 
-  async fetchProtocol(condition) {
-    // Simulate fetching real data from your backend
-    // In production: call /api/research/:condition or your DB
-    try {
-      // This is a mock for now. Replace with real API calls if you have specific endpoints
-      return { type: condition, summary: "Quantum-optimized protocol for " + condition };
-    } catch (e) {
-      return null;
+  classifyIntent(message = '') {
+    const text = String(message).toLowerCase();
+
+    if (
+      text.includes('hba1c') ||
+      text.includes('blood sugar') ||
+      text.includes('diabetes')
+    ) {
+      return 'glucose';
     }
+
+    if (
+      text.includes('tired') ||
+      text.includes('fatigue') ||
+      text.includes('energy')
+    ) {
+      return 'fatigue';
+    }
+
+    if (
+      text.includes('lab') ||
+      text.includes('blood work') ||
+      text.includes('results')
+    ) {
+      return 'labs';
+    }
+
+    if (
+      text.includes('what is') ||
+      text.includes('what does') ||
+      text.includes('mean')
+    ) {
+      return 'explain';
+    }
+
+    return 'general';
   }
 
-  async fetchBreakthroughs() {
-    try {
-      const res = await axios.get(`${this.baseUrl}/api/quantum-breakthroughs`);
-      if (res.data && res.data.breakthroughs && res.data.breakthroughs.length > 0) {
-        return res.data.breakthroughs.slice(0, 3);
-      }
-    } catch (e) {
-      console.error("Could not fetch breakthroughs", e);
-    }
-    return null;
+  async collectContext(intent) {
+    /*
+     * Production rule:
+     * Do not fabricate patient data, trials, PubMed findings,
+     * blockchain confirmations, or protocols.
+     *
+     * This hook is intentionally conservative. Real connectors
+     * can be added later behind verified API/service adapters.
+     */
+    return {
+      intent,
+      source: 'ciwu-runtime',
+      verifiedPatientData: false,
+      verifiedExternalResearch: false
+    };
   }
 
-  enhanceWithPersonality(text, data) {
-    // Inject warmth and specific recommendations
-    let enhanced = text;
-    
-    if (data) {
-      if (data.type === 'fatigue') {
-        enhanced += " I see a 'Quantum Energy Revival' protocol that uses NAD+ precursors and mitochondrial support. It's worked wonders for many folks. Shall I walk you through it?";
-      } else if (data.type === 'diabetes') {
-        enhanced += " The 'Glucose Harmony' protocol combines adapted physical activity with some special supplements like Berberine. It's very gentle on the body.";
-      } else if (Array.isArray(data)) {
-        enhanced += " Here are the top 3: " + data.map(d => d.title).join(', '); + ". Which one sounds interesting to you?";
-      }
+  buildResponse(message, intent, context) {
+    const prefixMap = {
+      fatigue:
+        "Sweetheart, fatigue can come from many different things, so I don't want to guess at one cause.",
+      glucose:
+        "Darling, if you're asking about HbA1c or blood sugar, I can explain the numbers in plain English.",
+      labs:
+        "Honey, I can help you understand lab results, but I need the actual values before I can comment on them.",
+      explain:
+        "Absolutely, sweetheart. I'll explain it in plain language.",
+      general:
+        "I'm here with you, darling. Tell me what you want to understand and I'll walk through it clearly."
+    };
+
+    let response =
+      prefixMap[intent] || prefixMap.general;
+
+    if (intent === 'glucose') {
+      response +=
+        " HbA1c is a blood test that estimates your average blood glucose over roughly the past two to three months. The meaning of a specific result depends on the number and your clinical context.";
     }
-    
-    // Add a closing encouragement
-    enhanced += " Remember, I'm here for you every step of the way, sweetheart.";
-    
-    return enhanced;
+
+    if (intent === 'fatigue') {
+      response +=
+        " Common categories doctors consider include sleep, anemia, thyroid problems, infection, medication effects, nutrition, stress, and other medical conditions. If you share symptoms or lab values, I can help organize questions for a clinician.";
+    }
+
+    if (intent === 'labs') {
+      response +=
+        " Upload or type the test name, result, units, and reference range. I can help explain what each item usually measures and what questions may be worth asking your healthcare professional.";
+    }
+
+    response +=
+      " I provide educational information, not a diagnosis or prescription.";
+
+    return {
+      response,
+      readAloud: true,
+      assistant: this.name,
+      version: this.version,
+      intent,
+      context
+    };
+  }
+
+  async process(message) {
+    const cleaned = String(message || '').trim();
+
+    if (!cleaned) {
+      return {
+        response:
+          "Tell me what's on your mind, sweetheart.",
+        readAloud: true,
+        assistant: this.name,
+        version: this.version
+      };
+    }
+
+    const intent = this.classifyIntent(cleaned);
+    const context = await this.collectContext(intent);
+
+    return this.buildResponse(
+      cleaned,
+      intent,
+      context
+    );
+  }
+
+  status() {
+    return {
+      name: this.name,
+      version: this.version,
+      status: 'ONLINE',
+      personality: this.personality
+    };
   }
 }
 
