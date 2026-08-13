@@ -14,6 +14,9 @@ const RealVisionEngine = require('./real-vision-engine');
 const LiveMedicalDB = require('./live-medical-db');
 const AuthVault = require('./auth-vault');
 const app = express();
+const eonsIntelligenceRouter = require('./routes/eons-intelligence');
+
+app.use('/api/eons/intelligence', eonsIntelligenceRouter);
 const m3GovernanceRouter = require("./routes/m3-governance");
 app.use(express.json({ limit: '50mb' }));
 app.use('/api/abijah', abijahChatRouter);
@@ -180,7 +183,7 @@ app.post('/api/chat', upload.array('images', 5), async (req, res) => {
     response += 'CONFIDENCE: ' + (p.confidence || 95) + '%\n\n';
     response += '=== NEXT STEPS ===\n';
     response += 'Upload blood panel, DNA data, or MRI for deeper analysis.\n';
-    response += 'Your lineage is protected.';
+    response += 'Use the platform privacy controls when sharing sensitive health information.';
     res.json({ response: response, intent: result.intent || 'General', modules: result.modules || ['CORTEX'], protocol: p });
   } catch(err) {
     console.log('Chat error:', err.message);
