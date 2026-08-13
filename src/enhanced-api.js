@@ -15,6 +15,10 @@ const LiveMedicalDB = require('./live-medical-db');
 const AuthVault = require('./auth-vault');
 const app = express();
 
+
+const eonsClinicalEvidenceRouter =
+  require('./routes/eons-clinical-evidence');
+
 const eonsProductionTruthRouter =
   require('./routes/eons-production-truth');
 
@@ -27,6 +31,12 @@ app.use(
   '/api/eons/production-truth',
   eonsProductionTruthRouter
 );
+
+app.use(
+  '/api/eons/clinical-evidence',
+  eonsClinicalEvidenceRouter
+);
+
 
 app.use('/api/eons/evidence', eonsEvidenceRouter);
 const m3GovernanceRouter = require("./routes/m3-governance");
