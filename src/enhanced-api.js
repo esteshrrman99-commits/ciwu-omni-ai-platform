@@ -15,8 +15,10 @@ const LiveMedicalDB = require('./live-medical-db');
 const AuthVault = require('./auth-vault');
 const app = express();
 const eonsIntelligenceRouter = require('./routes/eons-intelligence');
+const eonsEvidenceRouter = require('./routes/eons-evidence');
 
 app.use('/api/eons/intelligence', eonsIntelligenceRouter);
+app.use('/api/eons/evidence', eonsEvidenceRouter);
 const m3GovernanceRouter = require("./routes/m3-governance");
 app.use(express.json({ limit: '50mb' }));
 app.use('/api/abijah', abijahChatRouter);
