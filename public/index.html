@@ -80,6 +80,8 @@ body{background:linear-gradient(135deg,#0a0a0f 0%,#1a1a2e 100%);color:#fff;font-
 <link rel="stylesheet" href="/css/m2-production-polish.css">
 <link rel="stylesheet" href="/css/m2-1-hotfix.css">
 <link rel="stylesheet" href="/css/abijah-production.css">
+<link rel="stylesheet" href="/css/abijah-conversation-v35.css">
+<link rel="stylesheet" href="/css/ciwu-omni-v36.css">
 </head>
 <body>
 <div class="container">
@@ -216,7 +218,15 @@ body{background:linear-gradient(135deg,#0a0a0f 0%,#1a1a2e 100%);color:#fff;font-
       <button onclick="uploadWithAbijah()">SEND with Abijah</button>
 <div id="abijah-video-status" style="margin-top:10px;color:#6d4aff;"></div>
     </div>
-    <div class="chat-out" id="chatOut">🤖 <b>CIWU OMNI v4.0-QUANTUM READY</b><br>Quantum cores synchronized. Blockchain active.<br>Awaiting your command...</div>
+    <div class="chat-out" id="chatOut">
+<div class="ciwu-ready-state">
+  <div class="ciwu-ready-icon">✦</div>
+  <div>
+    <strong>Abijah is ready.</strong>
+    <span>Ask a health question, explain what you are experiencing, or share a lab value.</span>
+  </div>
+</div>
+</div>
   </div>
 
   <div class="footer">
@@ -622,6 +632,8 @@ setInterval(updateStats,5000);
 <script src="/js/m2-production-fix.js"></script>
 <script src="/js/m2-1-hotfix.js"></script>
 <script src="/js/abijah-production.js"></script>
+<script src="/js/abijah-conversation-v35.js"></script>
+<script src="/js/ciwu-omni-v36.js"></script>
 </body>
 </html>
 
