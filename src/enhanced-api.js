@@ -14,10 +14,20 @@ const RealVisionEngine = require('./real-vision-engine');
 const LiveMedicalDB = require('./live-medical-db');
 const AuthVault = require('./auth-vault');
 const app = express();
+
+const eonsProductionTruthRouter =
+  require('./routes/eons-production-truth');
+
 const eonsIntelligenceRouter = require('./routes/eons-intelligence');
 const eonsEvidenceRouter = require('./routes/eons-evidence');
 
 app.use('/api/eons/intelligence', eonsIntelligenceRouter);
+
+app.use(
+  '/api/eons/production-truth',
+  eonsProductionTruthRouter
+);
+
 app.use('/api/eons/evidence', eonsEvidenceRouter);
 const m3GovernanceRouter = require("./routes/m3-governance");
 app.use(express.json({ limit: '50mb' }));
