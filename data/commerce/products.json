@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "catalog_state": "DEVELOPMENT",
+  "products": [
+    {
+      "id": "ciwu-cellular-vitality-001",
+      "sku": "CIWU-CV-001",
+      "name": "CIWU Cellular Vitality",
+      "subtitle": "Private Label Healthy Aging Product Candidate",
+      "category": "Healthy Aging",
+      "state": "DEVELOPMENT",
+      "sale_enabled": false,
+      "currency": "USD",
+      "price_cents": null,
+      "stripe_price_env": "CIWU_PRODUCT_001_PRICE_ID",
+
+      "supplier": {
+        "candidate": "ProHealth",
+        "relationship": "UNVERIFIED"
+      },
+
+      "formula": {
+        "state": "UNVERIFIED",
+        "ingredients": []
+      },
+
+      "quality": {
+        "coa": "REQUIRED",
+        "third_party_testing": "REQUIRED",
+        "manufacturer_verification": "REQUIRED",
+        "lot_tracking": "REQUIRED",
+        "label_review": "REQUIRED"
+      },
+
+      "release": {
+        "supplier_authorized": false,
+        "formula_verified": false,
+        "coa_verified": false,
+        "manufacturer_verified": false,
+        "label_verified": false,
+        "commercial_release_verified": false
+      }
+    }
+  ]
+}

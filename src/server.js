@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const ciwuCommerceRouter = require('./routes/ciwu-commerce');
 const cors = require('cors');
 const initSqlJs = require('sql.js');
 const fs = require('fs');
@@ -8,6 +9,8 @@ const path = require('path');
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use('/api/commerce', ciwuCommerceRouter);
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 let db;

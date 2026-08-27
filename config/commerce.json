@@ -1,0 +1,14 @@
+{
+  "version": "1.0.0",
+  "module": "CIWU_PRIVATE_LABEL_COMMERCE",
+  "commerce_enabled": true,
+  "checkout_policy": "FAIL_CLOSED",
+  "supplier_authorization_required": true,
+  "formula_verification_required": true,
+  "coa_required": true,
+  "manufacturer_verification_required": true,
+  "label_verification_required": true,
+  "commercial_release_required": true,
+  "unverified_product_sales": false,
+  "medical_treatment_claims": false
+}

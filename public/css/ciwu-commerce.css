@@ -1,0 +1,87 @@
+#ciwu-commerce {
+  max-width: 1200px;
+  margin: 36px auto;
+  padding: 28px;
+  border-radius: 22px;
+  border: 1px solid rgba(0,210,255,.34);
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(113,70,255,.22),
+      transparent 45%
+    ),
+    rgba(8,10,22,.93);
+}
+
+.ciwu-commerce-eyebrow {
+  color: #00d2ff;
+  font-size: .74rem;
+  font-weight: 900;
+  letter-spacing: .16em;
+}
+
+.ciwu-commerce-title {
+  font-size: clamp(1.8rem,5vw,3rem);
+  margin: 10px 0;
+}
+
+.ciwu-commerce-copy {
+  opacity: .82;
+  line-height: 1.6;
+}
+
+.ciwu-commerce-quality,
+.ciwu-commerce-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit,minmax(180px,1fr));
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.ciwu-quality-item,
+.ciwu-product-card {
+  border-radius: 14px;
+  padding: 16px;
+  background: rgba(0,210,255,.055);
+  border: 1px solid rgba(0,210,255,.15);
+}
+
+.ciwu-product-card {
+  background: rgba(5,7,17,.88);
+}
+
+.ciwu-product-state {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 50px;
+  color: #ffd669;
+  border: 1px solid rgba(255,214,105,.35);
+  font-size: .72rem;
+  font-weight: 900;
+}
+
+.ciwu-product-meta {
+  opacity: .78;
+  line-height: 1.6;
+}
+
+.ciwu-buy {
+  width: 100%;
+  border: 0;
+  border-radius: 11px;
+  padding: 12px;
+  margin-top: 14px;
+  color: white;
+  font-weight: 900;
+  background:
+    linear-gradient(
+      135deg,
+      #7048ff,
+      #00cfff
+    );
+}
+
+.ciwu-buy:disabled {
+  opacity: .4;
+}
