@@ -1,0 +1,18 @@
+{
+  "schema": "CIWU_M14_POLICY_V1",
+  "external_actions": {
+    "email_send": false,
+    "application_submission": false,
+    "quote_acceptance": false,
+    "purchase_authorization": false,
+    "po_submission": false,
+    "payment": false,
+    "sales": false
+  },
+  "evidence_policy": {
+    "unknown_is_verified": false,
+    "public_claim_is_credential": false,
+    "supplier_score_overrides_hard_gate": false,
+    "human_review_required": true
+  }
+}
