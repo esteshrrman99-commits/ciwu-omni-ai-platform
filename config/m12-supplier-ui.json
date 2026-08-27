@@ -1,0 +1,19 @@
+{
+  "version": "12.0.0",
+  "module": "CIWU_SUPPLIER_OPERATIONS_UI",
+  "website_command_center": true,
+  "plain_text_rfq_export": true,
+  "comparison_dashboard": true,
+  "evidence_status_cards": true,
+  "review_board_interface": true,
+
+  "external_actions": {
+    "email_send": false,
+    "application_submit": false,
+    "quote_accept": false,
+    "purchase_authorization": false,
+    "purchase_order_submit": false,
+    "payment": false,
+    "sales": false
+  }
+}

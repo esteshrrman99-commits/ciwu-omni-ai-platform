@@ -1,0 +1,159 @@
+#ciwu-supplier-command {
+  margin-top: 30px;
+  padding: clamp(18px,4vw,30px);
+  border-radius: 20px;
+  border: 1px solid rgba(0,210,255,.28);
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(109,74,255,.18),
+      transparent 38%
+    ),
+    rgba(8,10,20,.90);
+}
+
+.ciwu-sc-eyebrow {
+  font-size: .72rem;
+  font-weight: 900;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: #00d2ff;
+}
+
+.ciwu-sc-title {
+  margin: 8px 0 6px;
+  font-size: clamp(1.6rem,5vw,2.7rem);
+}
+
+.ciwu-sc-copy {
+  color: #aeb5c8;
+  max-width: 850px;
+  line-height: 1.55;
+}
+
+.ciwu-sc-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit,minmax(160px,1fr));
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.ciwu-sc-card {
+  background: rgba(4,7,15,.82);
+  border: 1px solid rgba(109,74,255,.28);
+  border-radius: 14px;
+  padding: 15px;
+}
+
+.ciwu-sc-card small {
+  display: block;
+  color: #8f98ad;
+  margin-bottom: 6px;
+}
+
+.ciwu-sc-card strong {
+  font-size: 1.05rem;
+}
+
+.ciwu-sc-panel {
+  margin-top: 18px;
+  background: rgba(5,8,16,.80);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.ciwu-sc-panel-head {
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  font-weight: 850;
+}
+
+.ciwu-sc-table-wrap {
+  overflow-x: auto;
+}
+
+.ciwu-sc-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+}
+
+.ciwu-sc-table th,
+.ciwu-sc-table td {
+  padding: 11px 12px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  font-size: .82rem;
+}
+
+.ciwu-sc-table th {
+  color: #8fa5bd;
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+}
+
+.ciwu-sc-state {
+  display: inline-flex;
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,193,7,.4);
+  color: #ffd86b;
+  font-size: .68rem;
+  font-weight: 850;
+}
+
+.ciwu-sc-score {
+  font-weight: 900;
+}
+
+.ciwu-sc-btn {
+  border: 0;
+  border-radius: 9px;
+  padding: 8px 10px;
+  cursor: pointer;
+  font-weight: 800;
+  background:
+    linear-gradient(
+      135deg,
+      #6d4aff,
+      #00bfe8
+    );
+  color: white;
+}
+
+.ciwu-sc-btn.secondary {
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);
+}
+
+.ciwu-sc-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  padding: 15px;
+}
+
+.ciwu-sc-code {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  margin: 0;
+  padding: 16px;
+  min-height: 100px;
+  color: #d9e6f3;
+  font-size: .78rem;
+  line-height: 1.55;
+}
+
+.ciwu-sc-lock {
+  margin-top: 18px;
+  padding: 14px;
+  border-radius: 12px;
+  background: rgba(255,82,82,.07);
+  border: 1px solid rgba(255,82,82,.2);
+  color: #ffb4b4;
+  font-size: .82rem;
+  line-height: 1.5;
+}

@@ -87,6 +87,7 @@ body{background:linear-gradient(135deg,#0a0a0f 0%,#1a1a2e 100%);color:#fff;font-
   <link rel="stylesheet" href="/css/ciwu-eons-m5.css">
   <link rel="stylesheet" href="/css/ciwu-m54-orchestration.css">
   <link rel="stylesheet" href="/css/ciwu-product-engine.css">
+  <link rel="stylesheet" href="/css/ciwu-supplier-command.css">
 </head>
 <body>
 <div class="container">
@@ -678,6 +679,169 @@ setInterval(updateStats,5000);
 </section>
 
   <script src="/js/ciwu-product-engine.js"></script>
+
+<!-- CIWU_SUPPLIER_COMMAND_CENTER_M12 -->
+<section id="ciwu-supplier-command">
+
+  <div class="ciwu-sc-eyebrow">
+    CIWU OMNI • EONS SUPPLIER INTELLIGENCE
+  </div>
+
+  <h2 class="ciwu-sc-title">
+    Supplier Operations Command Center
+  </h2>
+
+  <p class="ciwu-sc-copy">
+    Real supplier research, evidence intake, quality verification,
+    RFQ preparation and procurement-review intelligence for
+    CIWU Cellular Vitality. Public supplier claims are research
+    inputs only. Procurement and commercial execution remain
+    fail-closed until verified evidence and separate authorization.
+  </p>
+
+  <div class="ciwu-sc-grid">
+
+    <div class="ciwu-sc-card">
+      <small>Supplier Universe</small>
+      <strong id="ciwu-sc-suppliers">
+        CHECKING
+      </strong>
+    </div>
+
+    <div class="ciwu-sc-card">
+      <small>Evidence Complete</small>
+      <strong id="ciwu-sc-verified">
+        CHECKING
+      </strong>
+    </div>
+
+    <div class="ciwu-sc-card">
+      <small>Responses</small>
+      <strong id="ciwu-sc-responses">
+        CHECKING
+      </strong>
+    </div>
+
+    <div class="ciwu-sc-card">
+      <small>Documents</small>
+      <strong id="ciwu-sc-documents">
+        CHECKING
+      </strong>
+    </div>
+
+    <div class="ciwu-sc-card">
+      <small>Purchase Authorization</small>
+      <strong id="ciwu-sc-purchase">
+        DISABLED
+      </strong>
+    </div>
+
+    <div class="ciwu-sc-card">
+      <small>Sales</small>
+      <strong id="ciwu-sc-sales">
+        HARD DISABLED
+      </strong>
+    </div>
+
+  </div>
+
+  <div class="ciwu-sc-panel">
+
+    <div class="ciwu-sc-panel-head">
+      Supplier Evidence Matrix
+    </div>
+
+    <div class="ciwu-sc-table-wrap">
+
+      <table class="ciwu-sc-table">
+
+        <thead>
+          <tr>
+            <th>Supplier</th>
+            <th>Research State</th>
+            <th>Advertised MOQ</th>
+            <th>Replies</th>
+            <th>Documents</th>
+            <th>GMP</th>
+            <th>COA</th>
+            <th>Evidence</th>
+            <th>Packet</th>
+          </tr>
+        </thead>
+
+        <tbody id="ciwu-sc-rows">
+          <tr>
+            <td colspan="9">
+              Loading supplier intelligence...
+            </td>
+          </tr>
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+  <div class="ciwu-sc-panel">
+
+    <div class="ciwu-sc-panel-head">
+      RFQ Packet — Plain Text
+    </div>
+
+    <div class="ciwu-sc-actions">
+
+      <button
+        class="ciwu-sc-btn"
+        id="ciwu-sc-refresh">
+        Refresh Intelligence
+      </button>
+
+      <a
+        class="ciwu-sc-btn secondary"
+        id="ciwu-sc-rfq-open"
+        href="/api/m12/rfq/prohealth?quantity=1000"
+        target="_blank"
+        rel="noopener">
+        Open Plain-Text RFQ
+      </a>
+
+    </div>
+
+    <pre
+      id="ciwu-sc-rfq-output"
+      class="ciwu-sc-code">Loading ProHealth RFQ...</pre>
+
+  </div>
+
+  <div class="ciwu-sc-panel">
+
+    <div class="ciwu-sc-panel-head">
+      Procurement Review Board
+    </div>
+
+    <pre
+      id="ciwu-sc-review-output"
+      class="ciwu-sc-code">Loading review state...</pre>
+
+  </div>
+
+  <div
+    id="ciwu-sc-status"
+    class="ciwu-sc-lock">
+    Command center: CHECKING
+  </div>
+
+  <div class="ciwu-sc-lock">
+    🔒 Consequential controls remain locked:
+    supplier email sending, wholesale application submission,
+    quote acceptance, purchase authorization, purchase-order
+    submission, payment execution and commercial sales.
+  </div>
+
+</section>
+
+  <script src="/js/ciwu-supplier-command.js"></script>
 </body>
 </html>
 
