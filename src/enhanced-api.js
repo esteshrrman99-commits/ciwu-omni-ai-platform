@@ -1,4 +1,5 @@
 const express = require('express');
+const ciwuCommerceRouter = require('./routes/ciwu-commerce');
 const abijahChatRouter = require('./routes/chat-abijah');
 const eonsModelsRouter = require('./routes/eons-models');
 const fs = require('fs');
@@ -14,6 +15,8 @@ const RealVisionEngine = require('./real-vision-engine');
 const LiveMedicalDB = require('./live-medical-db');
 const AuthVault = require('./auth-vault');
 const app = express();
+app.use('/api/commerce', ciwuCommerceRouter);
+
 
 
 const eonsClinicalEvidenceRouter =
