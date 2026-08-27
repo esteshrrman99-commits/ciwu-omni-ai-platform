@@ -27,6 +27,7 @@ router.use(express.json({
 router.get('/health', async (req, res) => {
   res.json({
     ok: true,
+    build: 'CIWU_M3_R3_JSON_BODY_PARSER_CERTIFIED',
     engine: 'M3_CODING_ENGINE',
     provider: 'OPENAI',
     api: 'RESPONSES',
