@@ -1,0 +1,130 @@
+:root {
+  --eons-cyan: #12d9ff;
+  --eons-violet: #7a5cff;
+  --eons-magenta: #ff2db2;
+  --eons-green: #1ef0a3;
+  --eons-card: rgba(9, 16, 38, 0.88);
+}
+
+#eons-m5-command {
+  position: relative;
+  margin: 24px auto;
+  max-width: 1100px;
+  border:
+    1px solid rgba(91, 122, 255, 0.35);
+  border-radius: 28px;
+  padding: 22px;
+  background:
+    radial-gradient(
+      circle at 20% 0%,
+      rgba(18, 217, 255, 0.10),
+      transparent 36%
+    ),
+    radial-gradient(
+      circle at 85% 20%,
+      rgba(255, 45, 178, 0.08),
+      transparent 32%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(8, 14, 34, 0.96),
+      rgba(4, 7, 20, 0.96)
+    );
+  box-shadow:
+    0 24px 80px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  overflow: hidden;
+}
+
+#eons-m5-command::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background:
+    linear-gradient(
+      90deg,
+      var(--eons-cyan),
+      var(--eons-violet),
+      var(--eons-magenta)
+    );
+}
+
+.eons-m5-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.eons-m5-title {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  color: #fff;
+}
+
+.eons-m5-badge {
+  color: var(--eons-green);
+  background: rgba(30, 240, 163, 0.08);
+  border:
+    1px solid rgba(30, 240, 163, 0.32);
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.eons-m5-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.eons-m5-cell {
+  background: var(--eons-card);
+  border:
+    1px solid rgba(94, 108, 180, 0.24);
+  border-radius: 18px;
+  padding: 16px;
+  min-height: 112px;
+}
+
+.eons-m5-k {
+  color: #8f9ac8;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.eons-m5-v {
+  margin-top: 10px;
+  font-weight: 800;
+  color: #fff;
+  font-size: 1.05rem;
+}
+
+.eons-m5-v.good {
+  color: var(--eons-green);
+}
+
+.eons-m5-v.cyan {
+  color: var(--eons-cyan);
+}
+
+.eons-m5-foot {
+  margin-top: 14px;
+  color: #98a3c7;
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 760px) {
+  .eons-m5-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}

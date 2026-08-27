@@ -1,0 +1,98 @@
+/* CIWU OMNI — Abijah 3.5 conversational voice controls */
+
+#abijah-v35-controls {
+  margin-top: 12px;
+  padding: 12px;
+
+  border:
+    1px solid rgba(
+      121,
+      87,
+      255,
+      .35
+    );
+
+  border-radius: 15px;
+
+  background:
+    rgba(
+      8,
+      12,
+      26,
+      .78
+    );
+}
+
+.abijah-v35-status {
+  margin-bottom: 9px;
+
+  color: #20e39a;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.abijah-v35-buttons {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4,1fr);
+
+  gap: 8px;
+}
+
+.abijah-v35-buttons button {
+  min-height: 44px;
+
+  border: 0;
+
+  border-radius: 11px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #5c3dff,
+      #8259ff
+    );
+
+  color: white;
+
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+#abijah-v35-talk {
+  background:
+    linear-gradient(
+      135deg,
+      #08bfe8,
+      #4e6cff
+    );
+}
+
+#abijah-v35-stop {
+  background:
+    linear-gradient(
+      135deg,
+      #a33459,
+      #e14e70
+    );
+}
+
+#chatOut {
+  white-space: pre-wrap;
+}
+
+@media (
+  max-width: 720px
+) {
+  .abijah-v35-buttons {
+    grid-template-columns:
+      repeat(2,1fr);
+  }
+
+  .abijah-v35-buttons button {
+    min-height: 48px;
+  }
+}

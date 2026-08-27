@@ -1,0 +1,136 @@
+#eons-m54-orchestration {
+  margin: 34px auto;
+  max-width: 980px;
+  padding: 26px;
+  border-radius: 30px;
+  border: 1px solid rgba(99,102,241,.30);
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(124,58,237,.20),
+      transparent 40%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(7,18,40,.98),
+      rgba(17,12,43,.98)
+    );
+  box-shadow:
+    0 30px 90px rgba(0,0,0,.40);
+}
+
+.m54-kicker {
+  color: #52f2c1;
+  letter-spacing: .14em;
+  font-weight: 800;
+}
+
+.m54-title {
+  margin: 10px 0;
+  font-size: clamp(28px,6vw,46px);
+  line-height: 1.05;
+  background:
+    linear-gradient(
+      90deg,
+      #18d7ff,
+      #7c5cff,
+      #ff2abf
+    );
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.m54-subtitle {
+  color: #a9b3cc;
+  line-height: 1.6;
+}
+
+.m54-grid {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(210px,1fr)
+    );
+  gap: 14px;
+}
+
+.m54-card {
+  min-height: 145px;
+  padding: 20px;
+  border-radius: 22px;
+  border:
+    1px solid rgba(94,234,212,.14);
+  background:
+    rgba(2,8,23,.74);
+}
+
+.m54-label {
+  color: #9aa6c4;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+}
+
+.m54-value {
+  margin-top: 12px;
+  font-size: 30px;
+  font-weight: 900;
+  color: #fff;
+}
+
+.m54-state {
+  margin-top: 10px;
+  display: inline-block;
+  padding: 7px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.m54-state[data-state="VERIFIED"] {
+  color: #5ef2bb;
+  background: rgba(16,185,129,.12);
+}
+
+.m54-state[data-state="SUPPORTED"] {
+  color: #69d7ff;
+  background: rgba(14,165,233,.12);
+}
+
+.m54-state[data-state="RESEARCH"],
+.m54-state[data-state="SIMULATED"] {
+  color: #c9a6ff;
+  background: rgba(139,92,246,.14);
+}
+
+.m54-state[data-state="UNVERIFIED"],
+.m54-state[data-state="UNAVAILABLE"] {
+  color: #ffcc80;
+  background: rgba(245,158,11,.12);
+}
+
+.m54-note {
+  margin-top: 10px;
+  color: #8d98b5;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.m54-refresh {
+  margin-top: 20px;
+  width: 100%;
+  min-height: 62px;
+  border: 0;
+  border-radius: 18px;
+  font-size: 17px;
+  font-weight: 900;
+  background:
+    linear-gradient(
+      90deg,
+      #14d8ff,
+      #6d5cff
+    );
+  color: white;
+}

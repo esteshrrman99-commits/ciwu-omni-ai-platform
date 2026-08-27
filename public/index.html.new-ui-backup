@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CIWU OMNI - Autonomous Medical AI</title>
+  <style>
+    /* Your existing styles here - keep them */
+    body { font-family: Arial, sans-serif; background: #0a0e27; color: white; margin: 0; padding: 20px; }
+    .container { max-width: 800px; margin: 0 auto; }
+    h1 { color: #6d4aff; text-align: center; }
+    
+    /* Abijah floating button */
+    #abijah-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: linear-gradient(135deg, #6d4aff, #9b7cf5);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 15px 25px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(109, 76, 255, 0.4);
+      z-index: 9999;
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      align-items: center;
+    }
+    #abijah-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(109, 76, 255, 0.6);
+    }
+    #abijah-btn img {
+      width: 24px;
+      height: 24px;
+      margin-right: 10px;
+    }
+    
+    /* Abijah chat window */
+    #abijah-chat {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      width: 380px;
+      height: 550px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      display: none;
+      flex-direction: column;
+      z-index: 9999;
+      overflow: hidden;
+      border: 2px solid #6d4aff;
+    }
+    #abijah-chat.open { display: flex; }
+  </style>
+</head>
+<body>
+  <!-- Your existing CIWU OMNI content goes here -->
+  <div class="container">
+    <h1>🧠 CIWU OMNI AUTONOMOUS MEDICAL AI</h1>
+    <p style="text-align:center;color:#6d4aff;">Speak, type, or upload medical records. Ask about any disease, longevity, or DNA optimization.</p>
+    
+    <!-- Your existing upload forms, buttons, etc. -->
+    <div style="background:rgba(109,76,255,0.1);padding:20px;border-radius:10px;margin:20px 0;">
+      <h3 style="color:#6d4aff;">Upload Medical Records</h3>
+      <p>Drop or tap to upload medical records, lab results, DNA data, or scan images</p>
+    </div>
+    
+    <div style="background:rgba(109,76,255,0.1);padding:20px;border-radius:10px;margin:20px 0;">
+      <h3 style="color:#6d4aff;">Ask a Question</h3>
+      <input type="text" placeholder="Ask: 'How do I cure diabetes?'" style="width:100%;padding:12px;border:1px solid #6d4aff;border-radius:5px;margin:10px 0;">
+      <button style="background:#6d4aff;color:white;border:none;padding:12px 30px;border-radius:5px;cursor:pointer;">SEND</button>
+    </div>
+  </div>
+
+  <!-- Abijah Floating Button -->
+  <button id="abijah-btn" onclick="toggleAbijah()">
+    <img src="/abijah-avatar.svg" alt="Abijah">
+    Talk to Abijah
+  </button>
+
+  <!-- Abijah Chat Window -->
+  <div id="abijah-chat">
+    <iframe src="/abijah-interface.html" style="width:100%;height:100%;border:none;"></iframe>
+  </div>
+
+  <script>
+    function toggleAbijah() {
+      const chat = document.getElementById('abijah-chat');
+      chat.classList.toggle('open');
+    }
+    
+    // Auto-open after 3 seconds with a gentle nudge
+    setTimeout(() => {
+      if (!document.getElementById('abijah-chat').classList.contains('open')) {
+        document.getElementById('abijah-btn').style.animation = 'pulse 1s infinite';
+      }
+    }, 3000);
+  </script>
+  
+  <style>
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+  </style>
+</body>
+</html>

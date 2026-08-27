@@ -1,0 +1,111 @@
+/* =====================================================
+   CIWU OMNI M2.1 SURGICAL MOBILE HOTFIX
+   ===================================================== */
+
+/* CIWU status belongs in page flow, not over content */
+#m2-health {
+  position: static !important;
+  display: inline-flex !important;
+  align-items: center;
+  width: auto !important;
+  margin: 12px auto 0 !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* M3 container */
+#m3-console,
+.m3-console,
+#m3Console,
+[data-m3-console],
+[id*="m3-console"] {
+  transition:
+    max-height .25s ease,
+    transform .25s ease,
+    opacity .25s ease !important;
+
+  position: fixed !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: 8px !important;
+  transform: translateX(-50%) !important;
+  width: min(760px, calc(100vw - 18px)) !important;
+  z-index: 9990 !important;
+}
+
+/* Mobile collapsed dock */
+@media (max-width: 720px) {
+  #m3-console.m2-collapsed,
+  .m3-console.m2-collapsed,
+  #m3Console.m2-collapsed,
+  [data-m3-console].m2-collapsed,
+  [id*="m3-console"].m2-collapsed {
+    max-height: 70px !important;
+    min-height: 70px !important;
+    overflow: hidden !important;
+  }
+
+  #m3-console:not(.m2-collapsed),
+  .m3-console:not(.m2-collapsed),
+  #m3Console:not(.m2-collapsed),
+  [data-m3-console]:not(.m2-collapsed),
+  [id*="m3-console"]:not(.m2-collapsed) {
+    max-height: 72vh !important;
+    overflow-y: auto !important;
+  }
+}
+
+#m2-m3-toggle {
+  position: absolute;
+  top: 9px;
+  right: 12px;
+  z-index: 10;
+
+  min-height: 36px !important;
+  padding: 6px 11px !important;
+
+  border: 1px solid rgba(32,227,154,.42) !important;
+  border-radius: 999px !important;
+
+  background: rgba(5,12,24,.96) !important;
+  color: #20e39a !important;
+
+  font-size: 12px !important;
+  font-weight: 800 !important;
+}
+
+/* Telemetry becomes part of M3 instead of covering it */
+.m2-telemetry {
+  position: static !important;
+  inset: auto !important;
+  transform: none !important;
+
+  width: auto !important;
+  max-width: 100% !important;
+
+  margin: 10px 20px !important;
+  padding: 10px 13px !important;
+
+  border: 1px solid rgba(32,227,154,.35) !important;
+  border-radius: 12px !important;
+
+  background: rgba(3,12,18,.85) !important;
+  color: #20e39a !important;
+
+  font-size: 12px !important;
+  line-height: 1.35 !important;
+
+  box-shadow: none !important;
+  z-index: auto !important;
+}
+
+.m2-collapsed .m2-telemetry {
+  display: none !important;
+}
+
+/* Prevent bottom dock from obscuring page footer */
+@media (max-width: 720px) {
+  body {
+    padding-bottom: 92px !important;
+  }
+}

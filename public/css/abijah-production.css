@@ -1,0 +1,105 @@
+/* =====================================================
+   CIWU OMNI — ABIJAH PRODUCTION VISUAL LAYER
+   ===================================================== */
+
+#abijah-chat {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(12,16,34,.985),
+      rgba(8,11,24,.99)
+    ) !important;
+
+  color: #f7f8ff !important;
+
+  border:
+    1px solid rgba(130,96,255,.42) !important;
+
+  box-shadow:
+    0 24px 70px rgba(0,0,0,.58),
+    0 0 44px rgba(121,87,255,.15) !important;
+
+  overflow: hidden !important;
+}
+
+#abijah-chat .abijah-header {
+  background:
+    linear-gradient(
+      135deg,
+      #5b3df2,
+      #9c62ff
+    ) !important;
+
+  color: white !important;
+}
+
+#abijah-chat .abijah-messages {
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(90,60,180,.15),
+      rgba(5,8,18,.96)
+    ) !important;
+
+  color: #edf0ff !important;
+}
+
+#abijah-chat .message,
+#abijah-chat .abijah-msg,
+#abijah-chat .abijah-reply {
+  background:
+    rgba(35,28,68,.9) !important;
+
+  color: #f4f2ff !important;
+
+  border-left:
+    4px solid #825fff !important;
+
+  line-height: 1.55 !important;
+
+  text-shadow: none !important;
+}
+
+#abijah-chat .abijah-input {
+  background: rgba(8,10,22,.98) !important;
+
+  border-top:
+    1px solid rgba(125,92,255,.24) !important;
+}
+
+#abijah-chat input {
+  background: rgba(2,5,14,.92) !important;
+  color: #fff !important;
+
+  border:
+    1px solid rgba(130,96,255,.35) !important;
+}
+
+#abijah-chat input::placeholder {
+  color: #9ba4c3 !important;
+}
+
+#abijah-chat button {
+  color: white !important;
+}
+
+#abijah-chat .read-btn,
+#abijah-chat .speak-btn {
+  background:
+    rgba(121,87,255,.22) !important;
+
+  color: #dcd4ff !important;
+
+  border:
+    1px solid rgba(121,87,255,.35) !important;
+}
+
+@media (max-width:720px) {
+  #abijah-chat {
+    width: calc(100vw - 20px) !important;
+    left: 10px !important;
+    right: 10px !important;
+    bottom: 82px !important;
+    max-height: 74vh !important;
+  }
+}

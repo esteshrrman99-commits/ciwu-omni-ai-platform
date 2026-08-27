@@ -5,6 +5,7 @@ const cors = require('cors');
 const initSqlJs = require('sql.js');
 const fs = require('fs');
 const path = require('path');
+const eonsModelsRouter = require('./routes/eons-models');
 
 const app = express();
 app.use(cors());
@@ -12,6 +13,9 @@ app.use(express.json());
 app.use('/api/commerce', ciwuCommerceRouter);
 
 app.use(express.static(path.join(__dirname, 'public')));
+
+// EONS M15 OMNIMODEL API
+app.use('/api/eons-models', eonsModelsRouter);
 
 let db;
 

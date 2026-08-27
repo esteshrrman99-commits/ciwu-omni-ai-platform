@@ -1,0 +1,25 @@
+{
+  "name": "ciwu-omni-mobile",
+  "version": "1.0.0",
+  "main": "expo-router/entry",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "expo": "~51.0.0",
+    "expo-speech": "~11.9.0",
+    "expo-av": "~13.10.0",
+    "expo-notifications": "~0.28.0",
+    "expo-router": "~3.5.0",
+    "react": "18.2.0",
+    "react-native": "0.74.0",
+    "axios": "^1.6.0",
+    "react-native-gifted-chat": "^2.4.0",
+    "lucide-react-native": "^0.378.0",
+    "@react-native-community/netinfo": "11.3.1"
+  },
+  "private": true
+}

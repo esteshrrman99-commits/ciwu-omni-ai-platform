@@ -1,0 +1,197 @@
+/* CIWU OMNI / EONS unified interface */
+:root {
+  --eons-bg: #080b12;
+  --eons-panel: #101522;
+  --eons-panel-2: #151b2a;
+  --eons-border: rgba(255,255,255,.10);
+  --eons-text: #f4f7fb;
+  --eons-muted: #9aa6b8;
+  --eons-accent: #6d4aff;
+  --eons-success: #00e88a;
+  --eons-radius: 14px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--eons-bg);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(109,76,255,.12), transparent 30%),
+    radial-gradient(circle at 85% 20%, rgba(0,232,138,.07), transparent 28%),
+    var(--eons-bg);
+  color: var(--eons-text);
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+}
+
+.eons-panel {
+  background: rgba(16,21,34,.88);
+  border: 1px solid var(--eons-border);
+  border-radius: var(--eons-radius);
+  backdrop-filter: blur(12px);
+}
+
+.eons-muted {
+  color: var(--eons-muted);
+}
+
+.eons-success {
+  color: var(--eons-success);
+}
+
+@media (max-width: 700px) {
+  body {
+    font-size: 14px;
+  }
+
+  #abijah-chat {
+    width: min(94vw, 420px) !important;
+    right: 3vw !important;
+    bottom: 80px !important;
+  }
+
+  #abijah-btn {
+    right: 16px !important;
+    bottom: 16px !important;
+  }
+}
+
+/* M3 Coding Console */
+
+#m3-console {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  width: min(520px, calc(100vw - 40px));
+  max-height: 70vh;
+  overflow: hidden;
+  z-index: 9000;
+
+  background: rgba(12,16,27,.96);
+  border: 1px solid rgba(109,76,255,.35);
+  border-radius: 16px;
+
+  box-shadow: 0 20px 60px rgba(0,0,0,.45);
+  backdrop-filter: blur(16px);
+
+  color: #f4f7fb;
+}
+
+.m3-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+
+  padding: 14px 16px;
+
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.m3-header strong {
+  display: block;
+  letter-spacing: .08em;
+}
+
+.m3-header small {
+  display: block;
+  margin-top: 4px;
+  color: #9aa6b8;
+}
+
+#m3-status {
+  color: #00e88a;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.m3-body {
+  padding: 14px;
+}
+
+#m3-request {
+  width: 100%;
+  resize: vertical;
+
+  padding: 12px;
+
+  color: #f4f7fb;
+  background: #080b12;
+
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 10px;
+
+  outline: none;
+}
+
+#m3-request:focus {
+  border-color: rgba(109,76,255,.7);
+}
+
+.m3-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.m3-actions button {
+  flex: 1;
+
+  border: 0;
+  border-radius: 9px;
+
+  padding: 10px;
+
+  color: white;
+  background: #6d4aff;
+}
+
+.m3-actions button:hover {
+  filter: brightness(1.12);
+}
+
+#m3-output {
+  margin: 12px 0 0;
+
+  max-height: 180px;
+  overflow: auto;
+
+  padding: 12px;
+
+  background: #080b12;
+
+  border-radius: 10px;
+
+  color: #9aa6b8;
+  white-space: pre-wrap;
+  font-size: 12px;
+}
+
+@media (max-width: 700px) {
+  #m3-console {
+    left: 10px;
+    bottom: 10px;
+    width: calc(100vw - 20px);
+  }
+}

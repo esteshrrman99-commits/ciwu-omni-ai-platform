@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abijah - Your Health Companion</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+    .container { background: white; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); width: 90%; max-width: 450px; overflow: hidden; }
+    .header { background: linear-gradient(135deg, #6d4aff, #9b7cf5); color: white; padding: 20px; display: flex; align-items: center; position: relative; }
+    .avatar { width: 60px; height: 60px; border-radius: 50%; background: rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; margin-right: 15px; border: 3px solid rgba(255,255,255,0.5); animation: glow 2s ease-in-out infinite; }
+    @keyframes glow { 0%, 100% { box-shadow: 0 0 20px rgba(255,255,255,0.5); } 50% { box-shadow: 0 0 40px rgba(255,255,255,0.8); } }
+    .avatar img { width: 100%; height: 100%; border-radius: 50%; }
+    .title h1 { font-size: 22px; margin-bottom: 3px; }
+    .title p { font-size: 13px; opacity: 0.9; }
+    .close { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); font-size: 28px; cursor: pointer; opacity: 0.8; }
+    .chat-area { height: 400px; overflow-y: auto; padding: 20px; background: #f8f5ff; }
+    .message { margin-bottom: 15px; padding: 12px 15px; border-radius: 15px; max-width: 85%; animation: slideIn 0.3s ease; }
+    @keyframes slideIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .abijah-msg { background: rgba(109, 76, 255, 0.1); border-left: 4px solid #6d4aff; float: left; clear: both; }
+    .user-msg { background: #6d4aff; color: white; float: right; text-align: right; border-bottom-right-radius: 5px; }
+    .typing { font-style: italic; color: #666; font-size: 13px; margin-bottom: 10px; }
+    .input-area { padding: 15px; background: white; border-top: 1px solid #eee; display: flex; align-items: center; }
+    input { flex: 1; border: 1px solid #ddd; border-radius: 25px; padding: 12px 20px; outline: none; font-size: 15px; transition: border 0.3s; }
+    input:focus { border-color: #6d4aff; }
+    button { margin-left: 10px; background: #6d4aff; color: white; border: none; border-radius: 50%; width: 45px; height: 45px; cursor: pointer; font-size: 18px; transition: transform 0.2s; display: flex; align-items: center; justify-content: center; }
+    button:hover { transform: scale(1.1); }
+    .speak-btn { background: #9b7cf5; }
+    .read-btn { background: none; border: none; color: #6d4aff; cursor: pointer; font-size: 13px; margin-top: 8px; padding: 5px 10px; border-radius: 10px; background: rgba(109, 76, 255, 0.1); }
+    .read-btn:hover { background: rgba(109, 76, 255, 0.2); }
+    .status { font-size: 11px; color: #666; text-align: center; padding: 5px; background: #f0f0f0; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="avatar">
+        <img src="/abijah-avatar.svg" alt="Abijah">
+      </div>
+      <div class="title">
+        <h1>✨ Abijah</h1>
+        <p>Your Health Companion</p>
+      </div>
+      <span class="close" onclick="window.close()">✕</span>
+    </div>
+    <div class="chat-area" id="chat">
+      <div class="message abijah-msg">
+        <strong>Abijah:</strong><br>
+        Hello, my darling! I'm Abijah. How are you feeling today? Want me to check your latest results?
+      </div>
+    </div>
+    <div class="input-area">
+      <input type="text" id="input" placeholder="Ask me anything, sweetheart..." onkeypress="if(event.key==='Enter')send()">
+      <button onclick="send()">➤</button>
+      <button class="speak-btn" onclick="speakLast()" title="Read last message">🔊</button>
+    </div>
+    <div class="status" id="status">Online • Connected</div>
+  </div>
+
+  <script>
+    const chat = document.getElementById('chat');
+    const input = document.getElementById('input');
+    const status = document.getElementById('status');
+    let lastMessage = '';
+
+    function addMessage(text, isUser) {
+      const div = document.createElement('div');
+      div.className = 'message ' + (isUser ? 'user-msg' : 'abijah-msg');
+      div.innerHTML = isUser ? text : '<strong>Abijah:</strong><br>' + text + '<button class="read-btn" onclick="speak(\''+text.replace(/'/g,"\\'")+'\')">🔊 Read Aloud</button>';
+      chat.appendChild(div);
+      chat.scrollTop = chat.scrollHeight;
+      if (!isUser) lastMessage = text;
+    }
+
+    function speak(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.pitch = 1.15; u.rate = 0.9;
+        const voices = window.speechSynthesis.getVoices();
+        const v = voices.find(x => x.name.includes('Female') || x.name.includes('Zira'));
+        if (v) u.voice = v;
+        window.speechSynthesis.speak(u);
+      }
+    }
+
+    function speakLast() {
+      if (lastMessage) speak(lastMessage);
+    }
+
+    async function send() {
+      const msg = input.value.trim();
+      if (!msg) return;
+      
+      addMessage(msg, true);
+      input.value = '';
+      
+      // Show typing indicator
+      const typing = document.createElement('div');
+      typing.className = 'typing';
+      typing.id = 'typing';
+      typing.textContent = 'Abijah is thinking...';
+      chat.appendChild(typing);
+      chat.scrollTop = chat.scrollHeight;
+
+      try {
+        const res = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: msg })
+        });
+        
+        const data = await res.json();
+        const reply = data.response || "I'm listening, darling.";
+        
+        const typingEl = document.getElementById('typing');
+        if (typingEl) typingEl.remove();
+        
+        addMessage(reply, false);
+        
+        if (data.readAloud) speak(reply);
+      } catch (e) {
+        const typingEl = document.getElementById('typing');
+        if (typingEl) typingEl.textContent = "Oh dear, I had a glitch. Let me try again.";
+      }
+    }
+
+    // Welcome message
+    setTimeout(() => speak("Hello, my darling! I'm Abijah. How are you feeling today?"), 1000);
+  </script>
+</body>
+</html>
