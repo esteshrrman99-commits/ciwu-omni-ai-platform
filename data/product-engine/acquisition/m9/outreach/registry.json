@@ -1,0 +1,5 @@
+{
+  "schema_version": 1,
+  "messages": [],
+  "send_policy": "HUMAN_APPROVAL_REQUIRED"
+}

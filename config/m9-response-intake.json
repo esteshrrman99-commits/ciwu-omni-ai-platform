@@ -1,0 +1,24 @@
+{
+  "version": "9.0.0",
+  "module": "CIWU_REAL_SUPPLIER_RESPONSE_INTAKE",
+
+  "external_actions": {
+    "email_send": false,
+    "application_submit": false,
+    "quote_accept": false,
+    "purchase_order_submit": false,
+    "payment": false,
+    "sales": false
+  },
+
+  "truth_rules": {
+    "response_received_is_not_verified": true,
+    "document_hash_is_not_verification": true,
+    "gmp_claim_requires_document_review": true,
+    "manufacturer_identity_requires_document_review": true,
+    "coa_requires_lot_and_spec_review": true,
+    "quote_requires_source_document": true,
+    "formula_requires_source_document": true,
+    "review_board_cannot_authorize_purchase": true
+  }
+}
