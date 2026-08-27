@@ -1,0 +1,13 @@
+{
+  "schema": "CIWU_EONS_FINANCIAL_POLICY_V2",
+  "currency": "USD",
+  "monthlyHardCapUsd": 100,
+  "monthlyRequiredSpendUsd": 0,
+  "freeFirst": true,
+  "unknownCost": "ABSTAIN",
+  "silentPaidFallback": false,
+  "providerSpecificPaidAuthorizationRequired": true,
+  "purchaseAuthorization": false,
+  "autoIncreaseBudget": false,
+  "allowDebt": false
+}

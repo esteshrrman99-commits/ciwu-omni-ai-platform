@@ -28,7 +28,9 @@ const QuantumCore = require('./quantum-core');
 const RealVisionEngine = require('./real-vision-engine');
 const LiveMedicalDB = require('./live-medical-db');
 const AuthVault = require('./auth-vault');
+const ciwuSovereignApi = require('./sovereign/routes/api');
 const app = express();
+app.use('/api/sovereign', ciwuSovereignApi);
 app.use('/api/m3', ciwuM3CodingRouter);
 app.use('/api/m18', ciwuM18Router);
 

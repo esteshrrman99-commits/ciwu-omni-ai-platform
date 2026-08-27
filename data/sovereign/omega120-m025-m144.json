@@ -1,0 +1,18 @@
+{
+  "schema": "CIWU_OMEGA120_M025_M144_V2",
+  "milestoneStart": 25,
+  "milestoneEnd": 144,
+  "milestoneCount": 120,
+  "waves": 10,
+  "milestonesPerWave": 12,
+  "zeroCostFirst": true,
+  "monthlyRequiredSpendUsd": 0,
+  "monthlyHardCapUsd": 100,
+  "silentPaidFallback": false,
+  "autonomousPurchase": false,
+  "productionShell": false,
+  "productionAiFilesystemMutation": false,
+  "autonomousGitPush": false,
+  "forcePush": false,
+  "nativeFoundationModelClaimed": false
+}
