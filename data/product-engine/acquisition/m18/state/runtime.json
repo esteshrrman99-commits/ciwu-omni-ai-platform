@@ -1,0 +1,13 @@
+{
+  "schema": "CIWU_M18_RUNTIME_STATE_V1",
+  "transaction_id": "CIWU-PROHEALTH-20260827T205926Z",
+  "supplier": "ProHealth",
+  "transmission": "SENT_EVIDENCE_RECORDED",
+  "delivery": "UNVERIFIED",
+  "read": "UNVERIFIED",
+  "response": "WAITING_FOR_RESPONSE",
+  "evidence_complete": false,
+  "supplier_qualified": false,
+  "procurement_authorized": false,
+  "purchase_authorized": false
+}

@@ -1,0 +1,39 @@
+{
+  "schema": "CIWU_M18_EVIDENCE_TYPES_V1",
+
+  "types": {
+    "SUPPLIER_RESPONSE": {
+      "hard_gate": true
+    },
+
+    "MANUFACTURER": {
+      "hard_gate": true
+    },
+
+    "GMP": {
+      "hard_gate": true,
+      "aliases": ["CGMP"]
+    },
+
+    "COA": {
+      "hard_gate": true
+    },
+
+    "LOT_TRACEABILITY": {
+      "hard_gate": true
+    },
+
+    "QUOTE": {
+      "hard_gate": true
+    },
+
+    "FORMULA": {
+      "hard_gate": true,
+      "aliases": ["FORMULA_SPEC"]
+    },
+
+    "OTHER": {
+      "hard_gate": false
+    }
+  }
+}
