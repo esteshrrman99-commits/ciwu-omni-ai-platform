@@ -1,0 +1,36 @@
+{
+  "version": "3.0.0",
+  "module": "CIWU_PRODUCT_EVIDENCE_CONTROL_PLANE",
+  "policy": "FAIL_CLOSED",
+
+  "allowed_evidence_states": [
+    "RECEIVED",
+    "REVIEW_REQUIRED",
+    "VERIFIED",
+    "REJECTED",
+    "EXPIRED"
+  ],
+
+  "allowed_evidence_types": [
+    "SUPPLIER_AUTHORIZATION",
+    "FORMULA_SPECIFICATION",
+    "COA",
+    "GMP_DOCUMENT",
+    "MANUFACTURER_IDENTITY",
+    "QUALITY_AGREEMENT",
+    "INSURANCE",
+    "LABEL_REVIEW",
+    "PRICING",
+    "PACKAGING_SPECIFICATION",
+    "OTHER"
+  ],
+
+  "rules": {
+    "evidence_requires_provenance": true,
+    "verification_requires_explicit_review": true,
+    "formula_lock_requires_verified_formula_evidence": true,
+    "lot_release_requires_verified_coa": true,
+    "commercial_release_requires_all_m2_gates": true,
+    "commercial_release_never_enables_sales_automatically": true
+  }
+}
