@@ -1,0 +1,22 @@
+{
+  "version": "8.0.0",
+  "module": "CIWU_ALTERNATIVE_SUPPLIER_SELECTION_ENGINE",
+
+  "truth_policy": {
+    "public_supplier_claim_is_not_verified_evidence": true,
+    "advertised_moq_is_not_ciwu_quote": true,
+    "website_gmp_claim_is_not_document_verified_gmp": true,
+    "website_coa_claim_is_not_ciwu_lot_coa": true,
+    "lowest_moq_does_not_equal_best_supplier": true,
+    "supplier_score_does_not_override_failed_hard_gate": true
+  },
+
+  "external_actions": {
+    "application_submit": false,
+    "email_send": false,
+    "quote_accept": false,
+    "purchase_order_submit": false,
+    "payment": false,
+    "sales": false
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "supplier_id": "prohealth",
+  "state": "DRAFT_NOT_SUBMITTED",
+  "submission_enabled": false,
+  "fields": {
+    "company_name": null,
+    "contact_name": null,
+    "title": null,
+    "address": null,
+    "city": null,
+    "state": null,
+    "zip_code": null,
+    "country": "USA",
+    "phone_number": null,
+    "email_address": null,
+    "website": null,
+    "type_of_business": null,
+    "year_established": null,
+    "practitioner_office": null,
+    "intended_sales_channels": null,
+    "products_of_interest": [
+      "NMN",
+      "Private Label",
+      "Custom Formulation"
+    ],
+    "expected_monthly_volume": null,
+    "additional_business_information": null
+  }
+}

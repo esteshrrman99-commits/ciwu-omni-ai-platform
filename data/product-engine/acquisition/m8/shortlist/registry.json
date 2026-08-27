@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "state": "DERIVED_ONLY",
+  "shortlist": [
+    {
+      "supplier_id": "prohealth",
+      "supplier_name": "ProHealth Longevity",
+      "eligible_for_procurement_review": false,
+      "reason": "VERIFIED_EVIDENCE_INCOMPLETE"
+    },
+    {
+      "supplier_id": "dm-formulas",
+      "supplier_name": "DM Formulas",
+      "eligible_for_procurement_review": false,
+      "reason": "VERIFIED_EVIDENCE_INCOMPLETE"
+    },
+    {
+      "supplier_id": "pure-private-label",
+      "supplier_name": "PURE Private Label",
+      "eligible_for_procurement_review": false,
+      "reason": "VERIFIED_EVIDENCE_INCOMPLETE"
+    },
+    {
+      "supplier_id": "prime-laboratories",
+      "supplier_name": "Prime Laboratories",
+      "eligible_for_procurement_review": false,
+      "reason": "VERIFIED_EVIDENCE_INCOMPLETE"
+    },
+    {
+      "supplier_id": "smp-nutra",
+      "supplier_name": "SMP Nutra",
+      "eligible_for_procurement_review": false,
+      "reason": "VERIFIED_EVIDENCE_INCOMPLETE"
+    },
+    {
+      "supplier_id": "pag-pharmatech",
+      "supplier_name": "PAG Pharmatech America",
+      "eligible_for_procurement_review": false,
+      "reason": "VERIFIED_EVIDENCE_INCOMPLETE"
+    }
+  ]
+}

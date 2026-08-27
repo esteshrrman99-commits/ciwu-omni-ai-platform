@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "product_id": "ciwu-cellular-vitality-001",
+  "research_state": "PUBLIC_SOURCE_RESEARCH",
+  "suppliers": [
+    {
+      "id": "prohealth",
+      "name": "ProHealth Longevity",
+      "website": "https://www.prohealth.com/",
+      "source_url": "https://www.prohealth.com/pages/wholesale-application",
+      "public_claims": {
+        "wholesale": true,
+        "private_label_inquiry": true,
+        "co_branding": true,
+        "custom_formulation": true,
+        "bulk_nmn": true,
+        "bulk_nmn_range": "100 grams to 100 kilograms and up"
+      },
+      "public_moq_units": null,
+      "ciwu_quote_received": false,
+      "ciwu_authorized": false,
+      "documents_verified": false,
+      "research_state": "PUBLIC_CAPABILITY_CONFIRMED"
+    },
+    {
+      "id": "dm-formulas",
+      "name": "DM Formulas",
+      "website": "https://www.dmformulas.com/",
+      "source_url": "https://www.dmformulas.com/",
+      "public_claims": {
+        "private_label": true,
+        "custom_manufacturing": true,
+        "third_party_testing": true,
+        "coa_with_orders": true,
+        "gmp_certified_claim": true,
+        "made_in_usa_claim": true
+      },
+      "public_moq_units": 500,
+      "ciwu_quote_received": false,
+      "ciwu_authorized": false,
+      "documents_verified": false,
+      "research_state": "PUBLIC_CLAIM_UNVERIFIED"
+    },
+    {
+      "id": "pure-private-label",
+      "name": "PURE Private Label",
+      "website": "https://pureprivatelabel.com/",
+      "source_url": "https://pureprivatelabel.com/",
+      "public_claims": {
+        "private_label": true,
+        "custom_formulation": true,
+        "gmp_compliant_claim": true,
+        "fda_registered_facility_claim": true,
+        "label_design": true
+      },
+      "public_moq_units": 144,
+      "ciwu_quote_received": false,
+      "ciwu_authorized": false,
+      "documents_verified": false,
+      "research_state": "PUBLIC_CLAIM_UNVERIFIED"
+    },
+    {
+      "id": "prime-laboratories",
+      "name": "Prime Laboratories",
+      "website": "https://prime-laboratories.com/",
+      "source_url": "https://prime-laboratories.com/",
+      "public_claims": {
+        "private_label": true,
+        "custom_formulation": true,
+        "no_moq_claim": true,
+        "gmp_compliant_claim": true,
+        "fda_registered_facility_claim": true,
+        "fulfillment": true
+      },
+      "public_moq_units": 0,
+      "ciwu_quote_received": false,
+      "ciwu_authorized": false,
+      "documents_verified": false,
+      "research_state": "PUBLIC_CLAIM_UNVERIFIED"
+    },
+    {
+      "id": "smp-nutra",
+      "name": "SMP Nutra",
+      "website": "https://smpnutra.com/",
+      "source_url": "https://smpnutra.com/",
+      "public_claims": {
+        "private_label": true,
+        "custom_formulation": true,
+        "gmp_certified_claim": true,
+        "fda_registered_claim": true,
+        "usa_made_claim": true
+      },
+      "public_moq_units": null,
+      "ciwu_quote_received": false,
+      "ciwu_authorized": false,
+      "documents_verified": false,
+      "research_state": "PUBLIC_CLAIM_UNVERIFIED"
+    },
+    {
+      "id": "pag-pharmatech",
+      "name": "PAG Pharmatech America",
+      "website": "https://www.pagpharmatechusa.com/",
+      "source_url": "https://www.pagpharmatechusa.com/",
+      "public_claims": {
+        "private_label": true,
+        "custom_formulation": true,
+        "coa_every_run_claim": true,
+        "gmp_certified_claim": true,
+        "fda_registered_claim": true,
+        "batch_documentation_claim": true
+      },
+      "public_moq_units": 5000,
+      "ciwu_quote_received": false,
+      "ciwu_authorized": false,
+      "documents_verified": false,
+      "research_state": "PUBLIC_CLAIM_UNVERIFIED"
+    }
+  ]
+}
