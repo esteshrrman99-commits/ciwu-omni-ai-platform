@@ -1,0 +1,25 @@
+{
+  "version": "4.0.0",
+  "module": "CIWU_SUPPLIER_QUALITY_CONTROL_ENGINE",
+
+  "rules": {
+    "document_hash_does_not_equal_verification": true,
+    "supplier_verification_requires_explicit_review": true,
+    "formula_diff_required_before_version_lock": true,
+    "coa_release_requires_specification_comparison": true,
+    "label_compiler_output_is_draft_only": true,
+    "economics_are_derived_until_supplier_pricing_verified": true,
+    "commercial_release_does_not_enable_checkout": true
+  },
+
+  "truth_states": [
+    "VERIFIED",
+    "DERIVED",
+    "RECEIVED",
+    "REVIEW_REQUIRED",
+    "UNVERIFIED",
+    "UNKNOWN",
+    "MISSING",
+    "UNAVAILABLE"
+  ]
+}
