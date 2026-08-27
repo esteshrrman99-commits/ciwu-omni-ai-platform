@@ -1,0 +1,29 @@
+{
+  "version": "5.0.0",
+  "module": "CIWU_SUPPLIER_INTAKE_AND_PROCUREMENT_ENGINE",
+
+  "truth_rules": {
+    "supplier_submission_does_not_equal_verification": true,
+    "manufacturer_name_does_not_equal_manufacturer_verification": true,
+    "gmp_claim_does_not_equal_gmp_evidence": true,
+    "formula_received_does_not_equal_formula_approved": true,
+    "coa_binding_requires_verified_coa": true,
+    "label_review_requires_named_reviewer": true,
+    "quote_ranking_must_include_quality_and_verification": true,
+    "procurement_readiness_requires_all_critical_gates": true,
+    "procurement_readiness_never_enables_sales": true
+  },
+
+  "required_procurement_gates": [
+    "SUPPLIER_VERIFIED",
+    "SUPPLIER_AUTHORIZED",
+    "MANUFACTURER_VERIFIED",
+    "GMP_VERIFIED",
+    "FORMULA_VERIFIED",
+    "COA_LOT_BOUND",
+    "LABEL_RELEASE_APPROVED",
+    "QUOTE_VERIFIED",
+    "MOQ_VERIFIED",
+    "UNIT_ECONOMICS_ACCEPTABLE"
+  ]
+}
