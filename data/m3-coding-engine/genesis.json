@@ -1,0 +1,40 @@
+{
+  "schema": "CIWU_M3_FRONTIER_GENESIS_V1",
+
+  "engine": "M3_CODING_ENGINE",
+
+  "provider": "OPENAI",
+
+  "api": "RESPONSES",
+
+  "default_model": "gpt-5.6-sol",
+
+  "modes": [
+    "CHAT",
+    "CODE",
+    "DEBUG",
+    "REFACTOR",
+    "ARCHITECT",
+    "EXPLAIN",
+    "TEST",
+    "SECURITY_REVIEW"
+  ],
+
+  "capability_truth": {
+    "provider_capabilities_must_be_discovered": true,
+    "unavailable_tools_must_not_be_claimed": true,
+    "api_key_must_not_be_exposed": true,
+    "api_key_must_not_be_committed": true
+  },
+
+  "execution_boundary": {
+    "generate_code": true,
+    "analyze_code": true,
+    "debug_code": true,
+    "generate_patches": true,
+    "execute_generated_shell": false,
+    "automatic_filesystem_mutation": false,
+    "automatic_git_push": false,
+    "automatic_deployment": false
+  }
+}
