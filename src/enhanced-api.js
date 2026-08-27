@@ -1,4 +1,5 @@
 const express = require('express');
+const ciwuM6Router = require('./routes/ciwu-m6-engine');
 const ciwuM5Router = require('./routes/ciwu-m5-engine');
 const ciwuM4Router = require('./routes/ciwu-m4-engine');
 const ciwuEvidenceEngineRouter = require('./routes/ciwu-evidence-engine');
@@ -19,6 +20,8 @@ const RealVisionEngine = require('./real-vision-engine');
 const LiveMedicalDB = require('./live-medical-db');
 const AuthVault = require('./auth-vault');
 const app = express();
+app.use('/api/m6', ciwuM6Router);
+
 app.use('/api/m5', ciwuM5Router);
 
 app.use('/api/m4', ciwuM4Router);

@@ -1,0 +1,18 @@
+{
+  "version": "6.2.0",
+  "module": "CIWU_SUPPLIER_OPERATIONS_COMMAND_CENTER",
+  "transaction_mode": "STORAGE_HARDENED",
+  "external_actions": {
+    "supplier_email_send": false,
+    "purchase_order_submission": false,
+    "payment_execution": false,
+    "sales": false
+  },
+  "invariants": {
+    "draft_is_not_sent": true,
+    "received_is_not_verified": true,
+    "derived_is_not_verified": true,
+    "score_does_not_override_hard_gate": true,
+    "procurement_ready_does_not_equal_purchase_authorized": true
+  }
+}
