@@ -13,6 +13,17 @@ const {
 
 const router = express.Router();
 
+/*
+ * M3 owns its request-body boundary.
+ *
+ * The router may be mounted before application-wide body middleware,
+ * so JSON parsing is enforced locally and does not depend on mount order.
+ */
+router.use(express.json({
+  limit: '1mb'
+}));
+
+
 router.get('/health', async (req, res) => {
   res.json({
     ok: true,
