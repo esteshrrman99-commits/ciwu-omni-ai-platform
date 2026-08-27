@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "supplier_id": "supplier-prohealth-candidate",
+  "name": "ProHealth",
+  "role": "PRIVATE_LABEL_SUPPLIER_CANDIDATE",
+  "state": "UNVERIFIED",
+  "authorization": {
+    "private_label_relationship_verified": false,
+    "authorized_for_ciwu_brand": false,
+    "written_agreement_received": false,
+    "contact_verified": false
+  },
+  "manufacturing": {
+    "facility_name": null,
+    "facility_address": null,
+    "manufacturer_identity_verified": false,
+    "gmp_evidence_state": "UNKNOWN",
+    "country_of_manufacture": null
+  },
+  "commercial": {
+    "minimum_order_quantity": null,
+    "lead_time_days": null,
+    "unit_cost_cents": null,
+    "setup_fee_cents": null,
+    "label_fee_cents": null,
+    "packaging_fee_cents": null,
+    "freight_estimate_cents": null,
+    "payment_terms": null
+  },
+  "evidence": {
+    "supplier_agreement": "MISSING",
+    "manufacturer_certificate": "MISSING",
+    "gmp_documentation": "MISSING",
+    "insurance": "UNKNOWN",
+    "quality_agreement": "MISSING"
+  }
+}

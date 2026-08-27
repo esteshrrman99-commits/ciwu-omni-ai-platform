@@ -1,0 +1,23 @@
+{
+  "version": "2.0.1",
+  "module": "CIWU_PRODUCT_QUALIFICATION_ENGINE",
+  "release_policy": "FAIL_CLOSED",
+  "required_gates": [
+    "SUPPLIER_AUTHORIZATION",
+    "FORMULA_VERIFICATION",
+    "COA_VERIFICATION",
+    "MANUFACTURER_VERIFICATION",
+    "LABEL_VERIFICATION",
+    "COST_COMPLETENESS",
+    "COMMERCIAL_RELEASE"
+  ],
+  "truth_states": [
+    "VERIFIED",
+    "DERIVED",
+    "DEVELOPMENT",
+    "UNVERIFIED",
+    "UNKNOWN",
+    "MISSING",
+    "UNAVAILABLE"
+  ]
+}

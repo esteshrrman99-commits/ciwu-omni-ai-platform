@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "product_id": "ciwu-cellular-vitality-001",
+  "state": "INCOMPLETE",
+  "inputs_cents": {
+    "manufacturing_unit": null,
+    "bottle_or_container": null,
+    "closure": null,
+    "label": null,
+    "carton": null,
+    "testing_allocated": null,
+    "freight_allocated": null,
+    "fulfillment": null,
+    "payment_processing": null,
+    "other": null
+  },
+  "commercial": {
+    "planned_retail_price_cents": null,
+    "total_landed_cost_cents": null,
+    "gross_profit_cents": null,
+    "gross_margin_percent": null
+  }
+}

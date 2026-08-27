@@ -1,0 +1,31 @@
+#ciwu-product-engine {
+  max-width: 1200px;
+  margin: 32px auto;
+  padding: 26px;
+  border-radius: 20px;
+  border: 1px solid rgba(120,110,255,.28);
+  background: rgba(9,10,23,.94);
+}
+
+.ciwu-engine-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit,minmax(180px,1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.ciwu-engine-card {
+  padding: 16px;
+  border-radius: 14px;
+  background: rgba(255,255,255,.035);
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+.ciwu-engine-pass {
+  color: #7dffad;
+}
+
+.ciwu-engine-fail {
+  color: #ffd36b;
+}

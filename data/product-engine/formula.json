@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "product_id": "ciwu-cellular-vitality-001",
+  "product_name": "CIWU Cellular Vitality",
+  "formula_state": "UNVERIFIED",
+  "version": "0.1.0-development",
+  "serving": {
+    "serving_size": null,
+    "servings_per_container": null,
+    "dosage_form": null
+  },
+  "ingredients": [],
+  "requirements": {
+    "identity_specification_required": true,
+    "potency_specification_required": true,
+    "purity_specification_required": true,
+    "source_specification_required": true,
+    "allergen_review_required": true,
+    "excipients_review_required": true,
+    "stability_support_required": true
+  },
+  "verification": {
+    "supplier_formula_received": false,
+    "formula_matches_target": false,
+    "ingredient_amounts_verified": false,
+    "excipients_verified": false,
+    "final_formula_approved": false
+  }
+}

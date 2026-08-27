@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "product_id": "ciwu-cellular-vitality-001",
+  "coa_state": "REQUIRED",
+  "required_checks": {
+    "identity": true,
+    "assay_or_potency": true,
+    "heavy_metals": true,
+    "microbiology": true,
+    "lot_number": true,
+    "manufacture_date_or_test_date": true,
+    "laboratory_identity": true,
+    "method_reference": true
+  },
+  "conditional_checks": {
+    "residual_solvents": "AS_APPLICABLE",
+    "pesticides": "AS_APPLICABLE",
+    "mycotoxins": "AS_APPLICABLE",
+    "allergens": "AS_APPLICABLE",
+    "stability": "AS_APPLICABLE"
+  },
+  "acceptance": {
+    "coa_received": false,
+    "lot_matches_product": false,
+    "methods_reviewed": false,
+    "results_within_specification": false,
+    "lab_identity_verified": false,
+    "coa_approved": false
+  }
+}
