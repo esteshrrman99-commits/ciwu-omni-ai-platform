@@ -1,0 +1,23 @@
+{
+  "version": "10.0.0",
+  "module": "CIWU_REAL_SUPPLIER_EXECUTION_WORKBENCH",
+
+  "policy": {
+    "recommendation_does_not_equal_authorization": true,
+    "verified_supplier_does_not_equal_purchase_approval": true,
+    "document_review_requires_reviewer": true,
+    "coa_review_requires_lot_context": true,
+    "decision_matrix_is_derived": true,
+    "due_diligence_packet_is_advisory": true
+  },
+
+  "external_actions": {
+    "email_send": false,
+    "application_submit": false,
+    "quote_accept": false,
+    "purchase_authorization": false,
+    "purchase_order_submit": false,
+    "payment": false,
+    "sales": false
+  }
+}
