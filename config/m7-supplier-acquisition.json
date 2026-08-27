@@ -1,0 +1,24 @@
+{
+  "version": "7.0.0",
+  "module": "CIWU_REAL_SUPPLIER_ACQUISITION",
+
+  "truth_states": {
+    "public_private_label_capability": "VERIFIED",
+    "ciwu_private_label_authorization": "UNVERIFIED",
+    "supplier_quote": "UNVERIFIED",
+    "formula": "UNVERIFIED",
+    "coa": "UNVERIFIED",
+    "manufacturer": "UNVERIFIED",
+    "gmp": "UNVERIFIED",
+    "commercial_release": "BLOCKED",
+    "sales": "HARD_DISABLED"
+  },
+
+  "external_actions": {
+    "email_send": false,
+    "wholesale_application_submit": false,
+    "purchase_order_submit": false,
+    "payment": false,
+    "sales": false
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "product": "CIWU Cellular Vitality",
+  "product_id": "ciwu-cellular-vitality-001",
+
+  "development_state": "TARGET_SPEC_DRAFT",
+
+  "requested_supplier_information": [
+    "private-label eligibility",
+    "exact available formula options",
+    "custom formulation options",
+    "ingredient identity and source",
+    "ingredient quantities per serving",
+    "dosage form options",
+    "bottle/count options",
+    "MOQ",
+    "unit pricing",
+    "setup/tooling costs",
+    "testing costs",
+    "packaging costs",
+    "lead time",
+    "manufacturer identity",
+    "GMP documentation",
+    "representative COA",
+    "lot-specific COA policy",
+    "third-party testing",
+    "label support",
+    "stability/shelf-life",
+    "shipping/freight terms"
+  ],
+
+  "claims_policy": {
+    "disease_treatment_claims": false,
+    "unverified_medical_claims": false
+  },
+
+  "formula_locked": false,
+  "commercial_release": false
+}

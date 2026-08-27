@@ -1,0 +1,35 @@
+{
+  "supplier_id": "prohealth-longevity",
+  "name": "ProHealth Longevity",
+  "website": "https://www.prohealth.com/",
+  "wholesale_page": "https://www.prohealth.com/pages/wholesale-application",
+  "wholesale_email": "wholesale@prohealth.com",
+  "wholesale_phone": "(805) 679-6982",
+
+  "public_capabilities": {
+    "wholesale_program": "VERIFIED_PUBLIC",
+    "bulk_nmn": "VERIFIED_PUBLIC",
+    "private_label_inquiry": "VERIFIED_PUBLIC",
+    "co_branding": "VERIFIED_PUBLIC",
+    "custom_formulation": "VERIFIED_PUBLIC"
+  },
+
+  "public_bulk_nmn_range": {
+    "minimum": "100 grams",
+    "maximum": "100 kilograms and up",
+    "state": "VERIFIED_PUBLIC"
+  },
+
+  "ciwu_relationship": {
+    "application_submitted": false,
+    "supplier_identity_verified_for_ciwu": false,
+    "private_label_authorization_verified": false,
+    "quote_received": false,
+    "formula_received": false,
+    "coa_received": false,
+    "gmp_evidence_received": false,
+    "manufacturer_identity_received": false
+  },
+
+  "commercial_state": "CONTACT_READY_NOT_AUTHORIZED"
+}
