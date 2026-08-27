@@ -5,6 +5,7 @@ const fs = require('fs');
 const path = require('path');
 
 const router = express.Router();
+router.use(express.json());
 
 const ROOT = path.join(__dirname, '..', '..');
 
