@@ -1,0 +1,25 @@
+{
+  "schema": "CIWU_M16_DELIVERY_POLICY_V1",
+
+  "delivery": {
+    "explicit_human_action_required": true,
+    "automatic_send": false,
+    "receipt_requires_real_transmission_evidence": true,
+    "fabricated_receipt_allowed": false
+  },
+
+  "response_lifecycle": {
+    "response_must_bind_to_supplier": true,
+    "response_must_bind_to_transaction": true,
+    "evidence_hash_required": true,
+    "verification_is_separate_from_ingestion": true
+  },
+
+  "commercial_controls": {
+    "quote_acceptance": false,
+    "purchase_authorization": false,
+    "po_submission": false,
+    "payment": false,
+    "sales": false
+  }
+}
