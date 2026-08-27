@@ -1,0 +1,13 @@
+{
+  "schema": "CIWU_M15_QUALIFICATION_V1",
+  "supplier": null,
+  "manufacturer_verified": false,
+  "gmp_verified": false,
+  "coa_verified": false,
+  "lot_bound": false,
+  "quote_verified": false,
+  "formula_verified": false,
+  "evidence_complete": false,
+  "qualified": false,
+  "procurement_authorized": false
+}

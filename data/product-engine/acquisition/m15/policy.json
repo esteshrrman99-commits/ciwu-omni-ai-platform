@@ -1,0 +1,25 @@
+{
+  "schema": "CIWU_M15_POLICY_V1",
+
+  "transmission": {
+    "automatic_email_send": false,
+    "automatic_application_submission": false,
+    "human_authorization_required": true
+  },
+
+  "commercial_controls": {
+    "quote_acceptance": false,
+    "purchase_authorization": false,
+    "po_submission": false,
+    "payment": false,
+    "sales": false
+  },
+
+  "evidence": {
+    "unknown_is_verified": false,
+    "public_claim_is_verified_credential": false,
+    "missing_is_safe": false,
+    "score_overrides_hard_gate": false,
+    "human_adjudication_required": true
+  }
+}
