@@ -1,0 +1,11 @@
+{
+  "schema": "CIWU_M19_RUNTIME_STATE_V1",
+  "transaction_id": "CIWU-PROHEALTH-20260827T205926Z",
+  "parent_milestone": "M18",
+  "parent_commit": "24f602319d8ae5c2015e259fc20bc79e7d530a1d",
+  "response_state": "WAITING_FOR_REAL_RESPONSE",
+  "real_response_artifact_count": 0,
+  "adjudication_ready": false,
+  "supplier_qualified": false,
+  "purchase_authorized": false
+}

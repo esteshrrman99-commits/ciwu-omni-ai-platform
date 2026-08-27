@@ -1,0 +1,29 @@
+{
+  "schema": "CIWU_M19_RESPONSE_ADJUDICATION_POLICY_V1",
+
+  "entry_gate": {
+    "real_supplier_response_required": true,
+    "synthetic_response_forbidden": true,
+    "response_metadata_alone_insufficient": true,
+    "response_must_be_sha256_bound": true,
+    "human_review_required": true
+  },
+
+  "qualification": {
+    "response_artifact_required": true,
+    "supplier_identity_verification_required": true,
+    "gmp_evidence_required": true,
+    "coa_evidence_required": true,
+    "lot_traceability_required": true,
+    "quote_evidence_required": true,
+    "formula_evidence_required": true
+  },
+
+  "commercial_controls": {
+    "quote_acceptance": false,
+    "purchase_authorization": false,
+    "po_submission": false,
+    "payment": false,
+    "sales": false
+  }
+}
