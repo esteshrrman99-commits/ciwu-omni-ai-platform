@@ -88,6 +88,7 @@ body{background:linear-gradient(135deg,#0a0a0f 0%,#1a1a2e 100%);color:#fff;font-
   <link rel="stylesheet" href="/css/ciwu-m54-orchestration.css">
   <link rel="stylesheet" href="/css/ciwu-product-engine.css">
   <link rel="stylesheet" href="/css/ciwu-supplier-command.css">
+  <link rel="stylesheet" href="/css/ciwu-m13-console.css">
 </head>
 <body>
 <div class="container">
@@ -842,6 +843,63 @@ setInterval(updateStats,5000);
 </section>
 
   <script src="/js/ciwu-supplier-command.js"></script>
+
+<!-- CIWU_M13_REAL_CONTACT_WORKFLOW -->
+<section id="ciwu-m13-console">
+
+  <div class="ciwu-m13-head">
+    Real Supplier Contact & Evidence Console
+  </div>
+
+  <div class="ciwu-m13-copy">
+    Official supplier contact channels, application requirements
+    and evidence-review state. Private CIWU business identity data
+    remains local to Termux and is never displayed by this website.
+  </div>
+
+  <div class="ciwu-m13-grid">
+
+    <div class="ciwu-m13-card">
+      <small>ProHealth Wholesale</small>
+      <strong id="ciwu-m13-wholesale">
+        CHECKING
+      </strong>
+    </div>
+
+    <div class="ciwu-m13-card">
+      <small>Wholesale Phone</small>
+      <strong id="ciwu-m13-phone">
+        CHECKING
+      </strong>
+    </div>
+
+    <div class="ciwu-m13-card">
+      <small>Business Identity Profile</small>
+      <strong id="ciwu-m13-profile">
+        LOCAL ONLY
+      </strong>
+    </div>
+
+  </div>
+
+  <pre id="ciwu-m13-evidence">
+Loading supplier evidence...
+  </pre>
+
+  <div
+    id="ciwu-m13-status"
+    class="ciwu-m13-lock">
+    CHECKING M13
+  </div>
+
+  <div class="ciwu-m13-lock">
+    🔒 Email sending, application submission, purchase
+    authorization, PO submission, payment and sales remain disabled.
+  </div>
+
+</section>
+
+  <script src="/js/ciwu-m13-console.js"></script>
 </body>
 </html>
 

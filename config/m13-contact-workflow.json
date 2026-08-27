@@ -1,0 +1,63 @@
+{
+  "version": "13.0.0",
+  "module": "CIWU_REAL_SUPPLIER_CONTACT_WORKFLOW",
+
+  "prohealth": {
+    "supplier_name": "ProHealth Longevity",
+    "website": "https://www.prohealth.com/",
+    "wholesale_application": "https://www.prohealth.com/pages/wholesale-application",
+
+    "wholesale_contact": {
+      "email": "wholesale@prohealth.com",
+      "phone": "(805) 679-6982",
+      "verification_state": "VERIFIED_PUBLIC_OFFICIAL_SOURCE"
+    },
+
+    "bulk_ingredient_contact": {
+      "email": "ingredients@prohealth.com",
+      "source_scope": "Uthever / bulk ingredient channel",
+      "verification_state": "VERIFIED_PUBLIC_OFFICIAL_SOURCE"
+    },
+
+    "private_label_capability": {
+      "state": "VERIFIED_PUBLIC",
+      "ciwu_authorization": "UNVERIFIED"
+    }
+  },
+
+  "application_required_fields": [
+    "company_name",
+    "contact_name",
+    "title",
+    "address",
+    "city",
+    "state",
+    "zip_code",
+    "country",
+    "phone_number",
+    "email_address",
+    "website",
+    "type_of_business",
+    "year_established",
+    "practitioner_office",
+    "intended_sales_channels",
+    "products_of_interest",
+    "expected_monthly_volume",
+    "additional_business_information"
+  ],
+
+  "privacy": {
+    "business_profile_location": ".ciwu-private/business-profile.json",
+    "commit_business_profile": false,
+    "serve_business_profile_publicly": false
+  },
+
+  "external_actions": {
+    "email_send": false,
+    "application_submit": false,
+    "purchase_authorization": false,
+    "purchase_order_submit": false,
+    "payment": false,
+    "sales": false
+  }
+}
