@@ -1,0 +1,22 @@
+{
+  "version": "11.0.0",
+  "module": "CIWU_SUPPLIER_PACKET_OUTREACH_CONTROL",
+
+  "truth_policy": {
+    "packet_ready_is_not_sent": true,
+    "response_ingested_is_not_verified": true,
+    "checklist_completed_is_not_credential_verification": true,
+    "recommendation_is_not_authorization": true,
+    "human_review_approval_is_not_purchase_authorization": true
+  },
+
+  "external_actions": {
+    "supplier_email_send": false,
+    "wholesale_application_submit": false,
+    "quote_accept": false,
+    "purchase_authorization": false,
+    "purchase_order_submit": false,
+    "payment": false,
+    "sales": false
+  }
+}
