@@ -1,0 +1,43 @@
+{
+  "schema": "CIWU_PROVIDER_REGISTRY_V1",
+  "pricingTruth": "UNVERIFIED_RUNTIME_UNTIL_REFRESHED",
+  "providers": [
+    {
+      "id": "local",
+      "available": false,
+      "verified": false,
+      "estimatedCostUsd": 0
+    },
+    {
+      "id": "groq",
+      "available": false,
+      "verified": false,
+      "estimatedCostUsd": 0
+    },
+    {
+      "id": "gemini",
+      "available": false,
+      "verified": false,
+      "estimatedCostUsd": 0
+    },
+    {
+      "id": "cloudflare",
+      "available": false,
+      "verified": false,
+      "estimatedCostUsd": 0
+    },
+    {
+      "id": "huggingface",
+      "available": false,
+      "verified": false,
+      "estimatedCostUsd": 0
+    },
+    {
+      "id": "openai",
+      "available": false,
+      "verified": false,
+      "estimatedCostUsd": null,
+      "knownState": "BILLING_BLOCKED_AT_LAST_CERTIFICATION"
+    }
+  ]
+}
