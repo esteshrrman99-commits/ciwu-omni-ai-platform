@@ -1,0 +1,20 @@
+{
+  "schema": "CIWU_PROJECT_BRAIN_WORKBENCH_V1",
+  "generation": "OMEGA120_M2065_M2184",
+  "repositoryPrivacyHardeningV3": true,
+  "testRelationshipIndexV1": true,
+  "releaseProvenanceGraphV1": true,
+  "projectBrainGraphV1": true,
+  "groundedContextSelectorV1": true,
+  "sourceCitationEnvelopeV1": true,
+  "regressionPlanGeneratorV1": true,
+  "candidatePatchPlanV1": true,
+  "projectBrainApiV1": true,
+  "projectBrainClientV1": true,
+  "readOnly": true,
+  "productionMutation": false,
+  "shellExecution": false,
+  "gitCommitAuthority": false,
+  "gitPushAuthority": false,
+  "purchaseAuthority": false
+}

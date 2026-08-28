@@ -1,5 +1,10 @@
 'use strict';
 
+const CIWU_DENIED_INVENTORY_FILES = new Set([
+  'src/data/entities-batch1.json'
+]);
+
+
 const fs=require('node:fs');
 const path=require('node:path');
 
@@ -84,7 +89,16 @@ function walk(root,relative='') {
             )
         )
       ) {
-        results.push({
+
+      if (
+        CIWU_DENIED_INVENTORY_FILES.has(
+          child.replaceAll('\\','/')
+        )
+      ) {
+        continue;
+      }
+
+results.push({
           path:child,
           type:'directory'
         });
@@ -136,3 +150,62 @@ module.exports={
   walk,
   inventory
 };
+
+
+// CIWU_REPOSITORY_PRIVACY_WRAPPER_V3
+(() => {
+  const protectedFiles = new Set([
+    'src/data/entities-batch1.json'
+  ]);
+
+  const normalize = value =>
+    String(value ?? '')
+      .replaceAll('\\','/')
+      .replace(/^\.\/+/, '');
+
+  const originalInventory =
+    module.exports.inventory;
+
+  if (
+    typeof originalInventory !== 'function'
+  ) {
+    throw new Error(
+      'CIWU_INVENTORY_EXPORT_MISSING'
+    );
+  }
+
+  module.exports.inventory =
+    function ciwuPrivacyFilteredInventory(
+      ...args
+    ) {
+      const result =
+        originalInventory.apply(
+          this,
+          args
+        );
+
+      if (
+        result &&
+        Array.isArray(result.entries)
+      ) {
+        result.entries =
+          result.entries.filter(
+            entry => {
+              const candidate =
+                normalize(
+                  entry?.path ??
+                  entry?.file ??
+                  entry?.name ??
+                  ''
+                );
+
+              return !protectedFiles.has(
+                candidate
+              );
+            }
+          );
+      }
+
+      return result;
+    };
+})();

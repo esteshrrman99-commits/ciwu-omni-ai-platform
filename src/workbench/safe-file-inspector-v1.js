@@ -186,3 +186,76 @@ module.exports={
   resolveSafe,
   inspect
 };
+
+
+// CIWU_SAFE_INSPECTOR_PRIVACY_WRAPPER_V2
+(() => {
+  const protectedFiles = new Set([
+    'src/data/entities-batch1.json'
+  ]);
+
+  const normalize = value =>
+    String(value ?? '')
+      .replaceAll('\\','/')
+      .replace(/^\.\/+/, '');
+
+  const isProtected = value =>
+    protectedFiles.has(
+      normalize(value)
+    );
+
+  const originalResolveSafe =
+    module.exports.resolveSafe;
+
+  if (
+    typeof originalResolveSafe !== 'function'
+  ) {
+    throw new Error(
+      'CIWU_RESOLVE_SAFE_EXPORT_MISSING'
+    );
+  }
+
+  module.exports.resolveSafe =
+    function ciwuProtectedResolveSafe(
+      root,
+      requestedPath,
+      ...rest
+    ) {
+      if (isProtected(requestedPath)) {
+        throw new Error(
+          'FILE_NOT_ALLOWED'
+        );
+      }
+
+      return originalResolveSafe.call(
+        this,
+        root,
+        requestedPath,
+        ...rest
+      );
+    };
+
+  if (
+    typeof module.exports.inspectable ===
+    'function'
+  ) {
+    const originalInspectable =
+      module.exports.inspectable;
+
+    module.exports.inspectable =
+      function ciwuProtectedInspectable(
+        requestedPath,
+        ...rest
+      ) {
+        if (isProtected(requestedPath)) {
+          return false;
+        }
+
+        return originalInspectable.call(
+          this,
+          requestedPath,
+          ...rest
+        );
+      };
+  }
+})();

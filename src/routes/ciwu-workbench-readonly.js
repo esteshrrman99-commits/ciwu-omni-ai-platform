@@ -317,4 +317,149 @@ router.post(
   }
 );
 
+
+// CIWU_PROJECT_BRAIN_API_V1
+
+const ciwuProjectBrainGraph =
+  require('../workbench/project-brain-graph-v1');
+
+const ciwuGroundedContext =
+  require('../workbench/grounded-context-selector-v1');
+
+const ciwuCitationEnvelope =
+  require('../workbench/source-citation-envelope-v1');
+
+const ciwuRegressionPlan =
+  require('../workbench/regression-plan-generator-v1');
+
+const ciwuCandidatePatchPlan =
+  require('../workbench/candidate-patch-plan-v1');
+
+router.get(
+  '/project-brain',
+  (req,res) => {
+    noStore(res);
+
+    try {
+      res.json(
+        ciwuProjectBrainGraph.build(
+          process.cwd()
+        )
+      );
+    } catch (error) {
+      res.status(400).json({
+        ok:false,
+        error:error.message
+      });
+    }
+  }
+);
+
+router.post(
+  '/grounded-context',
+  (req,res) => {
+    noStore(res);
+
+    const body =
+      req.body &&
+      typeof req.body === 'object'
+        ? req.body
+        : {};
+
+    try {
+      const grounded =
+        ciwuGroundedContext.select({
+          root:process.cwd(),
+          files:
+            Array.isArray(body.files)
+              ? body.files
+              : [],
+          symbols:
+            Array.isArray(body.symbols)
+              ? body.symbols
+              : []
+        });
+
+      res.json({
+        ...grounded,
+        citations:
+          ciwuCitationEnvelope.build(
+            grounded
+          )
+      });
+    } catch (error) {
+      res.status(400).json({
+        ok:false,
+        error:error.message
+      });
+    }
+  }
+);
+
+router.post(
+  '/regression-plan',
+  (req,res) => {
+    noStore(res);
+
+    const body =
+      req.body &&
+      typeof req.body === 'object'
+        ? req.body
+        : {};
+
+    try {
+      res.json(
+        ciwuRegressionPlan.generate({
+          root:process.cwd(),
+          files:
+            Array.isArray(body.files)
+              ? body.files
+              : []
+        })
+      );
+    } catch (error) {
+      res.status(400).json({
+        ok:false,
+        error:error.message
+      });
+    }
+  }
+);
+
+router.post(
+  '/candidate-patch-plan',
+  (req,res) => {
+    noStore(res);
+
+    const body =
+      req.body &&
+      typeof req.body === 'object'
+        ? req.body
+        : {};
+
+    try {
+      res.json(
+        ciwuCandidatePatchPlan.plan({
+          root:process.cwd(),
+          objective:
+            body.objective || '',
+          files:
+            Array.isArray(body.files)
+              ? body.files
+              : [],
+          symbols:
+            Array.isArray(body.symbols)
+              ? body.symbols
+              : []
+        })
+      );
+    } catch (error) {
+      res.status(400).json({
+        ok:false,
+        error:error.message
+      });
+    }
+  }
+);
+
 module.exports=router;
