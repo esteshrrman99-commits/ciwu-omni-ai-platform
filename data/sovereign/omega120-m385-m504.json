@@ -1,0 +1,36 @@
+{
+  "schema": "CIWU_OMEGA120_M385_M504_V1",
+  "milestoneStart": 385,
+  "milestoneEnd": 504,
+  "milestoneCount": 120,
+  "waves": 10,
+  "milestonesPerWave": 12,
+
+  "providerOnboardingCeremony": true,
+  "modelDiscoveryTruth": true,
+  "tokenCostTelemetry": true,
+  "requestBudgetGovernor": true,
+  "retryCircuitPolicy": true,
+  "zeroCostFallbackV2": true,
+  "providerCalibration": true,
+  "codexPatchContractV2": true,
+  "xeonSandboxCertification": true,
+  "neurotexCertificationReplay": true,
+  "githubExecutionIntent": true,
+
+  "monthlyRequiredSpendUsd": 0,
+  "monthlyHardCapUsd": 100,
+
+  "realProviderCallsDuringBuild": false,
+  "realInferenceDefault": false,
+  "paidInferenceDefault": false,
+  "silentPaidFallback": false,
+
+  "productionShell": false,
+  "productionAiFilesystemMutation": false,
+  "autonomousGitPush": false,
+  "autonomousPurchase": false,
+  "forcePush": false,
+
+  "nativeFoundationModel": false
+}
