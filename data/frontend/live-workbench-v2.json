@@ -1,0 +1,13 @@
+{
+  "schema": "CIWU_LIVE_WORKBENCH_V2",
+  "readOnly": true,
+  "runtimeTelemetry": true,
+  "repositoryInventory": true,
+  "symbolIndex": true,
+  "providerRuntimeTruth": true,
+  "neurotexRuntimeSummary": true,
+  "certificationActivity": true,
+  "productionMutation": false,
+  "gitPushAuthority": false,
+  "purchaseAuthority": false
+}

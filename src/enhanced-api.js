@@ -1,4 +1,7 @@
 const express = require('express');
+
+const ciwuWorkbenchReadonly =
+  require('./routes/ciwu-workbench-readonly');
 const ciwuM3CodingRouter = require('./routes/ciwu-m3-coding-engine');
 const ciwuM18Router = require('./routes/ciwu-m18-engine');
 const ciwuM13Router = require('./routes/ciwu-m13-engine');
@@ -307,6 +310,11 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
 });
 const PORT = process.env.PORT || 10000;
+app.use(
+  '/api/workbench',
+  ciwuWorkbenchReadonly
+);
+
 app.listen(PORT, () => {
 });
 

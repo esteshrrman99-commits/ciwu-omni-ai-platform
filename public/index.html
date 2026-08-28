@@ -556,6 +556,36 @@ No production mutation is performed from this interface.</div>
               </div>
 
               <div class="ciwu-card ciwu-card-pad">
+                <div
+                  id="ciwu-workbench-live-status"
+                  class="ciwu-status"
+                  style="margin-bottom:14px"
+                >
+                  Loading live project telemetry...
+                </div>
+
+                <div class="ciwu-workbench-meta">
+                  <div class="ciwu-card ciwu-stat">
+                    <div class="ciwu-stat-label">Runtime project</div>
+                    <div id="ciwu-live-project" class="ciwu-stat-value">Loading</div>
+                  </div>
+
+                  <div class="ciwu-card ciwu-stat">
+                    <div class="ciwu-stat-label">Generation</div>
+                    <div id="ciwu-live-generation" class="ciwu-stat-value">Loading</div>
+                  </div>
+
+                  <div class="ciwu-card ciwu-stat">
+                    <div class="ciwu-stat-label">Milestone</div>
+                    <div id="ciwu-live-milestone" class="ciwu-stat-value">Loading</div>
+                  </div>
+
+                  <div class="ciwu-card ciwu-stat">
+                    <div class="ciwu-stat-label">Render commit</div>
+                    <div id="ciwu-live-render-commit" class="ciwu-stat-value">Loading</div>
+                  </div>
+                </div>
+
                 <div class="ciwu-eyebrow">
                   PROJECT SESSION
                 </div>
@@ -585,6 +615,32 @@ No production mutation is performed from this interface.</div>
                   </strong>
                 </div>
 
+                <div class="ciwu-row">
+                  <span>Live file count</span>
+                  <strong id="ciwu-live-file-count">Loading</strong>
+                </div>
+
+                <div
+                  id="ciwu-live-repository-tree"
+                  class="ciwu-tree"
+                ></div>
+
+                <div class="ciwu-section-title">
+                  <div>
+                    <h2>Live Symbol Index</h2>
+                    <p>Read-only symbols from current JavaScript source.</p>
+                  </div>
+                  <strong id="ciwu-live-symbol-count">Loading</strong>
+                </div>
+
+                <div
+                  id="ciwu-live-symbol-list"
+                  class="ciwu-panel-list"
+                ></div>
+
+                <details style="margin-top:16px">
+                  <summary>Original navigation shortcuts</summary>
+
                 <div class="ciwu-tree">
                   <button data-file-path="src/">
                     ▸ src/
@@ -608,6 +664,7 @@ No production mutation is performed from this interface.</div>
                     ◇ public/ciwu-omni.css
                   </button>
                 </div>
+                </details>
               </div>
             </section>
 
@@ -627,6 +684,14 @@ No production mutation is performed from this interface.</div>
                     None
                   </strong>
                 </div>
+
+                <div
+                  id="ciwu-live-provider-grid"
+                  class="ciwu-provider-grid"
+                ></div>
+
+                <details style="margin-top:16px">
+                  <summary>Architecture examples</summary>
 
                 <div class="ciwu-provider-grid">
                   <article
@@ -666,7 +731,7 @@ No production mutation is performed from this interface.</div>
                 </div>
               </div>
             </section>
-
+                </details>
             <section
               class="ciwu-workbench-panel"
               data-workbench-panel="codexdiff"
@@ -732,6 +797,13 @@ No patch is applied from this viewer.</div>
                   NEUROTEX EVIDENCE EXPLORER
                 </div>
 
+                <div class="ciwu-row">
+                  <span>Live evidence sources</span>
+                  <strong id="ciwu-live-neurotex-count">Loading</strong>
+                </div>
+
+                <div id="ciwu-live-neurotex-list"></div>
+
                 <div class="ciwu-chip-row">
                   <button class="ciwu-button" data-evidence-state="ALL">
                     All
@@ -790,6 +862,16 @@ No patch is applied from this viewer.</div>
                 <div class="ciwu-eyebrow">
                   ACTIVITY TIMELINE
                 </div>
+
+                <div class="ciwu-row">
+                  <span>Certified release events</span>
+                  <strong id="ciwu-live-event-count">Loading</strong>
+                </div>
+
+                <div
+                  id="ciwu-live-activity"
+                  class="ciwu-timeline"
+                ></div>
 
                 <div class="ciwu-timeline">
                   <div class="ciwu-timeline-event">
@@ -882,5 +964,6 @@ No patch is applied from this viewer.</div>
 
 <script src="/ciwu-omni-app.js" defer></script>
 <script src="/ciwu-workbench.js" defer></script>
+<script src="/ciwu-workbench-live.js" defer></script>
 </body>
 </html>
