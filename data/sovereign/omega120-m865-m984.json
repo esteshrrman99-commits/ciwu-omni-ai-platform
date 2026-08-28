@@ -1,0 +1,34 @@
+{
+  "schema": "CIWU_OMEGA120_M865_M984_V1",
+  "milestoneStart": 865,
+  "milestoneEnd": 984,
+  "milestoneCount": 120,
+  "waves": 10,
+  "milestonesPerWave": 12,
+
+  "nonceBoundCertificationSessionV3": true,
+  "replayResistantReceiptV3": true,
+  "privateEvidenceStoreV2": true,
+  "zeroCostCertificationOrchestratorV2": true,
+  "failureNormalizationV4": true,
+  "benchmarkPersistenceV3": true,
+  "runtimeAdmissionRegistryV6": true,
+  "certifiedRepairQueueV2": true,
+  "githubApprovalTokenV3": true,
+  "commitBoundDeploymentTruth": true,
+
+  "monthlyRequiredSpendUsd": 0,
+  "monthlyHardCapUsd": 100,
+  "realProviderCallsDuringBuild": false,
+  "paidProviderCallsDuringBuild": false,
+  "realInferenceDefault": false,
+  "paidInferenceDefault": false,
+  "silentPaidFallback": false,
+
+  "productionShell": false,
+  "productionAiFilesystemMutation": false,
+  "autonomousGitPush": false,
+  "autonomousPurchase": false,
+  "forcePush": false,
+  "nativeFoundationModel": false
+}
