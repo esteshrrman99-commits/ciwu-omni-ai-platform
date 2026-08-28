@@ -653,3 +653,171 @@ a {
     max-width: 94%;
   }
 }
+
+/* ================================================================
+   CIWU OMNI WORKBENCH V1
+   ================================================================ */
+
+.ciwu-workbench {
+  display: grid;
+  grid-template-columns: 240px minmax(0,1fr);
+  gap: 14px;
+}
+
+.ciwu-workbench-nav {
+  padding: 12px;
+  height: max-content;
+}
+
+.ciwu-workbench-nav button {
+  display: block;
+  width: 100%;
+  margin: 4px 0;
+  padding: 10px 11px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--muted);
+  text-align: left;
+}
+
+.ciwu-workbench-nav button:hover,
+.ciwu-workbench-nav button.active {
+  background: var(--surface-2);
+  border-color: var(--line);
+  color: var(--text);
+}
+
+.ciwu-workbench-panel {
+  min-width: 0;
+}
+
+.ciwu-tree {
+  display: grid;
+  gap: 5px;
+}
+
+.ciwu-tree button {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+  border: 0;
+  border-radius: 8px;
+  padding: 8px 9px;
+  background: transparent;
+  color: var(--muted);
+  text-align: left;
+}
+
+.ciwu-tree button:hover {
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+.ciwu-provider-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(3,minmax(0,1fr));
+  gap: 12px;
+}
+
+.ciwu-provider-card {
+  cursor: pointer;
+  padding: 15px;
+}
+
+.ciwu-provider-card:hover {
+  border-color: rgba(99,245,198,.35);
+}
+
+.ciwu-diff {
+  overflow: auto;
+  max-height: 520px;
+  padding: 16px;
+  border-radius: 13px;
+  background: #020406;
+  font-family:
+    "SFMono-Regular",
+    Consolas,
+    monospace;
+  font-size: 12px;
+  line-height: 1.55;
+  white-space: pre;
+}
+
+.ciwu-evidence-record {
+  margin-bottom: 10px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface-2);
+}
+
+.ciwu-timeline {
+  position: relative;
+  padding-left: 20px;
+}
+
+.ciwu-timeline::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 4px;
+  bottom: 4px;
+  width: 1px;
+  background: var(--line);
+}
+
+.ciwu-timeline-event {
+  position: relative;
+  padding: 0 0 18px 12px;
+}
+
+.ciwu-timeline-event::before {
+  content: "";
+  position: absolute;
+  left: -19px;
+  top: 5px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.ciwu-workbench-meta {
+  display: grid;
+  grid-template-columns:
+    repeat(3,minmax(0,1fr));
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+@media (max-width: 1000px) {
+  .ciwu-workbench {
+    grid-template-columns: 1fr;
+  }
+
+  .ciwu-workbench-nav {
+    display: flex;
+    gap: 5px;
+    overflow-x: auto;
+  }
+
+  .ciwu-workbench-nav button {
+    width: auto;
+    flex: 0 0 auto;
+  }
+
+  .ciwu-provider-grid {
+    grid-template-columns:
+      repeat(2,minmax(0,1fr));
+  }
+}
+
+@media (max-width: 650px) {
+  .ciwu-provider-grid,
+  .ciwu-workbench-meta {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "schema": "CIWU_PROJECT_WORKBENCH_V1",
+  "project": "CIWU OMNI",
+  "branch": "main",
+  "features": {
+    "projectState": true,
+    "repositoryExplorer": true,
+    "symbolView": true,
+    "m3ConversationLedger": true,
+    "providerTruthCards": true,
+    "codexDiffInspector": true,
+    "xeonSandboxViewer": true,
+    "neurotexEvidenceExplorer": true,
+    "activityTimeline": true,
+    "persistentUiState": true
+  },
+  "mutationAuthority": false,
+  "gitPushAuthority": false,
+  "purchaseAuthority": false
+}

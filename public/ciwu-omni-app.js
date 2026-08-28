@@ -86,6 +86,10 @@
         'NEUROTEX',
         'Evidence and learning state'
       ],
+      workbench:[
+        'Project Workbench',
+        'Interactive project and evidence workspace'
+      ],
       safety:[
         'Safety & Authorization',
         'Fail-closed control plane'
