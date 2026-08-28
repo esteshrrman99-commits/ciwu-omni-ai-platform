@@ -521,4 +521,84 @@ for (
   );
 }
 
+
+// CIWU_AUTONOMOUS_REPAIR_SEARCH_API_V1
+const ciwuRepairSearchPolicy =
+  require('../workbench/autonomous-repair-search-policy-v1');
+
+router.get(
+  '/xeon/repair-search/status',
+  (req,res) => {
+    noStore(res);
+
+    res.json({
+      ok:true,
+      schema:
+        'CIWU_AUTONOMOUS_REPAIR_SEARCH_V1',
+      autonomousCandidateSearch:true,
+      impactAwareTestSelection:true,
+      multiCandidateSandboxValidation:true,
+      evidenceWeightedRanking:true,
+      failureClassification:true,
+      humanReviewHandoff:true,
+      maxCandidates:
+        ciwuRepairSearchPolicy.MAX_CANDIDATES,
+      maxTests:
+        ciwuRepairSearchPolicy.MAX_TESTS,
+      confidenceIsTruth:false,
+      optimizationIsAuthorization:false,
+      productionApplyAuthority:false,
+      gitCommitAuthority:false,
+      gitPushAuthority:false,
+      deploymentAuthority:false,
+      purchaseAuthority:false
+    });
+  }
+);
+
+router.get(
+  '/xeon/human-review-policy',
+  (req,res) => {
+    noStore(res);
+
+    res.json({
+      ok:true,
+      schema:
+        'CIWU_HUMAN_REVIEW_POLICY_V1',
+      humanReviewRequired:true,
+      explicitSeparateAuthorizationRequired:true,
+      productionApplyAuthorized:false,
+      gitCommitAuthorized:false,
+      gitPushAuthorized:false,
+      deploymentAuthorized:false,
+      purchaseAuthorized:false
+    });
+  }
+);
+
+for (
+  const route of [
+    '/xeon/repair-search/run',
+    '/xeon/repair-search/apply',
+    '/xeon/repair-search/commit',
+    '/xeon/repair-search/push',
+    '/xeon/repair-search/deploy'
+  ]
+) {
+  router.all(
+    route,
+    (req,res) => {
+      noStore(res);
+
+      res.status(403).json({
+        ok:false,
+        error:
+          'SERVER_SIDE_AUTONOMOUS_REPAIR_EXECUTION_DISABLED',
+        localSandboxOnly:true,
+        humanReviewRequired:true
+      });
+    }
+  );
+}
+
 module.exports=router;

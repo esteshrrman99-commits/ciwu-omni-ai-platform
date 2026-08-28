@@ -1,0 +1,18 @@
+{
+  "schema": "CIWU_AUTONOMOUS_REPAIR_SEARCH_V1",
+  "generation": "OMEGA120_M2305_M2424",
+  "boundedCandidateSearch": true,
+  "impactAwareTestSelection": true,
+  "multiCandidateSandboxExecution": true,
+  "failureClassification": true,
+  "evidenceWeightedRanking": true,
+  "evidenceFusion": true,
+  "humanReviewHandoff": true,
+  "confidenceIsTruth": false,
+  "optimizationIsAuthorization": false,
+  "productionApplyAuthority": false,
+  "gitCommitAuthority": false,
+  "gitPushAuthority": false,
+  "deploymentAuthority": false,
+  "purchaseAuthority": false
+}
