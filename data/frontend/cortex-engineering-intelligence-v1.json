@@ -1,0 +1,20 @@
+{
+  "schema": "CIWU_CORTEX_ENGINEERING_INTELLIGENCE_V1",
+  "generation": "OMEGA120_M2545_M2664",
+  "capabilityGapRegistry": true,
+  "taskDecomposer": true,
+  "hierarchicalContextCompiler": true,
+  "engineeringPlanSynthesizer": true,
+  "critic": true,
+  "judge": true,
+  "autonomousEngineeringLoop": true,
+  "engineeringEvalHarness": true,
+  "intelligenceEvidenceEnvelope": true,
+  "maximumAutonomousIterations": 6,
+  "productionMutation": false,
+  "autonomousGitCommit": false,
+  "autonomousGitPush": false,
+  "autonomousDeployment": false,
+  "purchaseAuthority": false,
+  "universalSuperiorityClaim": false
+}

@@ -688,4 +688,98 @@ for (
   );
 }
 
+
+// CIWU_CORTEX_ENGINEERING_LOOP_API_V1
+const ciwuGapRegistry =
+  require('../workbench/capability-gap-registry-v1');
+
+const ciwuEngineeringLoop =
+  require('../workbench/cortex-autonomous-engineering-loop-v1');
+
+const ciwuEngineeringEvals =
+  require('../workbench/cortex-engineering-evals-v1');
+
+router.get(
+  '/cortex/intelligence/status',
+  (req,res) => {
+    noStore(res);
+
+    res.json({
+      ok:true,
+      schema:
+        'CIWU_CORTEX_ENGINEERING_INTELLIGENCE_STATUS_V1',
+      capabilityGapRegistry:true,
+      taskDecomposition:true,
+      hierarchicalContextCompiler:true,
+      engineeringPlanSynthesis:true,
+      critic:true,
+      judge:true,
+      boundedAutonomousRepairLoop:true,
+      benchmarkHarness:true,
+      maximumAutonomousIterations:
+        ciwuEngineeringLoop.MAX_ITERATIONS,
+      productionMutation:false,
+      autonomousGitCommit:false,
+      autonomousGitPush:false,
+      autonomousDeployment:false,
+      purchaseAuthority:false,
+      universalSuperiorityClaim:false
+    });
+  }
+);
+
+router.get(
+  '/cortex/capability-gaps',
+  (req,res) => {
+    noStore(res);
+
+    res.json(
+      ciwuGapRegistry.snapshot()
+    );
+  }
+);
+
+router.get(
+  '/cortex/evals/policy',
+  (req,res) => {
+    noStore(res);
+
+    res.json({
+      ok:true,
+      schema:'CIWU_CORTEX_EVAL_POLICY_V1',
+      metrics:
+        ciwuEngineeringEvals.METRICS,
+      benchmarkEvidenceRequired:true,
+      universalSuperiorityClaim:false,
+      confidenceIsTruth:false,
+      optimizationIsAuthorization:false
+    });
+  }
+);
+
+for (
+  const route of [
+    '/cortex/run',
+    '/cortex/apply',
+    '/cortex/commit',
+    '/cortex/push',
+    '/cortex/deploy'
+  ]
+) {
+  router.all(
+    route,
+    (req,res) => {
+      noStore(res);
+
+      res.status(403).json({
+        ok:false,
+        error:
+          'CORTEX_PRODUCTION_MUTATION_DISABLED',
+        sandboxOrOfflineEngineOnly:true,
+        humanAuthorizationRequired:true
+      });
+    }
+  );
+}
+
 module.exports=router;
