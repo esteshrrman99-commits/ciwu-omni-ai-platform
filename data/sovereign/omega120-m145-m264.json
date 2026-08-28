@@ -1,0 +1,31 @@
+{
+  "schema": "CIWU_OMEGA120_M145_M264_V1",
+  "milestoneStart": 145,
+  "milestoneEnd": 264,
+  "milestoneCount": 120,
+  "waves": 10,
+  "milestonesPerWave": 12,
+
+  "providerVault": true,
+  "realInferenceCertificationEngine": true,
+  "runtimeFallbackEngine": true,
+  "benchmarkCampaignEngine": true,
+  "codexGroundedPromptAssembly": true,
+  "xeonModelDrivenRepair": true,
+  "neurotexProjectBrainV2": true,
+  "githubProposalPlane": true,
+  "liveSovereignApiV2": true,
+
+  "monthlyRequiredSpendUsd": 0,
+  "monthlyHardCapUsd": 100,
+
+  "realInferenceDefault": false,
+  "paidInferenceDefault": false,
+  "silentPaidFallback": false,
+
+  "productionShell": false,
+  "productionAiFilesystemMutation": false,
+  "autonomousGitPush": false,
+  "autonomousPurchase": false,
+  "forcePush": false
+}
