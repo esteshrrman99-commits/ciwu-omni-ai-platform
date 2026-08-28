@@ -1,0 +1,37 @@
+{
+  "schema": "CIWU_OMEGA120_M1105_M1224_V1",
+  "milestoneStart": 1105,
+  "milestoneEnd": 1224,
+  "milestoneCount": 120,
+  "waves": 10,
+  "milestonesPerWave": 12,
+
+  "providerTelemetryEnvelopeV1": true,
+  "hashChainedTelemetryLedgerV1": true,
+  "providerCapabilityStateMachineV2": true,
+  "adaptiveEonsRouterV6": true,
+  "fallbackPlannerV6": true,
+  "m3FederationBridgeV2": true,
+  "codexRepairCampaignV2": true,
+  "neurotexEvidenceWeightingV6": true,
+  "runtimeHealthRevocationV1": true,
+  "commitBoundDeploymentTruth": true,
+
+  "monthlyRequiredSpendUsd": 0,
+  "monthlyHardCapUsd": 100,
+
+  "realProviderCallsDuringBuild": false,
+  "paidProviderCallsDuringBuild": false,
+
+  "realInferenceDefault": false,
+  "paidInferenceDefault": false,
+  "silentPaidFallback": false,
+
+  "productionShell": false,
+  "productionAiFilesystemMutation": false,
+  "autonomousGitPush": false,
+  "autonomousPurchase": false,
+  "forcePush": false,
+
+  "nativeFoundationModel": false
+}
