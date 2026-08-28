@@ -1,0 +1,17 @@
+{
+  "schema": "CIWU_CODEX_XEON_SANDBOX_V1",
+  "generation": "OMEGA120_M2185_M2304",
+  "structuredPatchGeneration": true,
+  "isolatedWorkspace": true,
+  "sandboxPatchApplication": true,
+  "boundedSandboxValidation": true,
+  "beforeAfterComparison": true,
+  "verifiedRepairDecision": true,
+  "repairEvidenceBundle": true,
+  "productionMutation": false,
+  "arbitraryShell": false,
+  "gitCommitAuthority": false,
+  "gitPushAuthority": false,
+  "deploymentAuthority": false,
+  "purchaseAuthority": false
+}

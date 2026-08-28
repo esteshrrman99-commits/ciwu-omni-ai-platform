@@ -462,4 +462,63 @@ router.post(
   }
 );
 
+
+// CIWU_CODEX_XEON_API_V1
+const ciwuXeonPolicy =
+  require('../workbench/xeon-sandbox-policy-v1');
+
+router.get(
+  '/xeon/status',
+  (req,res) => {
+    noStore(res);
+
+    res.json({
+      ok:true,
+      schema:
+        'CIWU_CODEX_XEON_SANDBOX_V1',
+      sandboxPatchGeneration:true,
+      sandboxPatchApplication:true,
+      sandboxValidation:true,
+      boundedNodeExecution:true,
+      arbitraryShell:false,
+      productionMutation:false,
+      productionExecution:false,
+      gitCommitAuthority:false,
+      gitPushAuthority:false,
+      deploymentAuthority:false,
+      purchaseAuthority:false,
+      providerCallsRequired:false,
+      maxFiles:
+        ciwuXeonPolicy.MAX_FILES,
+      maxPatchOperations:
+        ciwuXeonPolicy.MAX_PATCH_OPERATIONS
+    });
+  }
+);
+
+for (
+  const route of [
+    '/xeon/generate',
+    '/xeon/apply',
+    '/xeon/validate',
+    '/xeon/commit',
+    '/xeon/push',
+    '/xeon/deploy'
+  ]
+) {
+  router.all(
+    route,
+    (req,res) => {
+      noStore(res);
+
+      res.status(403).json({
+        ok:false,
+        error:
+          'PRODUCTION_XEON_MUTATION_DISABLED',
+        sandboxCliOnly:true
+      });
+    }
+  );
+}
+
 module.exports=router;
