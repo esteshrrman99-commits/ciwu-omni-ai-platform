@@ -1,0 +1,19 @@
+{
+  "schema": "CIWU_REPAIR_APPROVAL_CONTROL_PLANE_V1",
+  "generation": "OMEGA120_M2425_M2544",
+  "immutableProposal": true,
+  "deterministicDiffEnvelope": true,
+  "evidenceBinding": true,
+  "baseShaBinding": true,
+  "signedShortLivedTokens": true,
+  "replayProtection": true,
+  "expiryProtection": true,
+  "reviewWorkspaceControlledApply": true,
+  "postApplyReverification": true,
+  "realApprovalTokenIssuedDuringBuild": false,
+  "productionApplyAuthority": false,
+  "gitCommitAuthority": false,
+  "gitPushAuthority": false,
+  "deploymentAuthority": false,
+  "purchaseAuthority": false
+}

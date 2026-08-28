@@ -601,4 +601,91 @@ for (
   );
 }
 
+
+// CIWU_REPAIR_APPROVAL_API_V1
+const ciwuApprovalPolicy =
+  require('../workbench/approval-policy-v1');
+
+router.get(
+  '/xeon/approval/status',
+  (req,res) => {
+    noStore(res);
+
+    res.json({
+      ok:true,
+      schema:
+        'CIWU_REPAIR_APPROVAL_CONTROL_PLANE_V1',
+      immutableProposal:true,
+      deterministicDiffEnvelope:true,
+      evidenceBinding:true,
+      baseShaBinding:true,
+      signedShortLivedTokens:true,
+      replayProtection:true,
+      tokenExpiry:true,
+      reviewWorkspaceApplyGate:true,
+      postApplyReverification:true,
+      approvalScope:
+        ciwuApprovalPolicy.ALLOWED_SCOPE,
+      maxTokenTtlSeconds:
+        ciwuApprovalPolicy.MAX_TOKEN_TTL_SECONDS,
+      liveTokenIssuance:false,
+      productionApplyAuthority:false,
+      gitCommitAuthority:false,
+      gitPushAuthority:false,
+      deploymentAuthority:false,
+      purchaseAuthority:false
+    });
+  }
+);
+
+router.get(
+  '/xeon/approval/policy',
+  (req,res) => {
+    noStore(res);
+
+    res.json({
+      ok:true,
+      schema:
+        'CIWU_REPAIR_APPROVAL_POLICY_V1',
+      humanApprovalRequired:true,
+      exactProposalBinding:true,
+      exactEvidenceBinding:true,
+      exactBaseShaBinding:true,
+      expiryRequired:true,
+      replayProtectionRequired:true,
+      postApplyReverificationRequired:true,
+      productionApplyAuthorized:false,
+      gitCommitAuthorized:false,
+      gitPushAuthorized:false,
+      deploymentAuthorized:false,
+      purchaseAuthorized:false
+    });
+  }
+);
+
+for (
+  const route of [
+    '/xeon/approval/issue',
+    '/xeon/approval/apply',
+    '/xeon/approval/commit',
+    '/xeon/approval/push',
+    '/xeon/approval/deploy'
+  ]
+) {
+  router.all(
+    route,
+    (req,res) => {
+      noStore(res);
+
+      res.status(403).json({
+        ok:false,
+        error:
+          'LIVE_APPROVAL_MUTATION_DISABLED',
+        humanApprovalRequired:true,
+        localReviewWorkspaceOnly:true
+      });
+    }
+  );
+}
+
 module.exports=router;

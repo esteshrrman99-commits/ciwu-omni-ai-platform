@@ -40,7 +40,7 @@ const {
 const marker =
   process.env
     .CIWU_SOVEREIGN_BUILD_MARKER ||
-  'CIWU_OMEGA120_M2305_M2424';
+  'CIWU_OMEGA120_M2425_M2544';
 
 router.get(
   '/health',
@@ -52,7 +52,7 @@ router.get(
         'CIWU_SOVEREIGN_INTELLIGENCE_FABRIC',
 
       generation:
-        'OMEGA120_M2305_M2424',
+        'OMEGA120_M2425_M2544',
 
       marker,
 
@@ -129,7 +129,7 @@ router.get(
       ok: true,
 
       generation:
-        'OMEGA120_M2305_M2424',
+        'OMEGA120_M2425_M2544',
 
       providerTruth:
         'V2',
