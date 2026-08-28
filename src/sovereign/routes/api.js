@@ -3,9 +3,6 @@
 const express =
   require('express');
 
-const path =
-  require('node:path');
-
 const router =
   express.Router();
 
@@ -16,39 +13,34 @@ router.use(
 );
 
 const {
-  allStates,
-  sanitizeState
+  derive
 } = require(
-  '../provider-control/catalog'
-);
-
-const {
-  POLICY
-} = require(
-  '../xeon/policy'
-);
-
-const {
-  SUITE
-} = require(
-  '../evaluation/task-suite'
-);
-
-const {
-  build
-} = require(
-  '../codex/grounded-context'
+  '../provider-runtime/truth-state'
 );
 
 const {
   select
 } = require(
-  '../eons/value-router'
+  '../provider-runtime/routing-policy'
+);
+
+const {
+  POLICY:
+    GITHUB_POLICY
+} = require(
+  '../github/execution-policy'
+);
+
+const {
+  capability
+} = require(
+  '../local-model/manifest'
 );
 
 const marker =
-  process.env.CIWU_SOVEREIGN_BUILD_MARKER ||
-  'CIWU_OMEGA120_M145_M264';
+  process.env
+    .CIWU_SOVEREIGN_BUILD_MARKER ||
+  'CIWU_OMEGA120_M265_M384';
 
 router.get(
   '/health',
@@ -60,33 +52,39 @@ router.get(
         'CIWU_SOVEREIGN_INTELLIGENCE_FABRIC',
 
       generation:
-        'OMEGA120_M145_M264',
+        'OMEGA120_M265_M384',
 
       marker,
 
       capabilities: {
-        providerVault:
+        providerTruthV2:
           true,
 
-        providerCertification:
+        priceRegistry:
           true,
 
-        runtimeFallback:
+        budgetLedgerV2:
           true,
 
-        benchmarking:
+        valueRouting:
           true,
 
-        groundedCodex:
+        benchmarkTournamentV2:
           true,
 
-        modelRepairSandbox:
+        codexModelXeonPipeline:
           true,
 
-        neurotexProjectBrain:
+        neurotexCertifiedLearning:
           true,
 
-        githubProposalPlane:
+        dependencyGraphV2:
+          true,
+
+        githubApprovalGate:
+          true,
+
+        localModelSubstrate:
           true
       },
 
@@ -107,23 +105,11 @@ router.get(
           false,
 
         autonomousPurchase:
+          false,
+
+        forcePush:
           false
       }
-    });
-  }
-);
-
-router.get(
-  '/providers',
-  (req,res) => {
-    res.json({
-      ok: true,
-
-      providers:
-        allStates()
-          .map(
-            sanitizeState
-          )
     });
   }
 );
@@ -135,56 +121,77 @@ router.get(
       ok: true,
 
       generation:
-        'OMEGA120_M145_M264',
+        'OMEGA120_M265_M384',
 
-      providerFederation:
-        'READY',
+      providerTruth:
+        'V2',
 
-      externalInference:
+      providerRouting:
+        'VALUE_AND_BUDGET_GATED',
+
+      realInference:
         process.env
           .CIWU_REAL_INFERENCE_AUTHORIZED ===
         'TRUE'
-          ? 'EXPLICITLY_ENABLED'
+          ? 'EXPLICITLY_AUTHORIZED'
           : 'BLOCKED_BY_DEFAULT',
 
       paidInference:
         process.env
           .CIWU_PAID_PROVIDER_AUTHORIZED ===
         'TRUE'
-          ? 'EXPLICITLY_ENABLED'
+          ? 'EXPLICITLY_AUTHORIZED'
           : 'BLOCKED_BY_DEFAULT',
 
-      codexGrounding:
-        'READY',
+      github:
+        GITHUB_POLICY,
 
-      xeonRepair:
-        'SANDBOX_ONLY',
-
-      neurotex:
-        'READY',
-
-      githubMutation:
-        'DISABLED'
+      nativeFoundationModel:
+        false
     });
   }
 );
 
 router.post(
-  '/route/plan',
+  '/provider/truth',
   (req,res) => {
-    const candidate =
+    res.json({
+      ok: true,
+
+      state:
+        derive(
+          req.body || {}
+        )
+    });
+  }
+);
+
+router.post(
+  '/route/value',
+  (req,res) => {
+    const body =
+      req.body || {};
+
+    const chosen =
       select(
         Array.isArray(
-          req.body?.providers
+          body.candidates
         )
-          ? req.body.providers
+          ? body.candidates
           : [],
         {
-          paidAuthorized:
-            false,
+          remainingBudgetUsd:
+            Math.min(
+              100,
+              Number(
+                body
+                  .remainingBudgetUsd ??
+                100
+              )
+            ),
 
-          remainingUsd:
-            100
+          paidAuthorized:
+            false
         }
       );
 
@@ -192,17 +199,14 @@ router.post(
       ok: true,
 
       selected:
-        candidate
+        chosen
           ? {
               id:
-                candidate.id,
-
-              projectedCostUsd:
-                candidate
-                  .projectedCostUsd,
-
-              quality:
-                candidate.quality
+                chosen.id,
+              eonsScore:
+                chosen.eonsScore,
+              costClass:
+                chosen.costClass
             }
           : null
     });
@@ -210,69 +214,25 @@ router.post(
 );
 
 router.post(
-  '/codex/context',
+  '/local-model/capability',
   (req,res) => {
-    const query =
-      String(
-        req.body?.query || ''
-      );
-
-    const task =
-      String(
-        req.body?.task || ''
-      );
-
-    if (!query || !task) {
-      return res
+    try {
+      res.json({
+        ok: true,
+        capability:
+          capability(
+            req.body
+          )
+      });
+    } catch (error) {
+      res
         .status(400)
         .json({
           ok: false,
           error:
-            'QUERY_AND_TASK_REQUIRED'
+            error.message
         });
     }
-
-    const result =
-      build({
-        projectRoot:
-          path.resolve(
-            __dirname,
-            '../../..'
-          ),
-
-        query,
-        task,
-        topK: 6,
-        maxChars: 30000
-      });
-
-    res.json({
-      ok: true,
-      sources:
-        result.sources,
-      chars:
-        result.chars
-    });
-  }
-);
-
-router.get(
-  '/xeon-policy',
-  (req,res) => {
-    res.json({
-      ok: true,
-      policy: POLICY
-    });
-  }
-);
-
-router.get(
-  '/evaluation-suite',
-  (req,res) => {
-    res.json({
-      ok: true,
-      suite: SUITE
-    });
   }
 );
 
@@ -298,7 +258,7 @@ router.post(
       .json({
         ok: false,
         error:
-          'LIVE_RUNTIME_INFERENCE_BINDING_NOT_YET_AUTHORIZED'
+          'EXPLICIT_PROVIDER_BINDING_REQUIRED'
       });
   }
 );
