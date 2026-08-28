@@ -1,0 +1,34 @@
+{
+  "schema": "CIWU_OMEGA120_M505_M624_V1",
+  "milestoneStart": 505,
+  "milestoneEnd": 624,
+  "milestoneCount": 120,
+  "waves": 10,
+  "milestonesPerWave": 12,
+
+  "explicitCertificationSession": true,
+  "providerFailureTruthV3": true,
+  "benchmarkEvidenceLedger": true,
+  "explainableRouterV3": true,
+  "codexModelXeonCertifiedTrial": true,
+  "neurotexLearningLedgerV3": true,
+  "githubPrDryRun": true,
+  "decisionTrace": true,
+  "endToEndPipeline": true,
+
+  "monthlyRequiredSpendUsd": 0,
+  "monthlyHardCapUsd": 100,
+
+  "realProviderCallsDuringBuild": false,
+  "realInferenceDefault": false,
+  "paidInferenceDefault": false,
+  "silentPaidFallback": false,
+
+  "productionShell": false,
+  "productionAiFilesystemMutation": false,
+  "autonomousGitPush": false,
+  "autonomousPurchase": false,
+  "forcePush": false,
+
+  "nativeFoundationModel": false
+}
