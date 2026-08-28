@@ -782,4 +782,106 @@ for (
   );
 }
 
+
+// CIWU_ORIGINAL_PLATFORM_FORENSICS_API_V1
+const fsOriginalPlatform =
+  require('node:fs');
+
+function readOriginalPlatformJson(pathname) {
+  return JSON.parse(
+    fsOriginalPlatform.readFileSync(
+      pathname,
+      'utf8'
+    )
+  );
+}
+
+router.get(
+  '/original-platform/status',
+  (req,res) => {
+    noStore(res);
+
+    const report=
+      readOriginalPlatformJson(
+        'data/forensics/original-platform-forensic-v1.json'
+      );
+
+    const blueprint=
+      readOriginalPlatformJson(
+        'data/forensics/original-platform-recovery-blueprint-v1.json'
+      );
+
+    res.json({
+      ok:true,
+      schema:
+        'CIWU_ORIGINAL_PLATFORM_FORENSIC_STATUS_V1',
+      originalCandidate:
+        report.originalCandidate,
+      sovereignTransition:
+        report.sovereignTransition,
+      driftDetected:
+        report.driftReport?.driftDetected === true,
+      lostOrHiddenFeatures:
+        report.featureLedger?.lostOrHidden || [],
+      recoveryPhases:
+        blueprint.phases?.length || 0,
+      originalUiRestored:false,
+      currentUiOverwritten:false,
+      commandCenterPreserved:true,
+      humanVisualApprovalRequired:true,
+      productionMutation:false
+    });
+  }
+);
+
+router.get(
+  '/original-platform/forensic-report',
+  (req,res) => {
+    noStore(res);
+
+    res.json(
+      readOriginalPlatformJson(
+        'data/forensics/original-platform-forensic-v1.json'
+      )
+    );
+  }
+);
+
+router.get(
+  '/original-platform/recovery-blueprint',
+  (req,res) => {
+    noStore(res);
+
+    res.json(
+      readOriginalPlatformJson(
+        'data/forensics/original-platform-recovery-blueprint-v1.json'
+      )
+    );
+  }
+);
+
+for (
+  const route of [
+    '/original-platform/restore',
+    '/original-platform/promote',
+    '/original-platform/replace',
+    '/original-platform/deploy'
+  ]
+) {
+  router.all(
+    route,
+    (req,res) => {
+      noStore(res);
+
+      res.status(403).json({
+        ok:false,
+        error:
+          'ORIGINAL_PLATFORM_MUTATION_DISABLED',
+        forensicOnly:true,
+        humanVisualApprovalRequired:true
+      });
+    }
+  );
+}
+
 module.exports=router;

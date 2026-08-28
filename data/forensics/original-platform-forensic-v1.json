@@ -1,0 +1,1676 @@
+{
+  "schema": "CIWU_ORIGINAL_PLATFORM_FORENSIC_REPORT_V1",
+  "generatedFromGitHistory": true,
+  "originalCandidate": {
+    "sha": "bbab3c80968b1eea7a3b5166a28712cb0f9738db",
+    "relation": "PARENT_OF_EARLIEST_SOVEREIGN_UI_TRANSITION"
+  },
+  "sovereignTransition": {
+    "sha": "319fb07acc4e3c465e857a430774c948c115e26c",
+    "epoch": 1787891474,
+    "subject": "Launch CIWU OMNI Front-End Genesis M1585-M1704",
+    "matches": [
+      "One command center",
+      "Sovereign Intelligence Fabric",
+      "Command Center",
+      "M3 Intelligence",
+      "Model Federation",
+      "CODEX / XEON"
+    ]
+  },
+  "historicalIndex": {
+    "schema": "CIWU_HISTORICAL_FRONTEND_SNAPSHOT_INDEX_V1",
+    "pathname": "public/index.html",
+    "count": 14,
+    "snapshots": [
+      {
+        "sha": "c823195d8e095c8459c83d1e20d785bdce6b7b46",
+        "epoch": 1787899217,
+        "subject": "Add CORTEX autonomous engineering intelligence M2545-M2664",
+        "contentSha256": "06d3917292fafad0fabf87c3e533f31eeb45266fd4564c714d66ab0da390c949",
+        "metrics": {
+          "bytes": 31692,
+          "forms": 0,
+          "buttons": 32,
+          "inputs": 0,
+          "scripts": 9,
+          "links": 0,
+          "sections": 14
+        },
+        "signals": {
+          "sovereign": true,
+          "dashboard": false,
+          "chatbot": true,
+          "commerce": true,
+          "project": true
+        }
+      },
+      {
+        "sha": "bf7932ce0274a58343a6bd34718db65e45ffd19e",
+        "epoch": 1787896316,
+        "subject": "Add CIWU repair approval control plane M2425-M2544",
+        "contentSha256": "7b1785a7ca97462865400cb4fa31a2321a48789021f43471d1c77b12ec9c903c",
+        "metrics": {
+          "bytes": 31633,
+          "forms": 0,
+          "buttons": 32,
+          "inputs": 0,
+          "scripts": 8,
+          "links": 0,
+          "sections": 14
+        },
+        "signals": {
+          "sovereign": true,
+          "dashboard": false,
+          "chatbot": true,
+          "commerce": true,
+          "project": true
+        }
+      },
+      {
+        "sha": "571b5837abcf64cd6e92323d6be84467bedfcab3",
+        "epoch": 1787895608,
+        "subject": "Add CIWU autonomous sandbox repair search M2305-M2424",
+        "contentSha256": "64d224372e08163b59cbe9da8aaa50671dd374a56181afedb73d41f6cd53e164",
+        "metrics": {
+          "bytes": 31578,
+          "forms": 0,
+          "buttons": 32,
+          "inputs": 0,
+          "scripts": 7,
+          "links": 0,
+          "sections": 14
+        },
+        "signals": {
+          "sovereign": true,
+          "dashboard": false,
+          "chatbot": true,
+          "commerce": true,
+          "project": true
+        }
+      },
+      {
+        "sha": "8292270e467eea7256c2f5f968d485885b4ffcd8",
+        "epoch": 1787895234,
+        "subject": "Add CIWU CODEX XEON sandbox repair pipeline M2185-M2304",
+        "contentSha256": "1faf1f47857606e8b829816323640017ecb778e5fcc2b99675eec1281b37727e",
+        "metrics": {
+          "bytes": 31525,
+          "forms": 0,
+          "buttons": 32,
+          "inputs": 0,
+          "scripts": 6,
+          "links": 0,
+          "sections": 14
+        },
+        "signals": {
+          "sovereign": true,
+          "dashboard": false,
+          "chatbot": true,
+          "commerce": true,
+          "project": true
+        }
+      },
+      {
+        "sha": "caa743ba9cebb2bb47a31434df6cafa62e167eee",
+        "epoch": 1787894823,
+        "subject": "Add CIWU Project Brain grounded reasoning M2065-M2184",
+        "contentSha256": "f5b4cba430234fd6b52029afaecc46eeb4d21747fcca99e183d6ebe51f2d5327",
+        "metrics": {
+          "bytes": 31473,
+          "forms": 0,
+          "buttons": 32,
+          "inputs": 0,
+          "scripts": 5,
+          "links": 0,
+          "sections": 14
+        },
+        "signals": {
+          "sovereign": true,
+          "dashboard": false,
+          "chatbot": true,
+          "commerce": true,
+          "project": true
+        }
+      },
+      {
+        "sha": "952b74237676e577e2837105ff92eb1aa2b6f3dd",
+        "epoch": 1787893368,
+        "subject": "Add CIWU project intelligence workbench M1945-M2064",
+        "contentSha256": "62ba34316223e793d61377ece0d995981a22cefbea916381be6743c00c4eb9d2",
+        "metrics": {
+          "bytes": 31420,
+          "forms": 0,
+          "buttons": 32,
+          "inputs": 0,
+          "scripts": 4,
+          "links": 0,
+          "sections": 14
+        },
+        "signals": {
+          "sovereign": true,
+          "dashboard": false,
+          "chatbot": true,
+          "commerce": true,
+          "project": true
+        }
+      },
+      {
+        "sha": "2aecf65ab926635c83967d1ab7f1395af030f687",
+        "epoch": 1787892898,
+        "subject": "Connect CIWU live read-only project workbench M1825-M1944",
+        "contentSha256": "21b12d36f0d85ad2e85ad58b69eb205f98f98adb77175676a079a60e20434619",
+        "metrics": {
+          "bytes": 31360,
+          "forms": 0,
+          "buttons": 32,
+          "inputs": 0,
+          "scripts": 3,
+          "links": 0,
+          "sections": 14
+        },
+        "signals": {
+          "sovereign": true,
+          "dashboard": false,
+          "chatbot": true,
+          "commerce": true,
+          "project": true
+        }
+      },
+      {
+        "sha": "11dd0372a0c4fd8f1a62f238ad8fdc33a53b8845",
+        "epoch": 1787892119,
+        "subject": "Advance CIWU interactive project workbench M1705-M1824",
+        "contentSha256": "7a7431c0b4479a25345e408b979272a1c30e3ae3f92612c32d48a45ad7785fb1",
+        "metrics": {
+          "bytes": 28304,
+          "forms": 0,
+          "buttons": 32,
+          "inputs": 0,
+          "scripts": 2,
+          "links": 0,
+          "sections": 14
+        },
+        "signals": {
+          "sovereign": true,
+          "dashboard": false,
+          "chatbot": true,
+          "commerce": true,
+          "project": true
+        }
+      },
+      {
+        "sha": "319fb07acc4e3c465e857a430774c948c115e26c",
+        "epoch": 1787891474,
+        "subject": "Launch CIWU OMNI Front-End Genesis M1585-M1704",
+        "contentSha256": "c7cfb1c421dd181afec9988e20cff07706d53431f821c7ae8d7bc4a73a5e9b52",
+        "metrics": {
+          "bytes": 16786,
+          "forms": 0,
+          "buttons": 13,
+          "inputs": 0,
+          "scripts": 1,
+          "links": 0,
+          "sections": 6
+        },
+        "signals": {
+          "sovereign": true,
+          "dashboard": false,
+          "chatbot": true,
+          "commerce": true,
+          "project": true
+        }
+      },
+      {
+        "sha": "25622bcc1bf63d871770e2faaf3cbd0da03e7d30",
+        "epoch": 1787870919,
+        "subject": "Rebuild M3 as OpenAI frontier coding engine",
+        "contentSha256": "133712ddde19f7e08d809c13db000fa8fc396f1afeae99312cf4b44d8564e457",
+        "metrics": {
+          "bytes": 52427,
+          "forms": 0,
+          "buttons": 18,
+          "inputs": 8,
+          "scripts": 21,
+          "links": 1,
+          "sections": 3
+        },
+        "signals": {
+          "sovereign": true,
+          "dashboard": true,
+          "chatbot": true,
+          "commerce": true,
+          "project": false
+        }
+      },
+      {
+        "sha": "3335de2b95a7783ee16a10ae32fb7044dcae578e",
+        "epoch": 1787861773,
+        "subject": "Add CIWU M13 secure supplier contact and evidence workflow",
+        "contentSha256": "838078b3788676d7a6707966efe37feb4e293d74181a2e86876959f2925b66ab",
+        "metrics": {
+          "bytes": 52382,
+          "forms": 0,
+          "buttons": 18,
+          "inputs": 8,
+          "scripts": 20,
+          "links": 1,
+          "sections": 3
+        },
+        "signals": {
+          "sovereign": true,
+          "dashboard": true,
+          "chatbot": true,
+          "commerce": true,
+          "project": false
+        }
+      },
+      {
+        "sha": "f4537599d69f14a9370a7441d23b93c452b5a42d",
+        "epoch": 1787861433,
+        "subject": "Add CIWU M12 supplier operations command center UI",
+        "contentSha256": "14cd91bf9a0d415f6da9f66630b8641bbf77c3467fa6dfe0723fcb2ca910f555",
+        "metrics": {
+          "bytes": 51030,
+          "forms": 0,
+          "buttons": 18,
+          "inputs": 8,
+          "scripts": 19,
+          "links": 1,
+          "sections": 2
+        },
+        "signals": {
+          "sovereign": true,
+          "dashboard": true,
+          "chatbot": true,
+          "commerce": true,
+          "project": false
+        }
+      },
+      {
+        "sha": "99c498a0dde084bc7d4143aab6c026f8b0d326a1",
+        "epoch": 1787856525,
+        "subject": "Add CIWU M2 product qualification engine with served UI",
+        "contentSha256": "9072868d1d1c11d925b90641694ba0bf1259173aad9c1046f8a497fd8210c21f",
+        "metrics": {
+          "bytes": 47445,
+          "forms": 0,
+          "buttons": 17,
+          "inputs": 8,
+          "scripts": 18,
+          "links": 0,
+          "sections": 1
+        },
+        "signals": {
+          "sovereign": false,
+          "dashboard": true,
+          "chatbot": true,
+          "commerce": true,
+          "project": false
+        }
+      },
+      {
+        "sha": "656a9d2f72fc37ab83376cbe4ef2513975464944",
+        "epoch": 1787852086,
+        "subject": "Bridge CIWU private label commerce into served frontend M1-R6",
+        "contentSha256": "9d98a288749ca0819a94b987afd9671377e9b371827db3d94e03479b6dcc5916",
+        "metrics": {
+          "bytes": 3187,
+          "forms": 0,
+          "buttons": 1,
+          "inputs": 1,
+          "scripts": 2,
+          "links": 0,
+          "sections": 3
+        },
+        "signals": {
+          "sovereign": false,
+          "dashboard": true,
+          "chatbot": true,
+          "commerce": true,
+          "project": false
+        }
+      }
+    ],
+    "mutationPerformed": false
+  },
+  "originalRoutes": {
+    "schema": "CIWU_ORIGINAL_ROUTE_PAGE_INVENTORY_V1",
+    "hrefs": [
+      "/api/m12/rfq/prohealth?quantity=1000",
+      "/css/abijah-conversation-v35.css",
+      "/css/abijah-production.css",
+      "/css/ciwu-eons-m5.css",
+      "/css/ciwu-m13-console.css",
+      "/css/ciwu-m4-neural.css",
+      "/css/ciwu-m42-truth.css",
+      "/css/ciwu-m54-orchestration.css",
+      "/css/ciwu-omni-v36.css",
+      "/css/ciwu-product-engine.css",
+      "/css/ciwu-supplier-command.css",
+      "/css/eons-ui.css",
+      "/css/m2-1-hotfix.css",
+      "/css/m2-production-polish.css"
+    ],
+    "formActions": [],
+    "fetchTargets": [
+      "/api/analyze-video",
+      "/api/chat",
+      "/api/generate-packet",
+      "/api/generate-presentation",
+      "/api/providers?insurance=",
+      "/api/quantum-breakthroughs",
+      "/api/quantum-surprise",
+      "/api/scripts/",
+      "/api/stats"
+    ],
+    "ids": [
+      "abijah-btn",
+      "abijah-chat",
+      "abijah-input",
+      "abijah-messages",
+      "abijah-video-status",
+      "analyzeVideoBtn",
+      "chatInput",
+      "chatOut",
+      "ciwu-m13-console",
+      "ciwu-m13-evidence",
+      "ciwu-m13-phone",
+      "ciwu-m13-profile",
+      "ciwu-m13-status",
+      "ciwu-m13-wholesale",
+      "ciwu-product-engine",
+      "ciwu-product-engine-gates",
+      "ciwu-product-engine-status",
+      "ciwu-sc-documents",
+      "ciwu-sc-purchase",
+      "ciwu-sc-refresh",
+      "ciwu-sc-responses",
+      "ciwu-sc-review-output",
+      "ciwu-sc-rfq-open",
+      "ciwu-sc-rfq-output",
+      "ciwu-sc-rows",
+      "ciwu-sc-sales",
+      "ciwu-sc-status",
+      "ciwu-sc-suppliers",
+      "ciwu-sc-verified",
+      "ciwu-supplier-command",
+      "cortex-c",
+      "desiredTreatment",
+      "eons-e",
+      "eons-r",
+      "fileInput",
+      "filePreview",
+      "navResult",
+      "neuro-c",
+      "patientAge",
+      "patientInsurance",
+      "patientName",
+      "q-blocks",
+      "q-breakthroughs",
+      "q-entangled",
+      "q-qubits",
+      "quantumResult",
+      "quantumStatus",
+      "uploadArea",
+      "videoAnalysisResult",
+      "videoDropZone",
+      "videoFileName",
+      "videoInput",
+      "videoPreview",
+      "videoPreviewContainer",
+      "voiceBtn",
+      "vortex-c",
+      "zortex-c"
+    ],
+    "classified": {
+      "apiRoutes": [
+        "/api/analyze-video",
+        "/api/chat",
+        "/api/generate-packet",
+        "/api/generate-presentation",
+        "/api/m12/rfq/prohealth?quantity=1000",
+        "/api/providers?insurance=",
+        "/api/quantum-breakthroughs",
+        "/api/quantum-surprise",
+        "/api/scripts/",
+        "/api/stats"
+      ],
+      "internalRoutes": [
+        "/css/abijah-conversation-v35.css",
+        "/css/abijah-production.css",
+        "/css/ciwu-eons-m5.css",
+        "/css/ciwu-m13-console.css",
+        "/css/ciwu-m4-neural.css",
+        "/css/ciwu-m42-truth.css",
+        "/css/ciwu-m54-orchestration.css",
+        "/css/ciwu-omni-v36.css",
+        "/css/ciwu-product-engine.css",
+        "/css/ciwu-supplier-command.css",
+        "/css/eons-ui.css",
+        "/css/m2-1-hotfix.css",
+        "/css/m2-production-polish.css"
+      ],
+      "externalLinks": []
+    },
+    "mutationPerformed": false
+  },
+  "currentRoutes": {
+    "schema": "CIWU_ORIGINAL_ROUTE_PAGE_INVENTORY_V1",
+    "hrefs": [
+      "/ciwu-omni.css"
+    ],
+    "formActions": [],
+    "fetchTargets": [],
+    "ids": [
+      "ciwu-app",
+      "ciwu-commit",
+      "ciwu-generation",
+      "ciwu-live-activity",
+      "ciwu-live-dot",
+      "ciwu-live-event-count",
+      "ciwu-live-file-count",
+      "ciwu-live-generation",
+      "ciwu-live-milestone",
+      "ciwu-live-neurotex-count",
+      "ciwu-live-neurotex-list",
+      "ciwu-live-project",
+      "ciwu-live-provider-grid",
+      "ciwu-live-render-commit",
+      "ciwu-live-repository-tree",
+      "ciwu-live-symbol-count",
+      "ciwu-live-symbol-list",
+      "ciwu-live-text",
+      "ciwu-m3-provider",
+      "ciwu-m3-state",
+      "ciwu-m3-state-detail",
+      "ciwu-menu",
+      "ciwu-messages",
+      "ciwu-mode",
+      "ciwu-page-subtitle",
+      "ciwu-page-title",
+      "ciwu-prompt",
+      "ciwu-selected-file",
+      "ciwu-selected-provider",
+      "ciwu-send",
+      "ciwu-sidebar",
+      "ciwu-workbench-live-status"
+    ],
+    "classified": {
+      "apiRoutes": [],
+      "internalRoutes": [
+        "/ciwu-omni.css"
+      ],
+      "externalLinks": []
+    },
+    "mutationPerformed": false
+  },
+  "featureLedger": {
+    "schema": "CIWU_ORIGINAL_FEATURE_LEDGER_V1",
+    "comparison": [
+      {
+        "id": "chatbot",
+        "original": true,
+        "current": true,
+        "status": "SURVIVED"
+      },
+      {
+        "id": "coding",
+        "original": true,
+        "current": true,
+        "status": "SURVIVED"
+      },
+      {
+        "id": "project_management",
+        "original": false,
+        "current": true,
+        "status": "NEW"
+      },
+      {
+        "id": "supplier",
+        "original": true,
+        "current": false,
+        "status": "POSSIBLY_LOST_OR_HIDDEN"
+      },
+      {
+        "id": "commerce",
+        "original": true,
+        "current": true,
+        "status": "SURVIVED"
+      },
+      {
+        "id": "entity_data",
+        "original": true,
+        "current": false,
+        "status": "POSSIBLY_LOST_OR_HIDDEN"
+      },
+      {
+        "id": "research",
+        "original": true,
+        "current": true,
+        "status": "SURVIVED"
+      },
+      {
+        "id": "dashboard",
+        "original": true,
+        "current": true,
+        "status": "SURVIVED"
+      },
+      {
+        "id": "authentication",
+        "original": true,
+        "current": true,
+        "status": "SURVIVED"
+      },
+      {
+        "id": "api",
+        "original": true,
+        "current": false,
+        "status": "POSSIBLY_LOST_OR_HIDDEN"
+      },
+      {
+        "id": "upload",
+        "original": true,
+        "current": true,
+        "status": "SURVIVED"
+      },
+      {
+        "id": "memory",
+        "original": true,
+        "current": true,
+        "status": "SURVIVED"
+      }
+    ],
+    "lostOrHidden": [
+      "supplier",
+      "entity_data",
+      "api"
+    ],
+    "newFeatures": [
+      "project_management"
+    ],
+    "mutationPerformed": false
+  },
+  "originalUi": {
+    "schema": "CIWU_ORIGINAL_UI_DNA_V1",
+    "classes": [
+      "abijah-avatar",
+      "abijah-header",
+      "abijah-input",
+      "abijah-messages",
+      "abijah-msg",
+      "analyze-btn",
+      "btn-voice",
+      "card",
+      "chat-box",
+      "chat-input",
+      "chat-input-row",
+      "chat-out",
+      "ciwu-commerce-eyebrow",
+      "ciwu-engine-card",
+      "ciwu-engine-grid",
+      "ciwu-m13-card",
+      "ciwu-m13-copy",
+      "ciwu-m13-grid",
+      "ciwu-m13-head",
+      "ciwu-m13-lock",
+      "ciwu-ready-icon",
+      "ciwu-ready-state",
+      "ciwu-sc-actions",
+      "ciwu-sc-btn",
+      "ciwu-sc-card",
+      "ciwu-sc-code",
+      "ciwu-sc-copy",
+      "ciwu-sc-eyebrow",
+      "ciwu-sc-grid",
+      "ciwu-sc-lock",
+      "ciwu-sc-panel",
+      "ciwu-sc-panel-head",
+      "ciwu-sc-table",
+      "ciwu-sc-table-wrap",
+      "ciwu-sc-title",
+      "container",
+      "dot",
+      "features",
+      "footer",
+      "grid",
+      "header",
+      "message",
+      "mod-status",
+      "nav-btn",
+      "nav-form",
+      "nav-input",
+      "nav-section",
+      "patent-badge",
+      "quantum-btn",
+      "quantum-card",
+      "quantum-grid",
+      "quantum-section",
+      "quantum-stat",
+      "quantum-stat-lbl",
+      "quantum-stat-val",
+      "quantum-status",
+      "read-btn",
+      "result-box",
+      "secondary",
+      "speak-btn",
+      "stat-lbl",
+      "stat-row",
+      "stat-val",
+      "status-badge",
+      "upload-area",
+      "video-analysis-section",
+      "video-drop-zone",
+      "video-preview"
+    ],
+    "images": [
+      "/abijah-avatar.svg"
+    ],
+    "stylesheets": [
+      "/css/abijah-conversation-v35.css",
+      "/css/abijah-production.css",
+      "/css/ciwu-eons-m5.css",
+      "/css/ciwu-m13-console.css",
+      "/css/ciwu-m4-neural.css",
+      "/css/ciwu-m42-truth.css",
+      "/css/ciwu-m54-orchestration.css",
+      "/css/ciwu-omni-v36.css",
+      "/css/ciwu-product-engine.css",
+      "/css/ciwu-supplier-command.css",
+      "/css/eons-ui.css",
+      "/css/m2-1-hotfix.css",
+      "/css/m2-production-polish.css"
+    ],
+    "scripts": [
+      "/abijah-voice.js",
+      "/js/abijah-conversation-v35.js",
+      "/js/abijah-production.js",
+      "/js/ciwu-eons-m5.js",
+      "/js/ciwu-m13-console.js",
+      "/js/ciwu-m4-neural.js",
+      "/js/ciwu-m42-truth.js",
+      "/js/ciwu-m54-orchestration.js",
+      "/js/ciwu-omni-v36.js",
+      "/js/ciwu-product-engine.js",
+      "/js/ciwu-supplier-command.js",
+      "/js/eons-cortex-dashboard.js",
+      "/js/eons-model-status.js",
+      "/js/m2-1-hotfix.js",
+      "/js/m2-production-fix.js",
+      "/js/m3-console.js",
+      "/m3-coding-engine.js"
+    ],
+    "headings": [
+      "CIWU OMNI v4.0-QUANTUM",
+      "CORTEX KNOWLEDGE",
+      "Cellular Vitality — Commercial Readiness",
+      "EONS MATRIX",
+      "NEUROTEX CORE",
+      "Supplier Operations Command Center",
+      "VORTEX ENGINE",
+      "ZORTEX MATRIX",
+      "⚛️ QUANTUM MILESTONE DASHBOARD",
+      "🎥 VIDEO DIAGNOSTIC AI",
+      "📋 PATIENT NAVIGATION SYSTEM",
+      "🧠 CIWU OMNI AUTONOMOUS MEDICAL AI"
+    ],
+    "mutationPerformed": false
+  },
+  "currentUi": {
+    "schema": "CIWU_ORIGINAL_UI_DNA_V1",
+    "classes": [
+      "active",
+      "assistant",
+      "ciwu-actions",
+      "ciwu-app",
+      "ciwu-brand",
+      "ciwu-brand-mark",
+      "ciwu-button",
+      "ciwu-card",
+      "ciwu-card-pad",
+      "ciwu-chat",
+      "ciwu-chat-head",
+      "ciwu-chat-layout",
+      "ciwu-chip",
+      "ciwu-chip-row",
+      "ciwu-composer",
+      "ciwu-content",
+      "ciwu-diff",
+      "ciwu-dot",
+      "ciwu-evidence-record",
+      "ciwu-eyebrow",
+      "ciwu-footer-note",
+      "ciwu-gradient-text",
+      "ciwu-grid",
+      "ciwu-hero",
+      "ciwu-icon",
+      "ciwu-lead",
+      "ciwu-main",
+      "ciwu-menu",
+      "ciwu-message",
+      "ciwu-messages",
+      "ciwu-meter",
+      "ciwu-module",
+      "ciwu-module-grid",
+      "ciwu-nav",
+      "ciwu-panel-list",
+      "ciwu-provider-card",
+      "ciwu-provider-grid",
+      "ciwu-row",
+      "ciwu-safe",
+      "ciwu-section-title",
+      "ciwu-sidebar",
+      "ciwu-sidebar-footer",
+      "ciwu-stat",
+      "ciwu-stat-label",
+      "ciwu-stat-sub",
+      "ciwu-stat-value",
+      "ciwu-status",
+      "ciwu-terminal",
+      "ciwu-timeline",
+      "ciwu-timeline-event",
+      "ciwu-topbar",
+      "ciwu-topbar-left",
+      "ciwu-tree",
+      "ciwu-view",
+      "ciwu-workbench",
+      "ciwu-workbench-meta",
+      "ciwu-workbench-nav",
+      "ciwu-workbench-panel",
+      "primary"
+    ],
+    "images": [],
+    "stylesheets": [
+      "/ciwu-omni.css"
+    ],
+    "scripts": [
+      "/ciwu-cortex-intelligence.js",
+      "/ciwu-omni-app.js",
+      "/ciwu-project-brain.js",
+      "/ciwu-project-intelligence.js",
+      "/ciwu-repair-approval.js",
+      "/ciwu-repair-search.js",
+      "/ciwu-workbench-live.js",
+      "/ciwu-workbench.js",
+      "/ciwu-xeon-sandbox.js"
+    ],
+    "headings": [
+      "Authorization Plane",
+      "CIWU OMNI Sovereign Intelligence Fabric",
+      "CODEX / XEON",
+      "Code Intelligence Workspace",
+      "Command Center",
+      "EONS",
+      "Evidence Before Score",
+      "Intelligence Fabric",
+      "Interactive Project Workbench",
+      "Live Symbol Index",
+      "M3 Intelligence",
+      "M3 Sovereign Intelligence",
+      "Model Federation",
+      "NEUROTEX",
+      "NEUROTEX Evidence Memory",
+      "Provider Truth",
+      "Safety & Authorization Plane",
+      "Zero-Cost First"
+    ],
+    "mutationPerformed": false
+  },
+  "lineageGraph": {
+    "schema": "CIWU_ORIGINAL_CURRENT_LINEAGE_V1",
+    "nodes": [
+      {
+        "id": "ORIGINAL_PLATFORM",
+        "type": "historical_product"
+      },
+      {
+        "id": "CURRENT_COMMAND_CENTER",
+        "type": "current_admin_shell"
+      },
+      {
+        "id": "TARGET_UNIFIED_PLATFORM",
+        "type": "fusion_target"
+      }
+    ],
+    "edges": [
+      {
+        "from": "ORIGINAL_PLATFORM",
+        "to": "TARGET_UNIFIED_PLATFORM",
+        "relation": "PRESERVE_PRODUCT_EXPERIENCE"
+      },
+      {
+        "from": "CURRENT_COMMAND_CENTER",
+        "to": "TARGET_UNIFIED_PLATFORM",
+        "relation": "PRESERVE_AS_SOVEREIGN_ADMIN"
+      }
+    ],
+    "original": {
+      "features": [
+        {
+          "id": "chatbot",
+          "original": true,
+          "current": true,
+          "status": "SURVIVED"
+        },
+        {
+          "id": "coding",
+          "original": true,
+          "current": true,
+          "status": "SURVIVED"
+        },
+        {
+          "id": "project_management",
+          "original": false,
+          "current": true,
+          "status": "NEW"
+        },
+        {
+          "id": "supplier",
+          "original": true,
+          "current": false,
+          "status": "POSSIBLY_LOST_OR_HIDDEN"
+        },
+        {
+          "id": "commerce",
+          "original": true,
+          "current": true,
+          "status": "SURVIVED"
+        },
+        {
+          "id": "entity_data",
+          "original": true,
+          "current": false,
+          "status": "POSSIBLY_LOST_OR_HIDDEN"
+        },
+        {
+          "id": "research",
+          "original": true,
+          "current": true,
+          "status": "SURVIVED"
+        },
+        {
+          "id": "dashboard",
+          "original": true,
+          "current": true,
+          "status": "SURVIVED"
+        },
+        {
+          "id": "authentication",
+          "original": true,
+          "current": true,
+          "status": "SURVIVED"
+        },
+        {
+          "id": "api",
+          "original": true,
+          "current": false,
+          "status": "POSSIBLY_LOST_OR_HIDDEN"
+        },
+        {
+          "id": "upload",
+          "original": true,
+          "current": true,
+          "status": "SURVIVED"
+        },
+        {
+          "id": "memory",
+          "original": true,
+          "current": true,
+          "status": "SURVIVED"
+        }
+      ],
+      "routes": {
+        "schema": "CIWU_ORIGINAL_ROUTE_PAGE_INVENTORY_V1",
+        "hrefs": [
+          "/api/m12/rfq/prohealth?quantity=1000",
+          "/css/abijah-conversation-v35.css",
+          "/css/abijah-production.css",
+          "/css/ciwu-eons-m5.css",
+          "/css/ciwu-m13-console.css",
+          "/css/ciwu-m4-neural.css",
+          "/css/ciwu-m42-truth.css",
+          "/css/ciwu-m54-orchestration.css",
+          "/css/ciwu-omni-v36.css",
+          "/css/ciwu-product-engine.css",
+          "/css/ciwu-supplier-command.css",
+          "/css/eons-ui.css",
+          "/css/m2-1-hotfix.css",
+          "/css/m2-production-polish.css"
+        ],
+        "formActions": [],
+        "fetchTargets": [
+          "/api/analyze-video",
+          "/api/chat",
+          "/api/generate-packet",
+          "/api/generate-presentation",
+          "/api/providers?insurance=",
+          "/api/quantum-breakthroughs",
+          "/api/quantum-surprise",
+          "/api/scripts/",
+          "/api/stats"
+        ],
+        "ids": [
+          "abijah-btn",
+          "abijah-chat",
+          "abijah-input",
+          "abijah-messages",
+          "abijah-video-status",
+          "analyzeVideoBtn",
+          "chatInput",
+          "chatOut",
+          "ciwu-m13-console",
+          "ciwu-m13-evidence",
+          "ciwu-m13-phone",
+          "ciwu-m13-profile",
+          "ciwu-m13-status",
+          "ciwu-m13-wholesale",
+          "ciwu-product-engine",
+          "ciwu-product-engine-gates",
+          "ciwu-product-engine-status",
+          "ciwu-sc-documents",
+          "ciwu-sc-purchase",
+          "ciwu-sc-refresh",
+          "ciwu-sc-responses",
+          "ciwu-sc-review-output",
+          "ciwu-sc-rfq-open",
+          "ciwu-sc-rfq-output",
+          "ciwu-sc-rows",
+          "ciwu-sc-sales",
+          "ciwu-sc-status",
+          "ciwu-sc-suppliers",
+          "ciwu-sc-verified",
+          "ciwu-supplier-command",
+          "cortex-c",
+          "desiredTreatment",
+          "eons-e",
+          "eons-r",
+          "fileInput",
+          "filePreview",
+          "navResult",
+          "neuro-c",
+          "patientAge",
+          "patientInsurance",
+          "patientName",
+          "q-blocks",
+          "q-breakthroughs",
+          "q-entangled",
+          "q-qubits",
+          "quantumResult",
+          "quantumStatus",
+          "uploadArea",
+          "videoAnalysisResult",
+          "videoDropZone",
+          "videoFileName",
+          "videoInput",
+          "videoPreview",
+          "videoPreviewContainer",
+          "voiceBtn",
+          "vortex-c",
+          "zortex-c"
+        ],
+        "classified": {
+          "apiRoutes": [
+            "/api/analyze-video",
+            "/api/chat",
+            "/api/generate-packet",
+            "/api/generate-presentation",
+            "/api/m12/rfq/prohealth?quantity=1000",
+            "/api/providers?insurance=",
+            "/api/quantum-breakthroughs",
+            "/api/quantum-surprise",
+            "/api/scripts/",
+            "/api/stats"
+          ],
+          "internalRoutes": [
+            "/css/abijah-conversation-v35.css",
+            "/css/abijah-production.css",
+            "/css/ciwu-eons-m5.css",
+            "/css/ciwu-m13-console.css",
+            "/css/ciwu-m4-neural.css",
+            "/css/ciwu-m42-truth.css",
+            "/css/ciwu-m54-orchestration.css",
+            "/css/ciwu-omni-v36.css",
+            "/css/ciwu-product-engine.css",
+            "/css/ciwu-supplier-command.css",
+            "/css/eons-ui.css",
+            "/css/m2-1-hotfix.css",
+            "/css/m2-production-polish.css"
+          ],
+          "externalLinks": []
+        },
+        "mutationPerformed": false
+      },
+      "ui": {
+        "schema": "CIWU_ORIGINAL_UI_DNA_V1",
+        "classes": [
+          "abijah-avatar",
+          "abijah-header",
+          "abijah-input",
+          "abijah-messages",
+          "abijah-msg",
+          "analyze-btn",
+          "btn-voice",
+          "card",
+          "chat-box",
+          "chat-input",
+          "chat-input-row",
+          "chat-out",
+          "ciwu-commerce-eyebrow",
+          "ciwu-engine-card",
+          "ciwu-engine-grid",
+          "ciwu-m13-card",
+          "ciwu-m13-copy",
+          "ciwu-m13-grid",
+          "ciwu-m13-head",
+          "ciwu-m13-lock",
+          "ciwu-ready-icon",
+          "ciwu-ready-state",
+          "ciwu-sc-actions",
+          "ciwu-sc-btn",
+          "ciwu-sc-card",
+          "ciwu-sc-code",
+          "ciwu-sc-copy",
+          "ciwu-sc-eyebrow",
+          "ciwu-sc-grid",
+          "ciwu-sc-lock",
+          "ciwu-sc-panel",
+          "ciwu-sc-panel-head",
+          "ciwu-sc-table",
+          "ciwu-sc-table-wrap",
+          "ciwu-sc-title",
+          "container",
+          "dot",
+          "features",
+          "footer",
+          "grid",
+          "header",
+          "message",
+          "mod-status",
+          "nav-btn",
+          "nav-form",
+          "nav-input",
+          "nav-section",
+          "patent-badge",
+          "quantum-btn",
+          "quantum-card",
+          "quantum-grid",
+          "quantum-section",
+          "quantum-stat",
+          "quantum-stat-lbl",
+          "quantum-stat-val",
+          "quantum-status",
+          "read-btn",
+          "result-box",
+          "secondary",
+          "speak-btn",
+          "stat-lbl",
+          "stat-row",
+          "stat-val",
+          "status-badge",
+          "upload-area",
+          "video-analysis-section",
+          "video-drop-zone",
+          "video-preview"
+        ],
+        "images": [
+          "/abijah-avatar.svg"
+        ],
+        "stylesheets": [
+          "/css/abijah-conversation-v35.css",
+          "/css/abijah-production.css",
+          "/css/ciwu-eons-m5.css",
+          "/css/ciwu-m13-console.css",
+          "/css/ciwu-m4-neural.css",
+          "/css/ciwu-m42-truth.css",
+          "/css/ciwu-m54-orchestration.css",
+          "/css/ciwu-omni-v36.css",
+          "/css/ciwu-product-engine.css",
+          "/css/ciwu-supplier-command.css",
+          "/css/eons-ui.css",
+          "/css/m2-1-hotfix.css",
+          "/css/m2-production-polish.css"
+        ],
+        "scripts": [
+          "/abijah-voice.js",
+          "/js/abijah-conversation-v35.js",
+          "/js/abijah-production.js",
+          "/js/ciwu-eons-m5.js",
+          "/js/ciwu-m13-console.js",
+          "/js/ciwu-m4-neural.js",
+          "/js/ciwu-m42-truth.js",
+          "/js/ciwu-m54-orchestration.js",
+          "/js/ciwu-omni-v36.js",
+          "/js/ciwu-product-engine.js",
+          "/js/ciwu-supplier-command.js",
+          "/js/eons-cortex-dashboard.js",
+          "/js/eons-model-status.js",
+          "/js/m2-1-hotfix.js",
+          "/js/m2-production-fix.js",
+          "/js/m3-console.js",
+          "/m3-coding-engine.js"
+        ],
+        "headings": [
+          "CIWU OMNI v4.0-QUANTUM",
+          "CORTEX KNOWLEDGE",
+          "Cellular Vitality — Commercial Readiness",
+          "EONS MATRIX",
+          "NEUROTEX CORE",
+          "Supplier Operations Command Center",
+          "VORTEX ENGINE",
+          "ZORTEX MATRIX",
+          "⚛️ QUANTUM MILESTONE DASHBOARD",
+          "🎥 VIDEO DIAGNOSTIC AI",
+          "📋 PATIENT NAVIGATION SYSTEM",
+          "🧠 CIWU OMNI AUTONOMOUS MEDICAL AI"
+        ],
+        "mutationPerformed": false
+      }
+    },
+    "current": {
+      "features": [
+        {
+          "id": "chatbot",
+          "original": true,
+          "current": true,
+          "status": "SURVIVED"
+        },
+        {
+          "id": "coding",
+          "original": true,
+          "current": true,
+          "status": "SURVIVED"
+        },
+        {
+          "id": "project_management",
+          "original": false,
+          "current": true,
+          "status": "NEW"
+        },
+        {
+          "id": "supplier",
+          "original": true,
+          "current": false,
+          "status": "POSSIBLY_LOST_OR_HIDDEN"
+        },
+        {
+          "id": "commerce",
+          "original": true,
+          "current": true,
+          "status": "SURVIVED"
+        },
+        {
+          "id": "entity_data",
+          "original": true,
+          "current": false,
+          "status": "POSSIBLY_LOST_OR_HIDDEN"
+        },
+        {
+          "id": "research",
+          "original": true,
+          "current": true,
+          "status": "SURVIVED"
+        },
+        {
+          "id": "dashboard",
+          "original": true,
+          "current": true,
+          "status": "SURVIVED"
+        },
+        {
+          "id": "authentication",
+          "original": true,
+          "current": true,
+          "status": "SURVIVED"
+        },
+        {
+          "id": "api",
+          "original": true,
+          "current": false,
+          "status": "POSSIBLY_LOST_OR_HIDDEN"
+        },
+        {
+          "id": "upload",
+          "original": true,
+          "current": true,
+          "status": "SURVIVED"
+        },
+        {
+          "id": "memory",
+          "original": true,
+          "current": true,
+          "status": "SURVIVED"
+        }
+      ],
+      "routes": {
+        "schema": "CIWU_ORIGINAL_ROUTE_PAGE_INVENTORY_V1",
+        "hrefs": [
+          "/ciwu-omni.css"
+        ],
+        "formActions": [],
+        "fetchTargets": [],
+        "ids": [
+          "ciwu-app",
+          "ciwu-commit",
+          "ciwu-generation",
+          "ciwu-live-activity",
+          "ciwu-live-dot",
+          "ciwu-live-event-count",
+          "ciwu-live-file-count",
+          "ciwu-live-generation",
+          "ciwu-live-milestone",
+          "ciwu-live-neurotex-count",
+          "ciwu-live-neurotex-list",
+          "ciwu-live-project",
+          "ciwu-live-provider-grid",
+          "ciwu-live-render-commit",
+          "ciwu-live-repository-tree",
+          "ciwu-live-symbol-count",
+          "ciwu-live-symbol-list",
+          "ciwu-live-text",
+          "ciwu-m3-provider",
+          "ciwu-m3-state",
+          "ciwu-m3-state-detail",
+          "ciwu-menu",
+          "ciwu-messages",
+          "ciwu-mode",
+          "ciwu-page-subtitle",
+          "ciwu-page-title",
+          "ciwu-prompt",
+          "ciwu-selected-file",
+          "ciwu-selected-provider",
+          "ciwu-send",
+          "ciwu-sidebar",
+          "ciwu-workbench-live-status"
+        ],
+        "classified": {
+          "apiRoutes": [],
+          "internalRoutes": [
+            "/ciwu-omni.css"
+          ],
+          "externalLinks": []
+        },
+        "mutationPerformed": false
+      },
+      "ui": {
+        "schema": "CIWU_ORIGINAL_UI_DNA_V1",
+        "classes": [
+          "active",
+          "assistant",
+          "ciwu-actions",
+          "ciwu-app",
+          "ciwu-brand",
+          "ciwu-brand-mark",
+          "ciwu-button",
+          "ciwu-card",
+          "ciwu-card-pad",
+          "ciwu-chat",
+          "ciwu-chat-head",
+          "ciwu-chat-layout",
+          "ciwu-chip",
+          "ciwu-chip-row",
+          "ciwu-composer",
+          "ciwu-content",
+          "ciwu-diff",
+          "ciwu-dot",
+          "ciwu-evidence-record",
+          "ciwu-eyebrow",
+          "ciwu-footer-note",
+          "ciwu-gradient-text",
+          "ciwu-grid",
+          "ciwu-hero",
+          "ciwu-icon",
+          "ciwu-lead",
+          "ciwu-main",
+          "ciwu-menu",
+          "ciwu-message",
+          "ciwu-messages",
+          "ciwu-meter",
+          "ciwu-module",
+          "ciwu-module-grid",
+          "ciwu-nav",
+          "ciwu-panel-list",
+          "ciwu-provider-card",
+          "ciwu-provider-grid",
+          "ciwu-row",
+          "ciwu-safe",
+          "ciwu-section-title",
+          "ciwu-sidebar",
+          "ciwu-sidebar-footer",
+          "ciwu-stat",
+          "ciwu-stat-label",
+          "ciwu-stat-sub",
+          "ciwu-stat-value",
+          "ciwu-status",
+          "ciwu-terminal",
+          "ciwu-timeline",
+          "ciwu-timeline-event",
+          "ciwu-topbar",
+          "ciwu-topbar-left",
+          "ciwu-tree",
+          "ciwu-view",
+          "ciwu-workbench",
+          "ciwu-workbench-meta",
+          "ciwu-workbench-nav",
+          "ciwu-workbench-panel",
+          "primary"
+        ],
+        "images": [],
+        "stylesheets": [
+          "/ciwu-omni.css"
+        ],
+        "scripts": [
+          "/ciwu-cortex-intelligence.js",
+          "/ciwu-omni-app.js",
+          "/ciwu-project-brain.js",
+          "/ciwu-project-intelligence.js",
+          "/ciwu-repair-approval.js",
+          "/ciwu-repair-search.js",
+          "/ciwu-workbench-live.js",
+          "/ciwu-workbench.js",
+          "/ciwu-xeon-sandbox.js"
+        ],
+        "headings": [
+          "Authorization Plane",
+          "CIWU OMNI Sovereign Intelligence Fabric",
+          "CODEX / XEON",
+          "Code Intelligence Workspace",
+          "Command Center",
+          "EONS",
+          "Evidence Before Score",
+          "Intelligence Fabric",
+          "Interactive Project Workbench",
+          "Live Symbol Index",
+          "M3 Intelligence",
+          "M3 Sovereign Intelligence",
+          "Model Federation",
+          "NEUROTEX",
+          "NEUROTEX Evidence Memory",
+          "Provider Truth",
+          "Safety & Authorization Plane",
+          "Zero-Cost First"
+        ],
+        "mutationPerformed": false
+      }
+    },
+    "doctrine": {
+      "replaceOriginalPlatform": false,
+      "deleteCommandCenter": false,
+      "fusionRequired": true,
+      "originalProductPrimary": true,
+      "commandCenterAdminOnly": true
+    }
+  },
+  "driftReport": {
+    "schema": "CIWU_PLATFORM_DRIFT_DETECTOR_V1",
+    "routeLoss": [
+      "/css/abijah-conversation-v35.css",
+      "/css/abijah-production.css",
+      "/css/ciwu-eons-m5.css",
+      "/css/ciwu-m13-console.css",
+      "/css/ciwu-m4-neural.css",
+      "/css/ciwu-m42-truth.css",
+      "/css/ciwu-m54-orchestration.css",
+      "/css/ciwu-omni-v36.css",
+      "/css/ciwu-product-engine.css",
+      "/css/ciwu-supplier-command.css",
+      "/css/eons-ui.css",
+      "/css/m2-1-hotfix.css",
+      "/css/m2-production-polish.css"
+    ],
+    "apiLoss": [
+      "/api/analyze-video",
+      "/api/chat",
+      "/api/generate-packet",
+      "/api/generate-presentation",
+      "/api/m12/rfq/prohealth?quantity=1000",
+      "/api/providers?insurance=",
+      "/api/quantum-breakthroughs",
+      "/api/quantum-surprise",
+      "/api/scripts/",
+      "/api/stats"
+    ],
+    "assetLoss": [
+      "/abijah-avatar.svg",
+      "/css/abijah-conversation-v35.css",
+      "/css/abijah-production.css",
+      "/css/ciwu-eons-m5.css",
+      "/css/ciwu-m13-console.css",
+      "/css/ciwu-m4-neural.css",
+      "/css/ciwu-m42-truth.css",
+      "/css/ciwu-m54-orchestration.css",
+      "/css/ciwu-omni-v36.css",
+      "/css/ciwu-product-engine.css",
+      "/css/ciwu-supplier-command.css",
+      "/css/eons-ui.css",
+      "/css/m2-1-hotfix.css",
+      "/css/m2-production-polish.css",
+      "/abijah-voice.js",
+      "/js/abijah-conversation-v35.js",
+      "/js/abijah-production.js",
+      "/js/ciwu-eons-m5.js",
+      "/js/ciwu-m13-console.js",
+      "/js/ciwu-m4-neural.js",
+      "/js/ciwu-m42-truth.js",
+      "/js/ciwu-m54-orchestration.js",
+      "/js/ciwu-omni-v36.js",
+      "/js/ciwu-product-engine.js",
+      "/js/ciwu-supplier-command.js",
+      "/js/eons-cortex-dashboard.js",
+      "/js/eons-model-status.js",
+      "/js/m2-1-hotfix.js",
+      "/js/m2-production-fix.js",
+      "/js/m3-console.js",
+      "/m3-coding-engine.js"
+    ],
+    "lostFeatures": [
+      "supplier",
+      "entity_data",
+      "api"
+    ],
+    "driftDetected": true,
+    "interpretation": "DRIFT_IS_EVIDENCE_FOR_REVIEW_NOT_AUTOMATIC_RESTORE",
+    "automaticRestore": false
+  },
+  "fusionMap": {
+    "schema": "CIWU_SOVEREIGN_FUSION_MAPPER_V1",
+    "intelligenceModules": [
+      "M3",
+      "CORTEX",
+      "VORTEX",
+      "ZORTEX",
+      "CODE_INTELLIGENCE",
+      "XEON",
+      "NEUROTEX",
+      "EONS",
+      "PROJECT_BRAIN",
+      "MODEL_FEDERATION"
+    ],
+    "mappings": [
+      {
+        "productSurface": "PRIMARY_PRODUCT_UI",
+        "target": "ORIGINAL_PLATFORM_EXPERIENCE",
+        "role": "PUBLIC_OR_USER_FACING"
+      },
+      {
+        "productSurface": "AI_ASSISTANT",
+        "target": "M3+CORTEX+PROJECT_BRAIN",
+        "role": "CONVERSATIONAL_INTELLIGENCE"
+      },
+      {
+        "productSurface": "CODE_WORKSPACE",
+        "target": "CODE_INTELLIGENCE+XEON",
+        "role": "SOFTWARE_ENGINEERING"
+      },
+      {
+        "productSurface": "MEMORY",
+        "target": "NEUROTEX",
+        "role": "DURABLE_CONTEXT"
+      },
+      {
+        "productSurface": "EVIDENCE",
+        "target": "EONS",
+        "role": "PROVENANCE_AND_CERTIFICATION"
+      },
+      {
+        "productSurface": "ADMIN",
+        "target": "CURRENT_COMMAND_CENTER",
+        "role": "SOVEREIGN_OPERATOR_CONSOLE"
+      }
+    ],
+    "originalFeatures": [
+      {
+        "id": "chatbot",
+        "original": true,
+        "current": true,
+        "status": "SURVIVED"
+      },
+      {
+        "id": "coding",
+        "original": true,
+        "current": true,
+        "status": "SURVIVED"
+      },
+      {
+        "id": "project_management",
+        "original": false,
+        "current": true,
+        "status": "NEW"
+      },
+      {
+        "id": "supplier",
+        "original": true,
+        "current": false,
+        "status": "POSSIBLY_LOST_OR_HIDDEN"
+      },
+      {
+        "id": "commerce",
+        "original": true,
+        "current": true,
+        "status": "SURVIVED"
+      },
+      {
+        "id": "entity_data",
+        "original": true,
+        "current": false,
+        "status": "POSSIBLY_LOST_OR_HIDDEN"
+      },
+      {
+        "id": "research",
+        "original": true,
+        "current": true,
+        "status": "SURVIVED"
+      },
+      {
+        "id": "dashboard",
+        "original": true,
+        "current": true,
+        "status": "SURVIVED"
+      },
+      {
+        "id": "authentication",
+        "original": true,
+        "current": true,
+        "status": "SURVIVED"
+      },
+      {
+        "id": "api",
+        "original": true,
+        "current": false,
+        "status": "POSSIBLY_LOST_OR_HIDDEN"
+      },
+      {
+        "id": "upload",
+        "original": true,
+        "current": true,
+        "status": "SURVIVED"
+      },
+      {
+        "id": "memory",
+        "original": true,
+        "current": true,
+        "status": "SURVIVED"
+      }
+    ],
+    "drift": {
+      "schema": "CIWU_PLATFORM_DRIFT_DETECTOR_V1",
+      "routeLoss": [
+        "/css/abijah-conversation-v35.css",
+        "/css/abijah-production.css",
+        "/css/ciwu-eons-m5.css",
+        "/css/ciwu-m13-console.css",
+        "/css/ciwu-m4-neural.css",
+        "/css/ciwu-m42-truth.css",
+        "/css/ciwu-m54-orchestration.css",
+        "/css/ciwu-omni-v36.css",
+        "/css/ciwu-product-engine.css",
+        "/css/ciwu-supplier-command.css",
+        "/css/eons-ui.css",
+        "/css/m2-1-hotfix.css",
+        "/css/m2-production-polish.css"
+      ],
+      "apiLoss": [
+        "/api/analyze-video",
+        "/api/chat",
+        "/api/generate-packet",
+        "/api/generate-presentation",
+        "/api/m12/rfq/prohealth?quantity=1000",
+        "/api/providers?insurance=",
+        "/api/quantum-breakthroughs",
+        "/api/quantum-surprise",
+        "/api/scripts/",
+        "/api/stats"
+      ],
+      "assetLoss": [
+        "/abijah-avatar.svg",
+        "/css/abijah-conversation-v35.css",
+        "/css/abijah-production.css",
+        "/css/ciwu-eons-m5.css",
+        "/css/ciwu-m13-console.css",
+        "/css/ciwu-m4-neural.css",
+        "/css/ciwu-m42-truth.css",
+        "/css/ciwu-m54-orchestration.css",
+        "/css/ciwu-omni-v36.css",
+        "/css/ciwu-product-engine.css",
+        "/css/ciwu-supplier-command.css",
+        "/css/eons-ui.css",
+        "/css/m2-1-hotfix.css",
+        "/css/m2-production-polish.css",
+        "/abijah-voice.js",
+        "/js/abijah-conversation-v35.js",
+        "/js/abijah-production.js",
+        "/js/ciwu-eons-m5.js",
+        "/js/ciwu-m13-console.js",
+        "/js/ciwu-m4-neural.js",
+        "/js/ciwu-m42-truth.js",
+        "/js/ciwu-m54-orchestration.js",
+        "/js/ciwu-omni-v36.js",
+        "/js/ciwu-product-engine.js",
+        "/js/ciwu-supplier-command.js",
+        "/js/eons-cortex-dashboard.js",
+        "/js/eons-model-status.js",
+        "/js/m2-1-hotfix.js",
+        "/js/m2-production-fix.js",
+        "/js/m3-console.js",
+        "/m3-coding-engine.js"
+      ],
+      "lostFeatures": [
+        "supplier",
+        "entity_data",
+        "api"
+      ],
+      "driftDetected": true,
+      "interpretation": "DRIFT_IS_EVIDENCE_FOR_REVIEW_NOT_AUTOMATIC_RESTORE",
+      "automaticRestore": false
+    },
+    "principles": {
+      "restoreByEvidenceOnly": true,
+      "preserveCurrentIntelligence": true,
+      "preserveOriginalProductIdentity": true,
+      "adminShellSeparate": true,
+      "noAutomaticProductionMutation": true
+    }
+  },
+  "currentUiOverwritten": false,
+  "originalUiRestored": false,
+  "productionMutation": false
+}

@@ -1,0 +1,18 @@
+{
+  "schema": "CIWU_ORIGINAL_PLATFORM_FUSION_V1",
+  "generation": "OMEGA120_M2665_M2784",
+  "forensicDiscovery": true,
+  "historicalSnapshotIndex": true,
+  "routeInventory": true,
+  "featureLedger": true,
+  "visualDnaInventory": true,
+  "lineageGraph": true,
+  "driftDetection": true,
+  "sovereignFusionMapper": true,
+  "recoveryBlueprint": true,
+  "originalUiRestored": false,
+  "currentUiOverwritten": false,
+  "currentCommandCenterPreserved": true,
+  "humanVisualApprovalRequired": true,
+  "productionMutation": false
+}
