@@ -1,0 +1,16 @@
+{
+  "schema": "CIWU_PROJECT_INTELLIGENCE_V1",
+  "safeFileInspection": true,
+  "projectSearch": true,
+  "symbolDrilldown": true,
+  "dependencyGraph": true,
+  "releaseComparison": true,
+  "evidenceDrilldown": true,
+  "m3ContextAssembly": true,
+  "readOnly": true,
+  "arbitraryFilesystemAccess": false,
+  "arbitraryShellExecution": false,
+  "productionMutation": false,
+  "gitPushAuthority": false,
+  "purchaseAuthority": false
+}

@@ -127,4 +127,194 @@ for (const blocked of [
   );
 }
 
+
+const safeFileInspector =
+  require('../workbench/safe-file-inspector-v1');
+
+const projectSearch =
+  require('../workbench/project-search-v1');
+
+const symbolDrilldown =
+  require('../workbench/symbol-drilldown-v1');
+
+const dependencyGraph =
+  require('../workbench/dependency-graph-v1');
+
+const releaseComparator =
+  require('../workbench/release-comparator-v1');
+
+const evidenceDrilldown =
+  require('../workbench/evidence-drilldown-v1');
+
+const m3ContextAssembler =
+  require('../workbench/m3-context-assembler-v1');
+
+router.get('/file',(req,res) => {
+  noStore(res);
+
+  try {
+    res.json(
+      safeFileInspector.inspect(
+        process.cwd(),
+        req.query.path
+      )
+    );
+  } catch (error) {
+    res.status(400).json({
+      ok:false,
+      error:error.message
+    });
+  }
+});
+
+router.get('/search',(req,res) => {
+  noStore(res);
+
+  try {
+    const inventory =
+      repository.inventory(
+        process.cwd()
+      );
+
+    res.json(
+      projectSearch.search(
+        process.cwd(),
+        inventory.entries,
+        req.query.q
+      )
+    );
+  } catch (error) {
+    res.status(400).json({
+      ok:false,
+      error:error.message
+    });
+  }
+});
+
+router.get('/symbol',(req,res) => {
+  noStore(res);
+
+  try {
+    res.json(
+      symbolDrilldown.locate(
+        process.cwd(),
+        {
+          name:req.query.name || null,
+          kind:req.query.kind || null,
+          file:req.query.file,
+          line:Number(req.query.line)
+        }
+      )
+    );
+  } catch (error) {
+    res.status(400).json({
+      ok:false,
+      error:error.message
+    });
+  }
+});
+
+router.get('/dependencies',(req,res) => {
+  noStore(res);
+
+  const inventory =
+    repository.inventory(
+      process.cwd()
+    );
+
+  res.json(
+    dependencyGraph.build(
+      process.cwd(),
+      inventory.entries
+    )
+  );
+});
+
+router.get('/releases',(req,res) => {
+  noStore(res);
+
+  const releases =
+    releaseComparator
+      .loadReleases(
+        process.cwd()
+      )
+      .map(
+        releaseComparator.summarize
+      );
+
+  res.json({
+    ok:true,
+    readOnly:true,
+    releaseCount:releases.length,
+    releases
+  });
+});
+
+router.get('/release-compare',(req,res) => {
+  noStore(res);
+
+  try {
+    res.json(
+      releaseComparator.compare(
+        process.cwd(),
+        req.query.from,
+        req.query.to
+      )
+    );
+  } catch (error) {
+    res.status(400).json({
+      ok:false,
+      error:error.message
+    });
+  }
+});
+
+router.get('/evidence-record',(req,res) => {
+  noStore(res);
+
+  try {
+    res.json(
+      evidenceDrilldown.read(
+        process.cwd(),
+        req.query.file
+      )
+    );
+  } catch (error) {
+    res.status(400).json({
+      ok:false,
+      error:error.message
+    });
+  }
+});
+
+router.post(
+  '/context-assemble',
+  express.json({
+    limit:'64kb'
+  }),
+  (req,res) => {
+    noStore(res);
+
+    const body =
+      req.body &&
+      typeof req.body === 'object'
+        ? req.body
+        : {};
+
+    res.json(
+      m3ContextAssembler.assemble({
+        root:process.cwd(),
+        files:
+          Array.isArray(body.files)
+            ? body.files
+            : [],
+        symbols:
+          Array.isArray(body.symbols)
+            ? body.symbols
+            : []
+      })
+    );
+  }
+);
+
 module.exports=router;
