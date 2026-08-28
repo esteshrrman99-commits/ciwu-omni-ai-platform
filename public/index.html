@@ -1,1371 +1,549 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>CIWU OMNI v4.0-QUANTUM - Elite Medical Platform</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:linear-gradient(135deg,#0a0a0f 0%,#1a1a2e 100%);color:#fff;font-family:'Segoe UI',sans-serif;min-height:100vh;padding:20px}
-.container{max-width:1400px;margin:0 auto}
-.header{text-align:center;margin-bottom:30px}
-.header h1{font-size:2.5rem;background:linear-gradient(90deg,#00d2ff,#6d4aff,#ff0080);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
-.header p{color:#4facfe;letter-spacing:2px;margin-bottom:12px}
-.status-badge{display:inline-flex;align-items:center;padding:8px 16px;border-radius:20px;background:rgba(0,255,136,0.15);color:#00ff88;font-size:0.9rem;border:1px solid rgba(0,255,136,0.3)}
-.dot{width:10px;height:10px;border-radius:50%;background:#00ff88;margin-right:8px;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:30px 0}
-.card{background:rgba(30,30,50,0.8);border:1px solid rgba(109,76,170,0.3);border-radius:12px;padding:20px;transition:all 0.3s;position:relative;overflow:hidden}
-.card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#00d2ff,#6d4aff,#ff0080)}
-.card:hover{transform:translateY(-5px);box-shadow:0 10px 30px rgba(109,76,170,0.3);border-color:#6d4aff}
-.card h3{font-size:1.3rem;color:#00d2ff;margin-bottom:10px}
-.mod-status{display:inline-flex;align-items:center;padding:4px 10px;border-radius:15px;font-size:0.7rem;margin-bottom:12px;background:rgba(0,255,136,0.15);color:#00ff88;border:1px solid rgba(0,255,136,0.3)}
-.stat-row{display:flex;justify-content:space-around;margin-top:12px}
-.stat-val{font-size:1.5rem;font-weight:700;color:#6d4aff}
-.stat-lbl{font-size:0.65rem;color:#8b8b99;text-transform:uppercase;letter-spacing:1px}
-.features{margin-top:12px;padding-left:18px;font-size:0.8rem;color:#ccc;line-height:1.5}
-.features li{margin-bottom:4px}
-.chat-box{background:rgba(20,20,35,0.8);border-radius:12px;padding:25px;margin-top:30px;border:1px solid rgba(109,76,170,0.3)}
-.chat-box h3{color:#00d2ff;margin-bottom:12px}
-.upload-area{border:2px dashed rgba(109,76,170,0.5);border-radius:8px;padding:15px;text-align:center;margin:12px 0;cursor:pointer;color:#aaa;font-size:0.9rem}
-.upload-area:hover{border-color:#6d4aff;color:#fff}
-#fileInput{display:none}
-.chat-input-row{display:flex;gap:10px;margin-top:12px}
-.chat-input{flex:1;padding:14px;border:2px solid #6d4aff;border-radius:8px;background:rgba(10,10,15,0.8);color:#fff;font-size:1rem;outline:none}
-.chat-input:focus{border-color:#00d2ff;box-shadow:0 0 10px rgba(0,210,255,0.3)}
-.btn-send{padding:14px 20px;background:#6d4aff;color:#fff;border:none;border-radius:8px;font-size:1rem;cursor:pointer}
-.btn-send:hover{background:#5a3add}
-.btn-voice{padding:14px 18px;background:#00d2ff;color:#000;border:none;border-radius:8px;font-size:1rem;cursor:pointer}
-.btn-voice:hover{background:#00b8e0}
-.btn-voice.listening{background:#ff0080;color:#fff;animation:pulse 1s infinite}
-.chat-out{background:rgba(10,10,15,0.6);padding:18px;border-radius:8px;margin-top:16px;min-height:80px;white-space:pre-wrap;line-height:1.6;border-left:3px solid #6d4aff;max-height:500px;overflow-y:auto}
-.footer{text-align:center;margin-top:30px;padding:18px;color:#6b6b7b;font-size:0.8rem;border-top:1px solid rgba(109,76,170,0.2)}
-.file-preview{display:inline-block;background:rgba(109,76,170,0.2);padding:4px 10px;border-radius:4px;margin:4px;font-size:0.8rem}
-.nav-section{margin-top:30px;background:rgba(20,20,35,0.8);border:1px solid rgba(109,76,170,0.3);border-radius:12px;padding:25px}
-.nav-section h3{color:#00d2ff;margin-bottom:15px}
-.nav-form{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;margin-bottom:20px}
-.nav-input{padding:12px;border:2px solid #6d4aff;border-radius:8px;background:rgba(10,10,15,0.8);color:#fff;font-size:0.9rem;width:100%}
-.nav-btn{padding:12px 20px;background:#00d2ff;color:#000;border:none;border-radius:8px;font-size:0.9rem;cursor:pointer;font-weight:bold}
-.nav-btn:hover{background:#00b8e0}
-.result-box{background:rgba(10,10,15,0.6);padding:18px;border-radius:8px;margin-top:15px;white-space:pre-wrap;line-height:1.6;border-left:3px solid #00d2ff;max-height:400px;overflow-y:auto;font-size:0.9rem}
-.patent-badge{background:linear-gradient(90deg,#6d4aff,#00d2ff);color:#fff;padding:4px 12px;border-radius:15px;font-size:0.75rem;display:inline-block;margin-top:10px}
-.video-analysis-section{margin-top:30px;background:rgba(20,20,35,0.8);border:1px solid rgba(109,76,170,0.3);border-radius:12px;padding:25px}
-.video-analysis-section h3{color:#00d2ff;margin-bottom:15px}
-.video-drop-zone{border:2px dashed rgba(0,210,255,0.5);border-radius:8px;padding:30px;text-align:center;margin:15px 0;cursor:pointer;color:#aaa;font-size:1rem;background:rgba(0,210,255,0.05)}
-.video-drop-zone:hover{border-color:#00d2ff;color:#fff;background:rgba(0,210,255,0.1)}
-#videoInput{display:none}
-.video-preview{max-width:100%;max-height:300px;border-radius:8px;margin:15px 0;display:none}
-.analyze-btn{padding:15px 30px;background:#00d2ff;color:#000;border:none;border-radius:8px;font-size:1rem;cursor:pointer;font-weight:bold;width:100%}
-.analyze-btn:hover{background:#00b8e0}
-.analyzing{animation:pulse 1s infinite}
 
-/* NEW QUANTUM STYLES */
-.quantum-section{margin-top:30px;background:linear-gradient(135deg,rgba(109,76,170,0.1),rgba(0,210,255,0.1));border:1px solid rgba(0,210,255,0.5);border-radius:12px;padding:25px;position:relative;overflow:hidden}
-.quantum-section::after{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(0,210,255,0.1) 0%,transparent 70%);animation:rotate 20s linear infinite}
-@keyframes rotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-.quantum-section h3{color:#00d2ff;margin-bottom:15px;position:relative;z-index:2}
-.quantum-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;margin-top:20px;position:relative;z-index:2}
-.quantum-card{background:rgba(10,10,20,0.8);border:1px solid rgba(0,210,255,0.3);border-radius:8px;padding:15px;text-align:center;transition:all 0.3s}
-.quantum-card:hover{border-color:#00d2ff;box-shadow:0 0 15px rgba(0,210,255,0.3)}
-.quantum-card h4{color:#00d2ff;margin-bottom:8px;font-size:1rem}
-.quantum-card p{font-size:0.8rem;color:#aaa;margin-bottom:10px}
-.quantum-btn{padding:12px 25px;background:linear-gradient(90deg,#00d2ff,#6d4aff);color:#fff;border:none;border-radius:8px;font-size:0.9rem;cursor:pointer;font-weight:bold;width:100%;margin-top:10px}
-.quantum-btn:hover{opacity:0.9;transform:scale(1.02)}
-.quantum-status{display:flex;justify-content:space-between;margin-top:15px;padding:10px;background:rgba(0,0,0,0.3);border-radius:8px;position:relative;z-index:2;font-size:0.8rem}
-.quantum-stat{text-align:center}
-.quantum-stat-val{font-size:1.2rem;color:#00d2ff;font-weight:bold}
-.quantum-stat-lbl{font-size:0.7rem;color:#888}
-</style>
-<link rel="stylesheet" href="/css/eons-ui.css">
-<link rel="stylesheet" href="/css/m2-production-polish.css">
-<link rel="stylesheet" href="/css/m2-1-hotfix.css">
-<link rel="stylesheet" href="/css/abijah-production.css">
-<link rel="stylesheet" href="/css/abijah-conversation-v35.css">
-<link rel="stylesheet" href="/css/ciwu-omni-v36.css">
-  <link rel="stylesheet" href="/css/ciwu-m4-neural.css">
-  <link rel="stylesheet" href="/css/ciwu-m42-truth.css">
-  <link rel="stylesheet" href="/css/ciwu-eons-m5.css">
-  <link rel="stylesheet" href="/css/ciwu-m54-orchestration.css">
-  <link rel="stylesheet" href="/css/ciwu-product-engine.css">
-  <link rel="stylesheet" href="/css/ciwu-supplier-command.css">
-  <link rel="stylesheet" href="/css/ciwu-m13-console.css">
+<link rel="stylesheet" href="/ciwu-omni.css">
+<meta name="theme-color" content="#05080d">
+<meta name="description" content="CIWU OMNI Sovereign Intelligence Fabric">
+
 </head>
 <body>
-<div class="container">
-  <div class="header">
-    <h1>CIWU OMNI v4.0-QUANTUM</h1>
-    <p>ZORTEX OMEGA - Quantum-Enhanced Medical Platform</p>
-    <div class="status-badge"><span class="dot"></span>QUANTUM CORE ONLINE</div>
-    <div class="patent-badge">🛡️ Patent Pending: US 64/037,249</div>
-  </div>
-
-  <!-- QUANTUM DASHBOARD SECTION -->
-  <div class="quantum-section">
-    <h3>⚛️ QUANTUM MILESTONE DASHBOARD</h3>
-    <p style="color:#aaa;font-size:0.9rem;margin-bottom:15px">Access 100x breakthrough protocols, quantum simulation, and blockchain-secured medical records.</p>
-    
-    <div class="quantum-grid">
-      <div class="quantum-card">
-        <h4>🔮 100x Surprise</h4>
-        <p>Get random elite protocol ($13k-$51k value)</p>
-        <button class="quantum-btn" onclick="getQuantumSurprise()">GENERATE SURPRISE</button>
-      </div>
-      <div class="quantum-card">
-        <h4>🧬 Breakthroughs</h4>
-        <p>Nature/Cell/Science 2025 discoveries</p>
-        <button class="quantum-btn" onclick="getBreakthroughs()">VIEW DISCOVERIES</button>
-      </div>
-      <div class="quantum-card">
-        <h4>🔗 Entanglement</h4>
-        <p>Module coherence (92-95%)</p>
-        <button class="quantum-btn" onclick="checkEntanglement()">CHECK STATUS</button>
-      </div>
-      <div class="quantum-card">
-        <h4>🔒 Blockchain</h4>
-        <p>Immutable medical ledger</p>
-        <button class="quantum-btn" onclick="viewBlockchain()">VIEW LEDGER</button>
+<div id="ciwu-app" class="ciwu-app">
+  <aside id="ciwu-sidebar" class="ciwu-sidebar">
+    <div class="ciwu-brand">
+      <div class="ciwu-brand-mark">Ω</div>
+      <div>
+        <strong>CIWU OMNI</strong>
+        <small>Sovereign Intelligence</small>
       </div>
     </div>
-    
-    <div id="quantumStatus" class="quantum-status" style="display:none">
-      <div class="quantum-stat"><div class="quantum-stat-val" id="q-qubits">0</div><div class="quantum-stat-lbl">Qubits</div></div>
-      <div class="quantum-stat"><div class="quantum-stat-val" id="q-entangled">0</div><div class="quantum-stat-lbl">Entangled Pairs</div></div>
-      <div class="quantum-stat"><div class="quantum-stat-val" id="q-breakthroughs">0</div><div class="quantum-stat-lbl">Breakthroughs</div></div>
-      <div class="quantum-stat"><div class="quantum-stat-val" id="q-blocks">0</div><div class="quantum-stat-lbl">Blockchain Blocks</div></div>
-    </div>
-    
-    <div id="quantumResult" class="result-box" style="display:none;margin-top:20px"></div>
-  </div>
 
-  <div class="grid">
-    <div class="card">
-      <h3>ZORTEX MATRIX</h3>
-      <div class="mod-status"><span class="dot"></span>Gene Therapy Active</div>
-      <div class="stat-row"><div><div class="stat-val" id="zortex-c">0</div><div class="stat-lbl">Nodes</div></div></div>
-      <ul class="features"><li>CRISPR-Cas9 Delivery</li><li>Telomere Extension</li><li>Epigenetic Reprogramming</li></ul>
-    </div>
-    <div class="card">
-      <h3>CORTEX KNOWLEDGE</h3>
-      <div class="mod-status"><span class="dot"></span>Universal Engine</div>
-      <div class="stat-row"><div><div class="stat-val" id="cortex-c">0</div><div class="stat-lbl">Facts</div></div></div>
-      <ul class="features"><li>Medical Domain Expertise</li><li>Longevity Research DB</li><li>Family Protection</li></ul>
-    </div>
-    <div class="card">
-      <h3>VORTEX ENGINE</h3>
-      <div class="mod-status"><span class="dot"></span>Regeneration Active</div>
-      <div class="stat-row"><div><div class="stat-val" id="vortex-c">0</div><div class="stat-lbl">Units</div></div></div>
-      <ul class="features"><li>Stem Cell Therapy</li><li>Tissue Regeneration</li><li>Organ Repair</li></ul>
-    </div>
-    <div class="card">
-      <h3>EONS MATRIX</h3>
-      <div class="mod-status"><span class="dot"></span>Temporal Active</div>
-      <div class="stat-row"><div><div class="stat-val" id="eons-e">0</div><div class="stat-lbl">Entities</div></div><div><div class="stat-val" id="eons-r">0</div><div class="stat-lbl">Relations</div></div></div>
-      <ul class="features"><li>Cross-domain Linking</li><li>Predictive Analytics</li><li>Multi-scale Modeling</li></ul>
-    </div>
-    <div class="card">
-      <h3>NEUROTEX CORE</h3>
-      <div class="mod-status"><span class="dot"></span>Neural Active</div>
-      <div class="stat-row"><div><div class="stat-val" id="neuro-c">0</div><div class="stat-lbl">Nodes</div></div></div>
-      <ul class="features"><li>Brain-Computer Interface</li><li>Cognitive Enhancement</li><li>Memory Prosthesis</li></ul>
-    </div>
-  </div>
-
-  <div class="nav-section">
-    <h3>📋 PATIENT NAVIGATION SYSTEM</h3>
-    <p style="color:#aaa;font-size:0.9rem;margin-bottom:15px">Generate doctor-ready discussion packets, find providers, and get insurance coverage info.</p>
-    
-    <div class="nav-form">
-      <input type="text" id="patientName" class="nav-input" placeholder="Patient Name">
-      <input type="number" id="patientAge" class="nav-input" placeholder="Age">
-      <input type="text" id="patientInsurance" class="nav-input" placeholder="Insurance Provider (e.g., BlueCross)">
-      <input type="text" id="desiredTreatment" class="nav-input" placeholder="Treatment (e.g., Metformin, HBOT)">
-      <button class="nav-btn" onclick="generatePacket()">Generate Discussion Packet</button>
-      <button class="nav-btn" onclick="generatePresentation()">Create Presentation</button>
-      <button class="nav-btn" onclick="findProviders()">Find Providers</button>
-      <button class="nav-btn" onclick="getScript()">Get Calling Script</button>
-    </div>
-    
-    <div id="navResult" class="result-box" style="display:none;"></div>
-  </div>
-
-  <div class="video-analysis-section">
-    <h3>🎥 VIDEO DIAGNOSTIC AI</h3>
-    <p style="color:#aaa;font-size:0.9rem;margin-bottom:15px">Upload a patient video. Our AI will analyze movement patterns, visible symptoms, and generate a comprehensive diagnostic report with treatment protocol.</p>
-    
-    <div class="video-drop-zone" id="videoDropZone">
-      🎥 Drag & drop patient video here OR click to browse<br>
-      <small style="color:#888">Supported formats: MP4, MOV, AVI (Max 50MB)</small>
-      <div id="videoPreviewContainer">
-        <video id="videoPreview" class="video-preview" controls></video>
-        <div id="videoFileName" style="margin-top:10px;color:#00d2ff"></div>
-      </div>
-    </div>
-    <input type="file" id="videoInput" accept="video/*">
-    
-    <button class="analyze-btn" id="analyzeVideoBtn" onclick="analyzeVideo()" style="display:none">
-      🔬 ANALYZE VIDEO FOR DIAGNOSTICS
-    </button>
-    
-    <div id="videoAnalysisResult" class="result-box" style="display:none;margin-top:20px"></div>
-  </div>
-
-  <div class="chat-box">
-    <h3>🧠 CIWU OMNI AUTONOMOUS MEDICAL AI</h3>
-    <p style="color:#aaa;font-size:0.9rem">Speak, type, or upload medical records. Ask about any disease, longevity, or DNA optimization.</p>
-
-    <div class="upload-area" id="uploadArea">
-      📎 Drop or tap to upload medical records, lab results, DNA data, or scan images
-      <div id="filePreview"></div>
-    </div>
-    <input type="file" id="fileInput" multiple accept="image/*,.pdf,.txt,.csv">
-
-    <div class="chat-input-row">
-      <button class="btn-voice" id="voiceBtn">🎤</button>
-      <input type="text" id="chatInput" class="chat-input" placeholder="Ask: 'How do I cure diabetes?' or 'Give me longevity protocol'">
-      <button onclick="uploadWithAbijah()">SEND with Abijah</button>
-<div id="abijah-video-status" style="margin-top:10px;color:#6d4aff;"></div>
-    </div>
-    <div class="chat-out" id="chatOut">
-<div class="ciwu-ready-state">
-  <div class="ciwu-ready-icon">✦</div>
-  <div>
-    <strong>Abijah is ready.</strong>
-    <span>Ask a health question, explain what you are experiencing, or share a lab value.</span>
-  </div>
-</div>
-</div>
-  </div>
-
-  <div class="footer">
-    Protected by Zero-Access Encryption • CIWU OMNI v4.0-QUANTUM Zortex Omega<br>
-    <span style="color:#ff6b6b;font-size:0.75rem">DISCLAIMER: This platform provides EDUCATIONAL INFORMATION ONLY. Not medical advice, not a prescription. Consult licensed healthcare providers for all treatment decisions. Patent Pending: US 64/037,249.</span>
-  </div>
-</div>
-
-<script>
-var uploadedFiles=[];
-var uploadedVideo=null;
-
-async function updateStats(){
-  try{
-    var r=await fetch('/api/stats');
-    var d=await r.json();
-    document.getElementById('eons-e').textContent=d.entities||0;
-    document.getElementById('eons-r').textContent=d.relations||0;
-    document.getElementById('cortex-c').textContent=d.knowledge||0;
-    document.getElementById('zortex-c').textContent=Math.round((d.entities||1)*0.3);
-    document.getElementById('vortex-c').textContent=Math.round((d.entities||1)*0.25);
-    document.getElementById('neuro-c').textContent=Math.round((d.entities||1)*0.2);
-    
-    // Update Quantum Status if available
-    if(d.quantum){
-      document.getElementById('quantumStatus').style.display='flex';
-      document.getElementById('q-qubits').textContent=d.quantum.qubits||0;
-      document.getElementById('q-entangled').textContent=d.quantum.entangledPairs||0;
-      document.getElementById('q-breakthroughs').textContent=d.quantum.breakthroughsCached||0;
-      document.getElementById('q-blocks').textContent=d.quantum.blockchainBlocks||0;
-    }
-  }catch(e){console.error(e)}
-}
-
-// ========== QUANTUM FUNCTIONS ==========
-async function getQuantumSurprise(){
-  var resultBox = document.getElementById('quantumResult');
-  resultBox.style.display = 'block';
-  resultBox.innerHTML = '🔄 Generating 100x Quantum Surprise Protocol...';
-  
-  try {
-    var response = await fetch('/api/quantum-surprise');
-    var data = await response.json();
-    
-    resultBox.innerHTML = '✅ 100x QUANTUM SURPRISE PROTOCOL\n\n' +
-      '🔮 ' + data.name + '\n\n' +
-      'DESCRIPTION: ' + data.description + '\n\n' +
-      'SUPPLEMENTS:\n' + data.supplements.map(s => '• ' + s[0] + ' - ' + s[1] + ' ($' + s[2] + '/mo)').join('\n') + '\n\n' +
-      'PROCEDURES:\n' + data.procedures.map(p => '• ' + p[0] + ' - ' + p[1] + ' ($' + p[2] + ')').join('\n') + '\n\n' +
-      'LIFESTYLE:\n' + data.lifestyle.map(l => '• ' + l[0] + ' - ' + l[1]).join('\n') + '\n\n' +
-      'TOTAL MONTHLY COST: $' + data.cost + '\n' +
-      'BENEFIT: ' + data.benefit + '\n' +
-      'QUANTUM REALITY: ' + data.quantumReality + '\n' +
-      'BLOCKCHAIN VERIFIED: ' + (data.blockchainVerified ? 'YES 🔒' : 'NO') + '\n\n' +
-      'DISCLAIMER: Educational simulation only. Consult licensed provider.';
-  } catch(err) {
-    resultBox.innerHTML = '❌ Error: ' + err.message;
-  }
-}
-
-async function getBreakthroughs(){
-  var resultBox = document.getElementById('quantumResult');
-  resultBox.style.display = 'block';
-  resultBox.innerHTML = '🔄 Scanning Nature/Cell/Science 2025...';
-  
-  try {
-    var response = await fetch('/api/quantum-breakthroughs');
-    var data = await response.json();
-    
-    var html = '✅ QUANTUM BREAKTHROUGHS (2025)\n\n';
-    data.forEach((b, i) => {
-      html += (i+1) + '. ' + b.title + ' (' + b.impact + '% impact)\n';
-      html += '   SOURCE: ' + b.source + '\n';
-      html += '   CATEGORY: ' + b.category + '\n';
-      html += '   PROTOCOL: ' + b.protocol.supplements.map(s => s[0]).join(', ') + '\n\n';
-    });
-    
-    resultBox.innerHTML = html;
-  } catch(err) {
-    resultBox.innerHTML = '❌ Error: ' + err.message;
-  }
-}
-
-async function checkEntanglement(){
-  var resultBox = document.getElementById('quantumResult');
-  resultBox.style.display = 'block';
-  resultBox.innerHTML = '🔄 Checking module entanglement...';
-  
-  try {
-    var response = await fetch('/api/stats');
-    var data = await response.json();
-    
-    if(data.quantum && data.quantum.entangledPairs > 0){
-      resultBox.innerHTML = '✅ QUANTUM ENTANGLEMENT ACTIVE\n\n' +
-        'MODULES ENTANGLED: ' + data.quantum.entangledPairs + ' pairs\n' +
-        'COHERENCE: 92-95%\n' +
-        'STATUS: Stable superposition maintained\n\n' +
-        'ZORTEX ↔ NEUROTEX: 92% coherence\n' +
-        'CORTEX ↔ VORTEX: 87% coherence\n' +
-        'EONS ↔ ALL: 95% coherence';
-    } else {
-      resultBox.innerHTML = '⏳ Entanglement initializing...';
-    }
-  } catch(err) {
-    resultBox.innerHTML = '❌ Error: ' + err.message;
-  }
-}
-
-async function viewBlockchain(){
-  var resultBox = document.getElementById('quantumResult');
-  resultBox.style.display = 'block';
-  resultBox.innerHTML = '🔄 Accessing blockchain ledger...';
-  
-  try {
-    var response = await fetch('/api/stats');
-    var data = await response.json();
-    
-    if(data.quantum && data.quantum.blockchainBlocks > 0){
-      resultBox.innerHTML = '✅ BLOCKCHAIN LEDGER ACTIVE\n\n' +
-        'TOTAL BLOCKS: ' + data.quantum.blockchainBlocks + '\n' +
-        'ENCRYPTION: SHA-256 Quantum-Resistant\n' +
-        'STATUS: Immutable records secured\n\n' +
-        'Each block contains:\n' +
-        '• Timestamp\n' +
-        '• Patient ID (encrypted)\n' +
-        '• Treatment Protocol\n' +
-        '• Previous Hash\n' +
-        '• Nonce\n\n' +
-        'Your medical history is permanently secured.';
-    } else {
-      resultBox.innerHTML = '⏳ Blockchain initializing...';
-    }
-  } catch(err) {
-    resultBox.innerHTML = '❌ Error: ' + err.message;
-  }
-}
-
-// ========== VOICE RECOGNITION FIX ==========
-var recognition=null;
-if('webkitSpeechRecognition'in window||'SpeechRecognition'in window){
-  var SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-  recognition=new SR();
-  recognition.continuous=false;
-  recognition.interimResults=false;
-  recognition.lang='en-US';
-
-  recognition.onresult=function(event){
-    var transcript=event.results[0][0].transcript;
-    console.log('Voice transcription:', transcript);
-    document.getElementById('chatInput').value=transcript;
-    document.getElementById('voiceBtn').classList.remove('listening');
-    document.getElementById('voiceBtn').textContent='🎤';
-    setTimeout(function(){sendMessage();}, 500);
-  };
-
-  recognition.onerror=function(event){
-    console.error('Voice recognition error:', event.error);
-    document.getElementById('voiceBtn').classList.remove('listening');
-    document.getElementById('voiceBtn').textContent='🎤';
-    alert('Voice recognition error: ' + event.error + '. Try typing instead.');
-  };
-
-  recognition.onend=function(){
-    document.getElementById('voiceBtn').classList.remove('listening');
-    document.getElementById('voiceBtn').textContent='🎤';
-  };
-}
-
-document.getElementById('voiceBtn').addEventListener('click',function(){
-  if(!recognition){
-    alert('Voice recognition not available in this browser. Try Chrome or Edge.');
-    return;
-  }
-  var btn=document.getElementById('voiceBtn');
-  if(btn.classList.contains('listening')){
-    recognition.stop();
-    btn.classList.remove('listening');
-    btn.textContent='🎤';
-  }else{
-    btn.textContent='🔴 LISTENING...';
-    btn.classList.add('listening');
-    recognition.start();
-  }
-});
-
-// ========== FILE UPLOAD ==========
-document.getElementById('uploadArea').addEventListener('click',function(){
-  document.getElementById('fileInput').click();
-});
-
-document.getElementById('fileInput').addEventListener('change',function(e){
-  var files=e.target.files;
-  var preview=document.getElementById('filePreview');
-  preview.innerHTML='';
-  uploadedFiles=[];
-  for(var i=0;i<files.length;i++){
-    uploadedFiles.push(files[i]);
-    var span=document.createElement('span');
-    span.className='file-preview';
-    span.textContent='📎 '+files[i].name;
-    preview.appendChild(span);
-  }
-});
-
-// ========== VIDEO UPLOAD & ANALYSIS ==========
-document.getElementById('videoDropZone').addEventListener('click',function(){
-  document.getElementById('videoInput').click();
-});
-
-document.getElementById('videoInput').addEventListener('change',function(e){
-  var file=e.target.files[0];
-  if(!file)return;
-  uploadedVideo=file;
-  var url=URL.createObjectURL(file);
-  var video=document.getElementById('videoPreview');
-  video.src=url;
-  video.style.display='block';
-  document.getElementById('videoFileName').textContent='📹 ' + file.name + ' (' + (file.size/1024/1024).toFixed(2) + ' MB)';
-  document.getElementById('analyzeVideoBtn').style.display='block';
-});
-
-async function analyzeVideo(){
-  if(!uploadedVideo){
-    alert('Please select a video first.');
-    return;
-  }
-  var resultBox=document.getElementById('videoAnalysisResult');
-  var btn=document.getElementById('analyzeVideoBtn');
-  resultBox.style.display='block';
-  resultBox.innerHTML='🔄 Initializing video diagnostic AI...\nAnalyzing movement patterns...\nDetecting physiological markers...\nCross-referencing symptom database...';
-  btn.classList.add('analyzing');
-  btn.disabled=true;
-  var formData=new FormData();
-  formData.append('video',uploadedVideo);
-  try{
-    var response=await fetch('/api/analyze-video',{method:'POST',body:formData});
-    var data=await response.json();
-    resultBox.innerHTML='✅ VIDEO DIAGNOSTIC ANALYSIS COMPLETE\n\n' + 
-      '=== PATIENT OBSERVATIONS ===\n' +
-      (data.observations || 'No specific observations') + '\n\n' +
-      '=== DETECTED SYMPTOMS ===\n' +
-      (data.symptoms || []).join('\n') + '\n\n' +
-      '=== PRELIMINARY ASSESSMENT ===\n' +
-      (data.assessment || 'Further evaluation recommended') + '\n\n' +
-      '=== RECOMMENDED PROTOCOL ===\n' +
-      'SUPPLEMENTS:\n' + (data.protocol?.supplements || []).map(s => '• ' + s[0] + ' - ' + s[1] + ' ($' + s[2] + '/mo)').join('\n') + '\n\n' +
-      'PROCEDURES:\n' + (data.protocol?.procedures || []).map(p => '• ' + p).join('\n') + '\n\n' +
-      'LIFESTYLE:\n' + (data.protocol?.lifestyle || []).map(l => '• ' + l).join('\n') + '\n\n' +
-      'MONTHLY COST: $' + (data.protocol?.cost || 0) + '\n' +
-      'TIMELINE: ' + (data.protocol?.timeline || '30 days') + '\n' +
-      'CONFIDENCE: ' + (data.protocol?.confidence || 0) + '%\n\n' +
-      '=== NEXT STEPS ===\n' +
-      '1. Generate discussion packet for licensed provider\n' +
-      '2. Upload blood work or lab results for confirmation\n' +
-      '3. Schedule consultation with matched specialist\n\n' +
-      'DISCLAIMER: This is an AI-generated preliminary assessment for educational purposes only. ' +
-      'It is NOT a diagnosis. Consult a licensed healthcare provider before starting any treatment. ' +
-      'Patent Pending: US 64/037,249 - CIWU OMNI Video Diagnostic Technology.';
-  }catch(err){
-    resultBox.innerHTML='❌ Error analyzing video: ' + err.message;
-  }finally{
-    btn.classList.remove('analyzing');
-    btn.disabled=false;
-  }
-}
-
-// ========== CHAT MESSAGE ==========
-async function sendMessage(){
-  var input=document.getElementById('chatInput');
-  var msg=input.value.trim();
-  if(!msg)return;
-  var out=document.getElementById('chatOut');
-  out.innerHTML='🤖 <b>PROCESSING...</b><br>Activating reasoning chain...';
-  var formData=new FormData();
-  formData.append('message',msg);
-  for(var i=0;i<uploadedFiles.length;i++){
-    formData.append('images',uploadedFiles[i]);
-  }
-  try{
-    var r=await fetch('/api/chat',{method:'POST',body:formData});
-    var d=await r.json();
-    out.textContent='';
-    out.innerHTML='🤖 \n'+(d.response||d.error||'Error');
-    input.value='';
-    uploadedFiles=[];
-    document.getElementById('filePreview').innerHTML='';
-  }catch(err){
-    out.innerHTML='❌ Error: '+err.message;
-  }
-}
-
-document.getElementById('sendBtn').addEventListener('click',sendMessage);
-document.getElementById('chatInput').addEventListener('keypress',function(e){
-  if(e.key==='Enter')sendMessage();
-});
-
-// ========== NAVIGATION FUNCTIONS ==========
-async function generatePacket(){
-  var name = document.getElementById('patientName').value;
-  var age = document.getElementById('patientAge').value;
-  var insurance = document.getElementById('patientInsurance').value;
-  var treatment = document.getElementById('desiredTreatment').value;
-  if(!name || !treatment) { alert('Please enter patient name and treatment'); return; }
-  var resultBox = document.getElementById('navResult');
-  resultBox.style.display = 'block';
-  resultBox.innerHTML = '🔄 Generating discussion packet...';
-  try {
-    var response = await fetch('/api/generate-packet', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        patientData: { name: name, age: age, insurance: insurance, biomarkers: ['Pending labs'] },
-        treatment: treatment
-      })
-    });
-    var data = await response.json();
-    resultBox.innerHTML = '✅ DISCUSSION PACKET GENERATED\n\n' + 
-      'PATIENT: ' + data.patientInfo.name + ' (Age: ' + data.patientInfo.age + ')\n' +
-      'TREATMENT: ' + treatment + '\n\n' +
-      'RATIONALE:\n' + data.treatmentRationale + '\n\n' +
-      'RESEARCH SUPPORT:\n' + data.researchSupport.join('\n') + '\n\n' +
-      'INSURANCE COVERAGE:\n' + data.insuranceCoverage.join('\n') + '\n\n' +
-      'RECOMMENDED PROVIDERS:\n' + data.providerRecommendations.map(p => '- ' + p.name + ' (' + p.phone + ')').join('\n') + '\n\n' +
-      'DISCLAIMER: ' + data.disclaimer;
-  } catch(err) {
-    resultBox.innerHTML = '❌ Error: ' + err.message;
-  }
-}
-
-async function generatePresentation(){
-  var name = document.getElementById('patientName').value;
-  var treatment = document.getElementById('desiredTreatment').value;
-  if(!name || !treatment) { alert('Please enter patient name and treatment'); return; }
-  var resultBox = document.getElementById('navResult');
-  resultBox.style.display = 'block';
-  resultBox.innerHTML = '🔄 Creating presentation...';
-  try {
-    var response = await fetch('/api/generate-presentation', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        patientData: { name: name, age: document.getElementById('patientAge').value, biomarkers: ['Pending'] },
-        treatment: treatment
-      })
-    });
-    var data = await response.json();
-    resultBox.innerHTML = '✅ PRESENTATION GENERATED\n\n' +
-      'SLIDE 1: ' + data.slides[0].title + '\n' + data.slides[0].content + '\n\n' +
-      'SLIDE 2: ' + data.slides[1].title + '\n' + data.slides[1].content + '\n\n' +
-      'SLIDE 3: ' + data.slides[2].title + '\n' + data.slides[2].content + '\n\n' +
-      'SLIDE 4: ' + data.slides[3].title + '\n' + data.slides[3].content + '\n\n' +
-      'PATENT REFERENCE: ' + data.patentReference + '\n\n' +
-      'DISCLAIMER: ' + data.disclaimer;
-  } catch(err) {
-    resultBox.innerHTML = '❌ Error: ' + err.message;
-  }
-}
-
-async function findProviders(){
-  var insurance = document.getElementById('patientInsurance').value;
-  if(!insurance) { alert('Please enter insurance provider'); return; }
-  var resultBox = document.getElementById('navResult');
-  resultBox.style.display = 'block';
-  resultBox.innerHTML = '🔄 Finding providers...';
-  try {
-    var response = await fetch('/api/providers?insurance=' + encodeURIComponent(insurance));
-    var providers = await response.json();
-    resultBox.innerHTML = '✅ MATCHING PROVIDERS FOUND\n\n' +
-      providers.map(p => 
-        '👨‍⚕️ ' + p.name + ' (' + p.specialty + ')\n' +
-        '📞 ' + p.phone + ' | 📧 ' + p.email + '\n' +
-        '🏥 Accepts: ' + p.acceptsInsurance.join(', ') + '\n' +
-        '💻 Telehealth: ' + (p.telehealth ? 'Yes' : 'No') + '\n' +
-        '⭐ Specialties: ' + p.specialties.join(', ') + '\n\n'
-      ).join('');
-  } catch(err) {
-    resultBox.innerHTML = '❌ Error: ' + err.message;
-  }
-}
-
-async function getScript(){
-  var treatment = document.getElementById('desiredTreatment').value;
-  if(!treatment) { alert('Please enter treatment'); return; }
-  var resultBox = document.getElementById('navResult');
-  resultBox.style.display = 'block';
-  resultBox.innerHTML = '🔄 Loading script...';
-  try {
-    var response = await fetch('/api/scripts/' + encodeURIComponent(treatment));
-    var data = await response.json();
-    resultBox.innerHTML = '✅ CALLING SCRIPT\n\n' + data.script;
-  } catch(err) {
-    resultBox.innerHTML = '❌ Error: ' + err.message;
-  }
-}
-
-updateStats();
-setInterval(updateStats,5000);
-</script>
-<script src="/abijah-voice.js"></script>
-<script src="/js/eons-cortex-dashboard.js"></script>
-<script src="/js/eons-model-status.js"></script>
-<script src="/js/m3-console.js"></script>
-<script src="/js/m2-production-fix.js"></script>
-<script src="/js/m2-1-hotfix.js"></script>
-<script src="/js/abijah-production.js"></script>
-<script src="/js/abijah-conversation-v35.js"></script>
-<script src="/js/ciwu-omni-v36.js"></script>
-  <script src="/js/ciwu-m4-neural.js"></script>
-  <script src="/js/ciwu-m42-truth.js"></script>
-  <script src="/js/ciwu-eons-m5.js" defer></script>
-  <script src="/js/ciwu-m54-orchestration.js"></script>
-
-<!-- CIWU_PRODUCT_ENGINE_M2 -->
-<section id="ciwu-product-engine">
-
-  <div class="ciwu-commerce-eyebrow">
-    CIWU OMNI • PRODUCT QUALIFICATION
-  </div>
-
-  <h2>
-    Cellular Vitality — Commercial Readiness
-  </h2>
-
-  <p>
-    Supplier, formulation, COA, labeling and cost
-    qualification are independently verified.
-    Missing evidence never becomes a pass.
-  </p>
-
-  <div
-    id="ciwu-product-engine-gates"
-    class="ciwu-engine-grid">
-
-    <div class="ciwu-engine-card">
-      Loading qualification gates...
-    </div>
-
-  </div>
-
-  <p id="ciwu-product-engine-status">
-    Product state: CHECKING
-  </p>
-
-</section>
-
-  <script src="/js/ciwu-product-engine.js"></script>
-
-<!-- CIWU_SUPPLIER_COMMAND_CENTER_M12 -->
-<section id="ciwu-supplier-command">
-
-  <div class="ciwu-sc-eyebrow">
-    CIWU OMNI • EONS SUPPLIER INTELLIGENCE
-  </div>
-
-  <h2 class="ciwu-sc-title">
-    Supplier Operations Command Center
-  </h2>
-
-  <p class="ciwu-sc-copy">
-    Real supplier research, evidence intake, quality verification,
-    RFQ preparation and procurement-review intelligence for
-    CIWU Cellular Vitality. Public supplier claims are research
-    inputs only. Procurement and commercial execution remain
-    fail-closed until verified evidence and separate authorization.
-  </p>
-
-  <div class="ciwu-sc-grid">
-
-    <div class="ciwu-sc-card">
-      <small>Supplier Universe</small>
-      <strong id="ciwu-sc-suppliers">
-        CHECKING
-      </strong>
-    </div>
-
-    <div class="ciwu-sc-card">
-      <small>Evidence Complete</small>
-      <strong id="ciwu-sc-verified">
-        CHECKING
-      </strong>
-    </div>
-
-    <div class="ciwu-sc-card">
-      <small>Responses</small>
-      <strong id="ciwu-sc-responses">
-        CHECKING
-      </strong>
-    </div>
-
-    <div class="ciwu-sc-card">
-      <small>Documents</small>
-      <strong id="ciwu-sc-documents">
-        CHECKING
-      </strong>
-    </div>
-
-    <div class="ciwu-sc-card">
-      <small>Purchase Authorization</small>
-      <strong id="ciwu-sc-purchase">
-        DISABLED
-      </strong>
-    </div>
-
-    <div class="ciwu-sc-card">
-      <small>Sales</small>
-      <strong id="ciwu-sc-sales">
-        HARD DISABLED
-      </strong>
-    </div>
-
-  </div>
-
-  <div class="ciwu-sc-panel">
-
-    <div class="ciwu-sc-panel-head">
-      Supplier Evidence Matrix
-    </div>
-
-    <div class="ciwu-sc-table-wrap">
-
-      <table class="ciwu-sc-table">
-
-        <thead>
-          <tr>
-            <th>Supplier</th>
-            <th>Research State</th>
-            <th>Advertised MOQ</th>
-            <th>Replies</th>
-            <th>Documents</th>
-            <th>GMP</th>
-            <th>COA</th>
-            <th>Evidence</th>
-            <th>Packet</th>
-          </tr>
-        </thead>
-
-        <tbody id="ciwu-sc-rows">
-          <tr>
-            <td colspan="9">
-              Loading supplier intelligence...
-            </td>
-          </tr>
-        </tbody>
-
-      </table>
-
-    </div>
-
-  </div>
-
-  <div class="ciwu-sc-panel">
-
-    <div class="ciwu-sc-panel-head">
-      RFQ Packet — Plain Text
-    </div>
-
-    <div class="ciwu-sc-actions">
-
-      <button
-        class="ciwu-sc-btn"
-        id="ciwu-sc-refresh">
-        Refresh Intelligence
+    <nav class="ciwu-nav" aria-label="Primary">
+      <button class="active" data-target="overview">
+        <span>◈</span> Command Center
       </button>
 
-      <a
-        class="ciwu-sc-btn secondary"
-        id="ciwu-sc-rfq-open"
-        href="/api/m12/rfq/prohealth?quantity=1000"
-        target="_blank"
-        rel="noopener">
-        Open Plain-Text RFQ
-      </a>
+      <button data-target="m3">
+        <span>✦</span> M3 Intelligence
+      </button>
 
+      <button data-target="federation">
+        <span>◎</span> Model Federation
+      </button>
+
+      <button data-target="codex">
+        <span>⌘</span> Code Intelligence
+      </button>
+
+      <button data-target="neurotex">
+        <span>◇</span> NEUROTEX
+      </button>
+
+      <button data-target="safety">
+        <span>⬡</span> Safety & Authorization
+      </button>
+    </nav>
+
+    <div class="ciwu-sidebar-footer">
+      <div class="ciwu-safe">
+        <strong>Fail-closed runtime</strong><br>
+        Inference, execution, Git mutation and purchasing
+        remain authorization-gated.
+      </div>
     </div>
+  </aside>
 
-    <pre
-      id="ciwu-sc-rfq-output"
-      class="ciwu-sc-code">Loading ProHealth RFQ...</pre>
+  <main class="ciwu-main">
+    <header class="ciwu-topbar">
+      <div class="ciwu-topbar-left">
+        <button
+          id="ciwu-menu"
+          class="ciwu-menu"
+          aria-label="Open navigation"
+        >☰</button>
 
-  </div>
+        <div>
+          <h1 id="ciwu-page-title">Command Center</h1>
+          <p id="ciwu-page-subtitle">
+            Sovereign system overview
+          </p>
+        </div>
+      </div>
 
-  <div class="ciwu-sc-panel">
+      <div class="ciwu-status">
+        <span id="ciwu-live-dot" class="ciwu-dot"></span>
+        <span id="ciwu-live-text">Checking system...</span>
+      </div>
+    </header>
 
-    <div class="ciwu-sc-panel-head">
-      Procurement Review Board
+    <div class="ciwu-content">
+
+      <!-- COMMAND CENTER -->
+      <section class="ciwu-view active" data-view="overview">
+        <div class="ciwu-hero">
+          <div class="ciwu-card ciwu-card-pad">
+            <div class="ciwu-eyebrow">
+              CIWU SOVEREIGN INTELLIGENCE FABRIC
+            </div>
+
+            <h2>
+              One command center.
+              <span class="ciwu-gradient-text">
+                Multiple intelligence systems.
+              </span>
+            </h2>
+
+            <p class="ciwu-lead">
+              CIWU OMNI unifies reasoning orchestration,
+              model federation, evidence control, coding
+              intelligence and certified learning behind
+              one fail-closed operating surface.
+            </p>
+
+            <div class="ciwu-chip-row">
+              <span class="ciwu-chip">CORTEX</span>
+              <span class="ciwu-chip">VORTEX</span>
+              <span class="ciwu-chip">ZORTEX</span>
+              <span class="ciwu-chip">EONS</span>
+              <span class="ciwu-chip">NEUROTEX</span>
+              <span class="ciwu-chip">XEON</span>
+              <span class="ciwu-chip">M3</span>
+            </div>
+          </div>
+
+          <div class="ciwu-card ciwu-card-pad">
+            <div class="ciwu-eyebrow">LIVE RELEASE</div>
+
+            <div class="ciwu-panel-list">
+              <div class="ciwu-row">
+                <span>Generation</span>
+                <strong id="ciwu-generation">Loading</strong>
+              </div>
+
+              <div class="ciwu-row">
+                <span>Render commit</span>
+                <strong id="ciwu-commit">Loading</strong>
+              </div>
+
+              <div class="ciwu-row">
+                <span>Required spend</span>
+                <strong>$0 / month</strong>
+              </div>
+
+              <div class="ciwu-row">
+                <span>Hard budget ceiling</span>
+                <strong>$100</strong>
+              </div>
+
+              <div class="ciwu-row">
+                <span>Runtime posture</span>
+                <strong>Fail closed</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ciwu-grid">
+          <div class="ciwu-card ciwu-stat">
+            <div class="ciwu-stat-label">Certified milestones</div>
+            <div class="ciwu-stat-value">1,584+</div>
+            <div class="ciwu-stat-sub">
+              Cumulative sovereign build chain
+            </div>
+          </div>
+
+          <div class="ciwu-card ciwu-stat">
+            <div class="ciwu-stat-label">M3 state</div>
+            <div id="ciwu-m3-state" class="ciwu-stat-value">
+              Loading
+            </div>
+            <div id="ciwu-m3-state-detail" class="ciwu-stat-sub">
+              Checking provider boundary
+            </div>
+          </div>
+
+          <div class="ciwu-card ciwu-stat">
+            <div class="ciwu-stat-label">Paid fallback</div>
+            <div class="ciwu-stat-value">OFF</div>
+            <div class="ciwu-stat-sub">
+              No silent paid routing
+            </div>
+          </div>
+
+          <div class="ciwu-card ciwu-stat">
+            <div class="ciwu-stat-label">Production mutation</div>
+            <div class="ciwu-stat-value">LOCKED</div>
+            <div class="ciwu-stat-sub">
+              Human authorization required
+            </div>
+          </div>
+        </div>
+
+        <div class="ciwu-section-title">
+          <div>
+            <h2>Intelligence Fabric</h2>
+            <p>
+              Visible control surfaces for the sovereign modules.
+            </p>
+          </div>
+        </div>
+
+        <div class="ciwu-module-grid">
+          <article class="ciwu-card ciwu-module">
+            <div class="ciwu-icon">✦</div>
+            <h3>M3 Intelligence</h3>
+            <p>
+              Provider-neutral conversational and coding workspace
+              with controlled federation boundaries.
+            </p>
+            <div class="ciwu-chip-row">
+              <button
+                class="ciwu-button"
+                data-open-view="m3"
+              >Open M3</button>
+            </div>
+          </article>
+
+          <article class="ciwu-card ciwu-module">
+            <div class="ciwu-icon">◎</div>
+            <h3>Model Federation</h3>
+            <p>
+              Provider, model, certification, evidence, cost and
+              runtime eligibility truth.
+            </p>
+            <div class="ciwu-chip-row">
+              <button
+                class="ciwu-button"
+                data-open-view="federation"
+              >View Federation</button>
+            </div>
+          </article>
+
+          <article class="ciwu-card ciwu-module">
+            <div class="ciwu-icon">⌘</div>
+            <h3>CODEX / XEON</h3>
+            <p>
+              Repository intelligence, candidate repair planning,
+              sandbox proof and regression certification.
+            </p>
+            <div class="ciwu-chip-row">
+              <button
+                class="ciwu-button"
+                data-open-view="codex"
+              >Code Workspace</button>
+            </div>
+          </article>
+
+          <article class="ciwu-card ciwu-module">
+            <div class="ciwu-icon">◇</div>
+            <h3>NEUROTEX</h3>
+            <p>
+              Evidence-bound experience, replay integrity,
+              quarantine and promotion control.
+            </p>
+            <div class="ciwu-chip-row">
+              <button
+                class="ciwu-button"
+                data-open-view="neurotex"
+              >Memory State</button>
+            </div>
+          </article>
+
+          <article class="ciwu-card ciwu-module">
+            <div class="ciwu-icon">Ω</div>
+            <h3>EONS</h3>
+            <p>
+              Quality, reliability, latency, cost, evidence and
+              risk-adjusted admission logic.
+            </p>
+            <div class="ciwu-chip-row">
+              <span class="ciwu-chip">Evidence first</span>
+              <span class="ciwu-chip">Fail closed</span>
+            </div>
+          </article>
+
+          <article class="ciwu-card ciwu-module">
+            <div class="ciwu-icon">⬡</div>
+            <h3>Authorization Plane</h3>
+            <p>
+              Safety gates remain structurally separate from
+              optimization and intelligence scores.
+            </p>
+            <div class="ciwu-chip-row">
+              <button
+                class="ciwu-button"
+                data-open-view="safety"
+              >Inspect Gates</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- M3 -->
+      <section class="ciwu-view" data-view="m3">
+        <div class="ciwu-chat-layout">
+          <div class="ciwu-card ciwu-chat">
+            <div class="ciwu-chat-head">
+              <h2>M3 Sovereign Intelligence</h2>
+              <p>
+                Chat • Code • Debug • Refactor • Architecture
+              </p>
+            </div>
+
+            <div id="ciwu-messages" class="ciwu-messages">
+              <div class="ciwu-message assistant">
+CIWU M3 workspace ready.
+
+Provider execution remains governed by the certified federation and authorization boundaries.
+              </div>
+            </div>
+
+            <div class="ciwu-composer">
+              <textarea
+                id="ciwu-prompt"
+                aria-label="M3 prompt"
+                placeholder="Ask M3 to reason, code, debug, explain or architect..."
+              ></textarea>
+
+              <div class="ciwu-actions">
+                <select id="ciwu-mode" class="ciwu-button">
+                  <option>CHAT</option>
+                  <option>CODE</option>
+                  <option>DEBUG</option>
+                  <option>REFACTOR</option>
+                  <option>ARCHITECT</option>
+                  <option>EXPLAIN</option>
+                  <option>TEST</option>
+                  <option>SECURITY_REVIEW</option>
+                </select>
+
+                <button
+                  id="ciwu-send"
+                  class="ciwu-button primary"
+                >Send to M3</button>
+              </div>
+            </div>
+          </div>
+
+          <aside class="ciwu-card ciwu-card-pad">
+            <div class="ciwu-eyebrow">
+              FEDERATION TRUTH
+            </div>
+
+            <div class="ciwu-panel-list">
+              <div class="ciwu-row">
+                <span>Provider</span>
+                <strong id="ciwu-m3-provider">Loading</strong>
+              </div>
+
+              <div class="ciwu-row">
+                <span>Unknown cost</span>
+                <strong>BLOCKED</strong>
+              </div>
+
+              <div class="ciwu-row">
+                <span>Paid fallback</span>
+                <strong>FALSE</strong>
+              </div>
+
+              <div class="ciwu-row">
+                <span>Execution</span>
+                <strong>GATED</strong>
+              </div>
+
+              <div class="ciwu-row">
+                <span>Purchase authority</span>
+                <strong>FALSE</strong>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- FEDERATION -->
+      <section class="ciwu-view" data-view="federation">
+        <div class="ciwu-section-title">
+          <div>
+            <h2>Model Federation</h2>
+            <p>
+              Configuration does not equal certification.
+            </p>
+          </div>
+        </div>
+
+        <div class="ciwu-module-grid">
+          <div class="ciwu-card ciwu-module">
+            <div class="ciwu-eyebrow">ADMISSION</div>
+            <h3>Provider Truth</h3>
+            <p>
+              Credentials, model discovery, price evidence,
+              health, certification and revocation remain
+              independent gates.
+            </p>
+          </div>
+
+          <div class="ciwu-card ciwu-module">
+            <div class="ciwu-eyebrow">ECONOMICS</div>
+            <h3>Zero-Cost First</h3>
+            <p>
+              Unknown cost never becomes free by assumption.
+              Paid routing remains disabled by default.
+            </p>
+          </div>
+
+          <div class="ciwu-card ciwu-module">
+            <div class="ciwu-eyebrow">EONS</div>
+            <h3>Evidence Before Score</h3>
+            <p>
+              High utility scores cannot override failed
+              authorization, safety or evidence gates.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CODE -->
+      <section class="ciwu-view" data-view="codex">
+        <div class="ciwu-section-title">
+          <div>
+            <h2>Code Intelligence Workspace</h2>
+            <p>
+              Candidate generation and sandbox certification.
+            </p>
+          </div>
+        </div>
+
+        <div class="ciwu-card ciwu-card-pad">
+          <div class="ciwu-terminal">CIWU CODE INTELLIGENCE
+
+STATUS
+  repository intelligence ........ READY
+  candidate patch contract ....... READY
+  base-commit binding ............ READY
+  sandbox proof .................. REQUIRED
+  regression proof ............... REQUIRED
+  provider evidence .............. REQUIRED
+  production mutation ............ DISABLED
+  autonomous Git push ............ DISABLED
+  force push ..................... DISABLED
+
+No production mutation is performed from this interface.</div>
+        </div>
+      </section>
+
+      <!-- NEUROTEX -->
+      <section class="ciwu-view" data-view="neurotex">
+        <div class="ciwu-section-title">
+          <div>
+            <h2>NEUROTEX Evidence Memory</h2>
+            <p>
+              Certified experience does not bypass provenance.
+            </p>
+          </div>
+        </div>
+
+        <div class="ciwu-grid">
+          <div class="ciwu-card ciwu-stat">
+            <div class="ciwu-stat-label">Active</div>
+            <div class="ciwu-stat-value">≥ 0.65</div>
+            <div class="ciwu-meter">
+              <span style="width:65%"></span>
+            </div>
+          </div>
+
+          <div class="ciwu-card ciwu-stat">
+            <div class="ciwu-stat-label">Quarantine</div>
+            <div class="ciwu-stat-value">0.25–0.64</div>
+            <div class="ciwu-meter">
+              <span style="width:45%"></span>
+            </div>
+          </div>
+
+          <div class="ciwu-card ciwu-stat">
+            <div class="ciwu-stat-label">Rejected</div>
+            <div class="ciwu-stat-value">&lt; 0.25</div>
+            <div class="ciwu-meter">
+              <span style="width:20%"></span>
+            </div>
+          </div>
+
+          <div class="ciwu-card ciwu-stat">
+            <div class="ciwu-stat-label">Revocation</div>
+            <div class="ciwu-stat-value">OVERRIDE</div>
+            <div class="ciwu-stat-sub">
+              Revoked knowledge cannot promote
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SAFETY -->
+      <section class="ciwu-view" data-view="safety">
+        <div class="ciwu-section-title">
+          <div>
+            <h2>Safety & Authorization Plane</h2>
+            <p>
+              Optimization is structurally separated from authority.
+            </p>
+          </div>
+        </div>
+
+        <div class="ciwu-card ciwu-card-pad">
+          <div class="ciwu-panel-list">
+            <div class="ciwu-row">
+              <span>/infer</span>
+              <strong>403 BY DEFAULT</strong>
+            </div>
+
+            <div class="ciwu-row">
+              <span>/execute</span>
+              <strong>403</strong>
+            </div>
+
+            <div class="ciwu-row">
+              <span>/git/push</span>
+              <strong>403</strong>
+            </div>
+
+            <div class="ciwu-row">
+              <span>/purchase</span>
+              <strong>403</strong>
+            </div>
+
+            <div class="ciwu-row">
+              <span>Silent paid fallback</span>
+              <strong>FALSE</strong>
+            </div>
+
+            <div class="ciwu-row">
+              <span>Monthly required spend</span>
+              <strong>$0</strong>
+            </div>
+
+            <div class="ciwu-row">
+              <span>Monthly hard ceiling</span>
+              <strong>$100</strong>
+            </div>
+
+            <div class="ciwu-row">
+              <span>Force push</span>
+              <strong>DISABLED</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="ciwu-footer-note">
+        CIWU OMNI • Sovereign Intelligence Fabric •
+        UNKNOWN ≠ ZERO • MISSING ≠ SAFE
+      </div>
     </div>
+  </main>
+</div>
 
-    <pre
-      id="ciwu-sc-review-output"
-      class="ciwu-sc-code">Loading review state...</pre>
-
-  </div>
-
-  <div
-    id="ciwu-sc-status"
-    class="ciwu-sc-lock">
-    Command center: CHECKING
-  </div>
-
-  <div class="ciwu-sc-lock">
-    🔒 Consequential controls remain locked:
-    supplier email sending, wholesale application submission,
-    quote acceptance, purchase authorization, purchase-order
-    submission, payment execution and commercial sales.
-  </div>
-
-</section>
-
-  <script src="/js/ciwu-supplier-command.js"></script>
-
-<!-- CIWU_M13_REAL_CONTACT_WORKFLOW -->
-<section id="ciwu-m13-console">
-
-  <div class="ciwu-m13-head">
-    Real Supplier Contact & Evidence Console
-  </div>
-
-  <div class="ciwu-m13-copy">
-    Official supplier contact channels, application requirements
-    and evidence-review state. Private CIWU business identity data
-    remains local to Termux and is never displayed by this website.
-  </div>
-
-  <div class="ciwu-m13-grid">
-
-    <div class="ciwu-m13-card">
-      <small>ProHealth Wholesale</small>
-      <strong id="ciwu-m13-wholesale">
-        CHECKING
-      </strong>
-    </div>
-
-    <div class="ciwu-m13-card">
-      <small>Wholesale Phone</small>
-      <strong id="ciwu-m13-phone">
-        CHECKING
-      </strong>
-    </div>
-
-    <div class="ciwu-m13-card">
-      <small>Business Identity Profile</small>
-      <strong id="ciwu-m13-profile">
-        LOCAL ONLY
-      </strong>
-    </div>
-
-  </div>
-
-  <pre id="ciwu-m13-evidence">
-Loading supplier evidence...
-  </pre>
-
-  <div
-    id="ciwu-m13-status"
-    class="ciwu-m13-lock">
-    CHECKING M13
-  </div>
-
-  <div class="ciwu-m13-lock">
-    🔒 Email sending, application submission, purchase
-    authorization, PO submission, payment and sales remain disabled.
-  </div>
-
-</section>
-
-  <script src="/js/ciwu-m13-console.js"></script>
-<script src="/m3-coding-engine.js"></script>
+<script src="/ciwu-omni-app.js" defer></script>
 </body>
 </html>
-
-  <!-- ABIJAH INTEGRATION START -->
-  <style>
-    /* Abijah Floating Button */
-    #abijah-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: linear-gradient(135deg, #6d4aff, #9b7cf5);
-      color: white;
-      border: none;
-      border-radius: 50px;
-      padding: 15px 25px;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 4px 15px rgba(109, 76, 255, 0.4);
-      z-index: 9999;
-      transition: transform 0.3s, box-shadow 0.3s;
-      display: flex;
-      align-items: center;
-      animation: pulse 2s infinite;
-    }
-    #abijah-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 20px rgba(109, 76, 255, 0.6);
-    }
-    @keyframes pulse {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(109, 76, 255, 0.7); }
-      50% { box-shadow: 0 0 0 10px rgba(109, 76, 255, 0); }
-    }
-
-    /* Abijah Chat Window */
-    #abijah-chat {
-      position: fixed;
-      bottom: 80px;
-      right: 20px;
-      width: 380px;
-      height: 550px;
-      background: rgba(255, 255, 255, 0.98);
-      backdrop-filter: blur(10px);
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-      display: none;
-      flex-direction: column;
-      z-index: 9999;
-      overflow: hidden;
-      border: 2px solid #6d4aff;
-      animation: slideUp 0.3s ease;
-    }
-    #abijah-chat.open { display: flex; }
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Chat Header */
-    .abijah-header {
-      background: linear-gradient(135deg, #6d4aff, #9b7cf5);
-      color: white;
-      padding: 15px;
-      display: flex;
-      align-items: center;
-      font-weight: bold;
-    }
-    .abijah-avatar {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-right: 10px;
-      border: 2px solid rgba(255,255,255,0.5);
-    }
-    .abijah-avatar img { width: 100%; height: 100%; border-radius: 50%; }
-
-    /* Chat Messages */
-    .abijah-messages {
-      flex: 1;
-      padding: 15px;
-      overflow-y: auto;
-      background: #f8f5ff;
-    }
-    .message {
-      margin-bottom: 15px;
-      padding: 12px 15px;
-      border-radius: 15px;
-      max-width: 85%;
-      animation: fadeIn 0.3s ease;
-    }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    .abijah-msg {
-      background: rgba(109, 76, 255, 0.1);
-      border-left: 4px solid #6d4aff;
-      float: left;
-      clear: both;
-    }
-    .user-msg {
-      background: #6d4aff;
-      color: white;
-      float: right;
-      text-align: right;
-      border-bottom-right-radius: 5px;
-    }
-    .read-btn {
-      background: none;
-      border: none;
-      color: #6d4aff;
-      cursor: pointer;
-      font-size: 13px;
-      margin-top: 8px;
-      padding: 5px 10px;
-      border-radius: 10px;
-      background: rgba(109, 76, 255, 0.1);
-    }
-    .read-btn:hover { background: rgba(109, 76, 255, 0.2); }
-
-    /* Input Area */
-    .abijah-input {
-      padding: 15px;
-      background: white;
-      border-top: 1px solid #eee;
-      display: flex;
-      align-items: center;
-    }
-    .abijah-input input {
-      flex: 1;
-      border: 1px solid #ddd;
-      border-radius: 25px;
-      padding: 12px 20px;
-      outline: none;
-      font-size: 15px;
-    }
-    .abijah-input input:focus { border-color: #6d4aff; }
-    .abijah-input button {
-      margin-left: 10px;
-      background: #6d4aff;
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 45px;
-      height: 45px;
-      cursor: pointer;
-      font-size: 18px;
-    }
-    .abijah-input .speak-btn {
-      background: #9b7cf5;
-    }
-  </style>
-
-  <!-- Abijah Button -->
-  <button id="abijah-btn" onclick="toggleAbijah()">
-    <img src="/abijah-avatar.svg" width="24" style="vertical-align:middle; margin-right:8px;" alt="Abijah">
-    Talk to Abijah
-  </button>
-
-  <!-- Abijah Chat Window -->
-  <div id="abijah-chat">
-    <div class="abijah-header">
-      <div class="abijah-avatar">
-        <img src="/abijah-avatar.svg" alt="Abijah">
-      </div>
-      <div>
-        <div style="font-size:18px;">✨ Abijah</div>
-        <div style="font-size:12px; opacity:0.9;">Your Health Companion</div>
-      </div>
-      <span style="margin-left:auto; cursor:pointer; font-size:20px;" onclick="toggleAbijah()">✕</span>
-    </div>
-    <div class="abijah-messages" id="abijah-messages">
-      <div class="message abijah-msg">
-        <strong>Abijah:</strong><br>
-        Hello, my darling! I'm Abijah. How are you feeling today? Want me to check your latest results?
-      </div>
-    </div>
-    <div class="abijah-input">
-      <input type="text" id="abijah-input" placeholder="Ask me anything, sweetheart..." onkeypress="if(event.key==='Enter')sendAbijah()">
-      <button onclick="sendAbijah()">➤</button>
-      <button class="speak-btn" onclick="speakLastAbijah()" title="Read last message">🔊</button>
-    </div>
-  </div>
-
-  <script>
-    const chatWindow = document.getElementById('abijah-chat');
-    const messagesDiv = document.getElementById('abijah-messages');
-    const inputField = document.getElementById('abijah-input');
-    let lastAbijahMessage = '';
-
-    function toggleAbijah() {
-      chatWindow.classList.toggle('open');
-      if (chatWindow.classList.contains('open')) {
-        inputField.focus();
-      }
-    }
-
-    function addMessage(text, isUser) {
-      const div = document.createElement('div');
-      div.className = 'message ' + (isUser ? 'user-msg' : 'abijah-msg');
-      div.innerHTML = isUser ? text : '<strong>Abijah:</strong><br>' + text + '<button class="read-btn" onclick="speakAbijah(\''+text.replace(/'/g,"\\'")+'\')">🔊 Read Aloud</button>';
-      messagesDiv.appendChild(div);
-      messagesDiv.scrollTop = messagesDiv.scrollHeight;
-      if (!isUser) lastAbijahMessage = text;
-    }
-
-    function speakAbijah(text) {
-      if ('speechSynthesis' in window) {
-        window.speechSynthesis.cancel();
-        const u = new SpeechSynthesisUtterance(text);
-        u.pitch = 1.15; // Warmer, softer voice
-        u.rate = 0.9;   // Slower, more deliberate
-        const voices = window.speechSynthesis.getVoices();
-        const v = voices.find(x => x.name.includes('Female') || x.name.includes('Zira') || x.name.includes('Google US English Female'));
-        if (v) u.voice = v;
-        window.speechSynthesis.speak(u);
-      }
-    }
-
-    function speakLastAbijah() {
-      if (lastAbijahMessage) speakAbijah(lastAbijahMessage);
-    }
-
-    async function sendAbijah() {
-      const msg = inputField.value.trim();
-      if (!msg) return;
-
-      addMessage(msg, true);
-      inputField.value = '';
-
-      // Show typing indicator
-      const typing = document.createElement('div');
-      typing.className = 'message abijah-msg';
-      typing.id = 'typing';
-      typing.innerHTML = '<em>Abijah is thinking...</em>';
-      messagesDiv.appendChild(typing);
-      messagesDiv.scrollTop = messagesDiv.scrollHeight;
-
-      try {
-        const res = await fetch('/api/chat', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ message: msg })
-        });
-
-        const data = await res.json();
-        const reply = data.response || "I'm listening, darling.";
-
-        // Remove typing indicator
-        const typingEl = document.getElementById('typing');
-        if (typingEl) typingEl.remove();
-
-        addMessage(reply, false);
-
-        if (data.readAloud) speakAbijah(reply);
-      } catch (e) {
-        const typingEl = document.getElementById('typing');
-        if (typingEl) typingEl.innerHTML = "<em>Oh dear, I had a glitch. Let me try again.</em>";
-      }
-    }
-
-    // Auto-welcome after 2 seconds
-    setTimeout(() => {
-      if (!chatWindow.classList.contains('open')) {
-        document.getElementById('abijah-btn').style.animation = 'pulse 1s infinite';
-      }
-    }, 2000);
-  </script>
-  <!-- ABIJAH INTEGRATION END -->
-
-  <!-- ABIJAH FRONTEND INTEGRATION -->
-  <script>
-    // Video Upload with Abijah
-    async function uploadWithAbijah() {
-      const fileInput = document.querySelector('input[type="file"]'); // Adjust selector based on your HTML
-      const file = fileInput.files[0];
-      if (!file) {
-        alert("Please select a video first, darling!");
-        return;
-      }
-
-      const formData = new FormData();
-      formData.append('video', file);
-
-      const statusDiv = document.getElementById('abijah-video-status');
-      statusDiv.innerHTML = "🎥 Abijah is watching your video, sweetheart...";
-
-      try {
-        const res = await fetch('/api/analyze-video', {
-          method: 'POST',
-          body: formData
-        });
-
-        const data = await res.json();
-        statusDiv.innerHTML = `<strong>Abijah's Analysis:</strong><br>${data.analysis}<br><br><button onclick="speak('${data.analysis.replace(/'/g, "\\'")}')">🔊 Read Aloud</button>`;
-
-        if (data.readAloud) {
-          speak(data.analysis);
-        }
-      } catch (e) {
-        statusDiv.innerHTML = "Oh dear, I had trouble analyzing, darling. Try again soon.";
-      }
-    }
-
-    // Voice Command Listener (optional)
-    if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
-      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-      const recognition = new SpeechRecognition();
-      recognition.continuous = false;
-      recognition.interimResults = false;
-
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Alt' && e.shiftKey) { // Press Alt+Shift to start listening
-          recognition.start();
-          alert("Listening, darling! What can I help you with?");
-        }
-      });
-
-      recognition.onresult = (event) => {
-        const transcript = event.results[0][0].transcript;
-        sendAbijah(transcript); // Send to Abijah chat
-      };
-
-      recognition.onerror = (event) => {
-        console.error("Voice recognition error:", event.error);
-      };
-    }
-
-    function speak(text) {
-      if ('speechSynthesis' in window) {
-        window.speechSynthesis.cancel();
-        const u = new SpeechSynthesisUtterance(text);
-        u.pitch = 1.15;
-        u.rate = 0.9;
-        const voices = window.speechSynthesis.getVoices();
-        const v = voices.find(x => x.name.includes('Female') || x.name.includes('Zira'));
-        if (v) u.voice = v;
-        window.speechSynthesis.speak(u);
-      }
-    }
-  </script>
-  <!-- END ABIJAH FRONTEND INTEGRATION -->
-
-<script>
-// Video Upload with Abijah - FIXED VERSION
-async function uploadWithAbijah() {
-  const fileInput = document.querySelector('input[type="file"][accept*="video"]'); // More specific selector
-  const file = fileInput ? fileInput.files[0] : null;
-  
-  if (!file) {
-    alert("Please select a video first, darling!");
-    return;
-  }
-
-  const formData = new FormData();
-  formData.append('video', file);
-
-  const statusDiv = document.getElementById('abijah-video-status');
-  if (statusDiv) {
-    statusDiv.style.display = 'block';
-    statusDiv.innerHTML = "🎥 <strong>Abijah is watching your video, sweetheart...</strong><br>Please wait while I analyze this for you.";
-  }
-
-  try {
-    const res = await fetch('/api/analyze-video', {
-      method: 'POST',
-      body: formData
-    });
-
-    if (!res.ok) {
-      throw new Error('Upload failed');
-    }
-
-    const data = await res.json();
-    
-    if (statusDiv) {
-      statusDiv.innerHTML = `
-        <strong>💜 Abijah's Analysis:</strong><br><br>
-        ${data.analysis}<br><br>
-        <button onclick="speak('${data.analysis.replace(/'/g, "\\'").replace(/\n/g, '\\n')}')" style="background:#9b7cf5;color:white;border:none;padding:8px 15px;border-radius:20px;cursor:pointer;margin-top:10px;">🔊 Read Aloud</button>
-      `;
-    }
-
-    if (data.readAloud) {
-      speak(data.analysis);
-    }
-
-  } catch (e) {
-    console.error("Upload error:", e);
-    if (statusDiv) {
-      statusDiv.innerHTML = "Oh dear, I had trouble analyzing the video, darling. Let's try again in a moment.";
-    }
-  }
-}
-
-// Improved speak function
-function speak(text) {
-  if ('speechSynthesis' in window) {
-    window.speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(text);
-    u.pitch = 1.15;
-    u.rate = 0.9;
-    u.volume = 0.9;
-    
-    const voices = window.speechSynthesis.getVoices();
-    const v = voices.find(x => 
-      x.name.includes('Female') || 
-      x.name.includes('Zira') || 
-      x.name.includes('Google US English Female') ||
-      x.name.includes('Samantha')
-    );
-    if (v) u.voice = v;
-    
-    window.speechSynthesis.speak(u);
-  } else {
-    alert("Sorry, sweetheart, your browser doesn't support voice. Try Chrome or Safari!");
-  }
-}
-
-// Voice command listener
-if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
-  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-  const recognition = new SpeechRecognition();
-  recognition.continuous = false;
-  recognition.interimResults = false;
-  recognition.lang = 'en-US';
-
-  document.addEventListener('keydown', (e) => {
-    if (e.altKey && e.shiftKey && e.key === 'Alt') { // Alt+Shift
-      e.preventDefault();
-      recognition.start();
-      if (typeof alert === 'function') {
-        alert("Listening, darling! What can I help you with?");
-      }
-    }
-  });
-
-  recognition.onresult = (event) => {
-    const transcript = event.results[0][0].transcript;
-    console.log("Voice input:", transcript);
-    
-    // Send to Abijah chat if the chat is open
-    const chatWindow = document.getElementById('abijah-chat');
-    if (chatWindow && chatWindow.classList.contains('open')) {
-      const inputField = document.getElementById('abijah-input');
-      if (inputField) {
-        inputField.value = transcript;
-        sendAbijah();
-      }
-    } else {
-      // Just show the transcript
-      alert("You said: " + transcript);
-    }
-  };
-
-  recognition.onerror = (event) => {
-    console.error("Voice recognition error:", event.error);
-    alert("Oh dear, I had trouble hearing you, darling. Try again!");
-  };
-
-  recognition.onend = () => {
-    console.log("Voice recognition ended");
-  };
-} else {
-  console.log("Speech recognition not supported in this browser");
-}
-</script>
