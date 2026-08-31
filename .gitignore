@@ -7,3 +7,6 @@ logs/*.log
 .ciwu-private/
 *.pem
 *.key
+
+.ciwu/
+.ciwu-live.pid

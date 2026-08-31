@@ -1,0 +1,17 @@
+{
+  "schema": "CIWU_NATIVE_MEMORY_V1",
+  "version": 1,
+  "memory_classes": [
+    "PROJECT_FACT",
+    "USER_INSTRUCTION",
+    "DECISION",
+    "CONSTRAINT",
+    "ARTIFACT",
+    "TEST_EVIDENCE"
+  ],
+  "provenance_required": true,
+  "confidence_required": true,
+  "timestamp_required": true,
+  "unknown_is_not_zero": true,
+  "missing_is_not_safe": true
+}

@@ -1,0 +1,19 @@
+{
+  "schema": "CIWU_NATIVE_CONVERSATION_V1",
+  "version": 1,
+  "required": [
+    "conversation_id",
+    "created_at",
+    "updated_at",
+    "messages"
+  ],
+  "message_roles": [
+    "system",
+    "user",
+    "assistant",
+    "tool"
+  ],
+  "persistence": true,
+  "append_only_history": true,
+  "unknown_is_not_zero": true
+}
