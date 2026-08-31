@@ -821,3 +821,39 @@ a {
     grid-template-columns: 1fr;
   }
 }
+
+/* data-ciwu-mobile-dock-safe-area */
+@media (max-width: 760px) {
+  body {
+    padding-bottom: calc(118px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .ciwu-workbench,
+  .container,
+  main {
+    scroll-padding-bottom: calc(118px + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+/* data-ciwu-mobile-dock-layout-v1 */
+@media (max-width: 760px) {
+  [data-ciwu-m3-dock],
+  .ciwu-m3-dock,
+  .m3-coding-engine-dock,
+  .ciwu-coding-engine-dock {
+    left: 12px !important;
+    right: 12px !important;
+    width: auto !important;
+    max-width: calc(100vw - 24px) !important;
+    box-sizing: border-box !important;
+    gap: 8px !important;
+  }
+
+  [data-ciwu-m3-dock] button,
+  .ciwu-m3-dock button,
+  .m3-coding-engine-dock button,
+  .ciwu-coding-engine-dock button {
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+}

@@ -1,0 +1,56 @@
+#ciwu-m13-console {
+  margin-top: 22px;
+  padding: 22px;
+  border-radius: 18px;
+  border: 1px solid rgba(0,210,255,.24);
+  background: rgba(7,9,18,.86);
+}
+
+.ciwu-m13-head {
+  font-size: 1.35rem;
+  font-weight: 900;
+  margin-bottom: 6px;
+}
+
+.ciwu-m13-copy {
+  color: #aeb5c8;
+  line-height: 1.5;
+}
+
+.ciwu-m13-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit,minmax(190px,1fr));
+  gap: 11px;
+  margin-top: 16px;
+}
+
+.ciwu-m13-card {
+  padding: 14px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.035);
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+.ciwu-m13-card small {
+  display: block;
+  color: #8f9bad;
+  margin-bottom: 5px;
+}
+
+.ciwu-m13-lock {
+  margin-top: 14px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,90,90,.22);
+  background: rgba(255,90,90,.06);
+  color: #ffc1c1;
+  font-size: .82rem;
+}
+
+#ciwu-m13-evidence {
+  margin-top: 14px;
+  white-space: pre-wrap;
+  font-size: .78rem;
+  color: #dbe5ef;
+}

@@ -1,0 +1,18 @@
+{
+  "schema": "CIWU_DUAL_SURFACE_INTEGRITY_V1",
+  "originalCandidate": "bbab3c80968b1eea7a3b5166a28712cb0f9738db",
+  "certifiedParent": "f74e1f82275e87bccf2f0aee855b524fc118e860",
+  "product": {
+    "target": "/",
+    "source": "public/original-platform-v1/index.fused.html",
+    "sha256": "3fc033414141c909d3b119b27a3beb3e01454822fd913ac1f46cd32e1af70540"
+  },
+  "sovereign": {
+    "target": "/sovereign/",
+    "source": "public/sovereign/index.html",
+    "sha256": "06d3917292fafad0fabf87c3e533f31eeb45266fd4564c714d66ab0da390c949"
+  },
+  "productPrimary": true,
+  "sovereignAdminPreserved": true,
+  "surfacesSeparated": true
+}

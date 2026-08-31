@@ -1,0 +1,71 @@
+/*
+ * CIWU M2785-M2904
+ * Product/Sovereign Surface Separation
+ *
+ * This file changes presentation only.
+ * Engineering capabilities remain available through sovereign/admin.
+ */
+
+html[data-ciwu-surface="product"]
+[data-ciwu-engineering-surface="hidden-on-product"] {
+  display: none !important;
+}
+
+/*
+ * Public product does not need permanent engineering telemetry.
+ */
+html[data-ciwu-surface="product"]
+[data-ciwu-engineering-telemetry="true"] {
+  display: none !important;
+}
+
+/*
+ * M3 is an engineering workbench.
+ * Keep the M3 implementation intact but remove its permanent product dock.
+ */
+html[data-ciwu-surface="product"]
+[data-ciwu-m3-engineering-dock="true"] {
+  display: none !important;
+}
+
+/*
+ * Preserve product-facing CIWU AI launcher if it is an independent control.
+ */
+html[data-ciwu-surface="product"]
+[data-ciwu-product-ai-control="true"] {
+  max-width: min(180px, calc(100vw - 32px)) !important;
+}
+
+/*
+ * No content should terminate under a persistent mobile launcher.
+ */
+html[data-ciwu-surface="product"] body {
+  padding-bottom:
+    calc(92px + env(safe-area-inset-bottom, 0px)) !important;
+}
+
+html[data-ciwu-surface="product"] main,
+html[data-ciwu-surface="product"] .container {
+  scroll-padding-bottom:
+    calc(92px + env(safe-area-inset-bottom, 0px));
+}
+
+@media (max-width: 760px) {
+  html[data-ciwu-surface="product"] body {
+    padding-bottom:
+      calc(104px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  html[data-ciwu-surface="product"]
+  [data-ciwu-product-ai-control="true"] {
+    right: 12px !important;
+    left: auto !important;
+    bottom:
+      calc(12px + env(safe-area-inset-bottom, 0px)) !important;
+    width: auto !important;
+    min-width: 108px !important;
+    max-width: 160px !important;
+    box-sizing: border-box !important;
+    z-index: 5000 !important;
+  }
+}

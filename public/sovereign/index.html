@@ -1,0 +1,975 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CIWU OMNI v4.0-QUANTUM - Elite Medical Platform</title>
+
+<link rel="stylesheet" href="/ciwu-omni.css">
+<meta name="theme-color" content="#05080d">
+<meta name="description" content="CIWU OMNI Sovereign Intelligence Fabric">
+
+</head>
+<body>
+<div id="ciwu-app" class="ciwu-app">
+  <aside id="ciwu-sidebar" class="ciwu-sidebar">
+    <div class="ciwu-brand">
+      <div class="ciwu-brand-mark">Ω</div>
+      <div>
+        <strong>CIWU OMNI</strong>
+        <small>Sovereign Intelligence</small>
+      </div>
+    </div>
+
+    <nav class="ciwu-nav" aria-label="Primary">
+      <button class="active" data-target="overview">
+        <span>◈</span> Command Center
+      </button>
+
+      <button data-target="m3">
+        <span>✦</span> M3 Intelligence
+      </button>
+
+      <button data-target="federation">
+        <span>◎</span> Model Federation
+      </button>
+
+      <button data-target="codex">
+        <span>⌘</span> Code Intelligence
+      </button>
+
+      <button data-target="neurotex">
+        <span>◇</span> NEUROTEX
+      </button>
+
+      <button data-target="workbench">
+        <span>▦</span> Project Workbench
+      </button>
+
+      <button data-target="safety">
+        <span>⬡</span> Safety & Authorization
+      </button>
+    </nav>
+
+    <div class="ciwu-sidebar-footer">
+      <div class="ciwu-safe">
+        <strong>Fail-closed runtime</strong><br>
+        Inference, execution, Git mutation and purchasing
+        remain authorization-gated.
+      </div>
+    </div>
+  </aside>
+
+  <main class="ciwu-main">
+    <header class="ciwu-topbar">
+      <div class="ciwu-topbar-left">
+        <button
+          id="ciwu-menu"
+          class="ciwu-menu"
+          aria-label="Open navigation"
+        >☰</button>
+
+        <div>
+          <h1 id="ciwu-page-title">Command Center</h1>
+          <p id="ciwu-page-subtitle">
+            Sovereign system overview
+          </p>
+        </div>
+      </div>
+
+      <div class="ciwu-status">
+        <span id="ciwu-live-dot" class="ciwu-dot"></span>
+        <span id="ciwu-live-text">Checking system...</span>
+      </div>
+    </header>
+
+    <div class="ciwu-content">
+
+      <!-- COMMAND CENTER -->
+      <section class="ciwu-view active" data-view="overview">
+        <div class="ciwu-hero">
+          <div class="ciwu-card ciwu-card-pad">
+            <div class="ciwu-eyebrow">
+              CIWU SOVEREIGN INTELLIGENCE FABRIC
+            </div>
+
+            <h2>
+              One command center.
+              <span class="ciwu-gradient-text">
+                Multiple intelligence systems.
+              </span>
+            </h2>
+
+            <p class="ciwu-lead">
+              CIWU OMNI unifies reasoning orchestration,
+              model federation, evidence control, coding
+              intelligence and certified learning behind
+              one fail-closed operating surface.
+            </p>
+
+            <div class="ciwu-chip-row">
+              <span class="ciwu-chip">CORTEX</span>
+              <span class="ciwu-chip">VORTEX</span>
+              <span class="ciwu-chip">ZORTEX</span>
+              <span class="ciwu-chip">EONS</span>
+              <span class="ciwu-chip">NEUROTEX</span>
+              <span class="ciwu-chip">XEON</span>
+              <span class="ciwu-chip">M3</span>
+            </div>
+          </div>
+
+          <div class="ciwu-card ciwu-card-pad">
+            <div class="ciwu-eyebrow">LIVE RELEASE</div>
+
+            <div class="ciwu-panel-list">
+              <div class="ciwu-row">
+                <span>Generation</span>
+                <strong id="ciwu-generation">Loading</strong>
+              </div>
+
+              <div class="ciwu-row">
+                <span>Render commit</span>
+                <strong id="ciwu-commit">Loading</strong>
+              </div>
+
+              <div class="ciwu-row">
+                <span>Required spend</span>
+                <strong>$0 / month</strong>
+              </div>
+
+              <div class="ciwu-row">
+                <span>Hard budget ceiling</span>
+                <strong>$100</strong>
+              </div>
+
+              <div class="ciwu-row">
+                <span>Runtime posture</span>
+                <strong>Fail closed</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ciwu-grid">
+          <div class="ciwu-card ciwu-stat">
+            <div class="ciwu-stat-label">Certified milestones</div>
+            <div class="ciwu-stat-value">1,584+</div>
+            <div class="ciwu-stat-sub">
+              Cumulative sovereign build chain
+            </div>
+          </div>
+
+          <div class="ciwu-card ciwu-stat">
+            <div class="ciwu-stat-label">M3 state</div>
+            <div id="ciwu-m3-state" class="ciwu-stat-value">
+              Loading
+            </div>
+            <div id="ciwu-m3-state-detail" class="ciwu-stat-sub">
+              Checking provider boundary
+            </div>
+          </div>
+
+          <div class="ciwu-card ciwu-stat">
+            <div class="ciwu-stat-label">Paid fallback</div>
+            <div class="ciwu-stat-value">OFF</div>
+            <div class="ciwu-stat-sub">
+              No silent paid routing
+            </div>
+          </div>
+
+          <div class="ciwu-card ciwu-stat">
+            <div class="ciwu-stat-label">Production mutation</div>
+            <div class="ciwu-stat-value">LOCKED</div>
+            <div class="ciwu-stat-sub">
+              Human authorization required
+            </div>
+          </div>
+        </div>
+
+        <div class="ciwu-section-title">
+          <div>
+            <h2>Intelligence Fabric</h2>
+            <p>
+              Visible control surfaces for the sovereign modules.
+            </p>
+          </div>
+        </div>
+
+        <div class="ciwu-module-grid">
+          <article class="ciwu-card ciwu-module">
+            <div class="ciwu-icon">✦</div>
+            <h3>M3 Intelligence</h3>
+            <p>
+              Provider-neutral conversational and coding workspace
+              with controlled federation boundaries.
+            </p>
+            <div class="ciwu-chip-row">
+              <button
+                class="ciwu-button"
+                data-open-view="m3"
+              >Open M3</button>
+            </div>
+          </article>
+
+          <article class="ciwu-card ciwu-module">
+            <div class="ciwu-icon">◎</div>
+            <h3>Model Federation</h3>
+            <p>
+              Provider, model, certification, evidence, cost and
+              runtime eligibility truth.
+            </p>
+            <div class="ciwu-chip-row">
+              <button
+                class="ciwu-button"
+                data-open-view="federation"
+              >View Federation</button>
+            </div>
+          </article>
+
+          <article class="ciwu-card ciwu-module">
+            <div class="ciwu-icon">⌘</div>
+            <h3>CODEX / XEON</h3>
+            <p>
+              Repository intelligence, candidate repair planning,
+              sandbox proof and regression certification.
+            </p>
+            <div class="ciwu-chip-row">
+              <button
+                class="ciwu-button"
+                data-open-view="codex"
+              >Code Workspace</button>
+            </div>
+          </article>
+
+          <article class="ciwu-card ciwu-module">
+            <div class="ciwu-icon">◇</div>
+            <h3>NEUROTEX</h3>
+            <p>
+              Evidence-bound experience, replay integrity,
+              quarantine and promotion control.
+            </p>
+            <div class="ciwu-chip-row">
+              <button
+                class="ciwu-button"
+                data-open-view="neurotex"
+              >Memory State</button>
+            </div>
+          </article>
+
+          <article class="ciwu-card ciwu-module">
+            <div class="ciwu-icon">Ω</div>
+            <h3>EONS</h3>
+            <p>
+              Quality, reliability, latency, cost, evidence and
+              risk-adjusted admission logic.
+            </p>
+            <div class="ciwu-chip-row">
+              <span class="ciwu-chip">Evidence first</span>
+              <span class="ciwu-chip">Fail closed</span>
+            </div>
+          </article>
+
+          <article class="ciwu-card ciwu-module">
+            <div class="ciwu-icon">⬡</div>
+            <h3>Authorization Plane</h3>
+            <p>
+              Safety gates remain structurally separate from
+              optimization and intelligence scores.
+            </p>
+            <div class="ciwu-chip-row">
+              <button
+                class="ciwu-button"
+                data-open-view="safety"
+              >Inspect Gates</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- M3 -->
+      <section class="ciwu-view" data-view="m3">
+        <div class="ciwu-chat-layout">
+          <div class="ciwu-card ciwu-chat">
+            <div class="ciwu-chat-head">
+              <h2>M3 Sovereign Intelligence</h2>
+              <p>
+                Chat • Code • Debug • Refactor • Architecture
+              </p>
+            </div>
+
+            <div id="ciwu-messages" class="ciwu-messages">
+              <div class="ciwu-message assistant">
+CIWU M3 workspace ready.
+
+Provider execution remains governed by the certified federation and authorization boundaries.
+              </div>
+            </div>
+
+            <div class="ciwu-composer">
+              <textarea
+                id="ciwu-prompt"
+                aria-label="M3 prompt"
+                placeholder="Ask M3 to reason, code, debug, explain or architect..."
+              ></textarea>
+
+              <div class="ciwu-actions">
+                <select id="ciwu-mode" class="ciwu-button">
+                  <option>CHAT</option>
+                  <option>CODE</option>
+                  <option>DEBUG</option>
+                  <option>REFACTOR</option>
+                  <option>ARCHITECT</option>
+                  <option>EXPLAIN</option>
+                  <option>TEST</option>
+                  <option>SECURITY_REVIEW</option>
+                </select>
+
+                <button
+                  id="ciwu-send"
+                  class="ciwu-button primary"
+                >Send to M3</button>
+              </div>
+            </div>
+          </div>
+
+          <aside class="ciwu-card ciwu-card-pad">
+            <div class="ciwu-eyebrow">
+              FEDERATION TRUTH
+            </div>
+
+            <div class="ciwu-panel-list">
+              <div class="ciwu-row">
+                <span>Provider</span>
+                <strong id="ciwu-m3-provider">Loading</strong>
+              </div>
+
+              <div class="ciwu-row">
+                <span>Unknown cost</span>
+                <strong>BLOCKED</strong>
+              </div>
+
+              <div class="ciwu-row">
+                <span>Paid fallback</span>
+                <strong>FALSE</strong>
+              </div>
+
+              <div class="ciwu-row">
+                <span>Execution</span>
+                <strong>GATED</strong>
+              </div>
+
+              <div class="ciwu-row">
+                <span>Purchase authority</span>
+                <strong>FALSE</strong>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- FEDERATION -->
+      <section class="ciwu-view" data-view="federation">
+        <div class="ciwu-section-title">
+          <div>
+            <h2>Model Federation</h2>
+            <p>
+              Configuration does not equal certification.
+            </p>
+          </div>
+        </div>
+
+        <div class="ciwu-module-grid">
+          <div class="ciwu-card ciwu-module">
+            <div class="ciwu-eyebrow">ADMISSION</div>
+            <h3>Provider Truth</h3>
+            <p>
+              Credentials, model discovery, price evidence,
+              health, certification and revocation remain
+              independent gates.
+            </p>
+          </div>
+
+          <div class="ciwu-card ciwu-module">
+            <div class="ciwu-eyebrow">ECONOMICS</div>
+            <h3>Zero-Cost First</h3>
+            <p>
+              Unknown cost never becomes free by assumption.
+              Paid routing remains disabled by default.
+            </p>
+          </div>
+
+          <div class="ciwu-card ciwu-module">
+            <div class="ciwu-eyebrow">EONS</div>
+            <h3>Evidence Before Score</h3>
+            <p>
+              High utility scores cannot override failed
+              authorization, safety or evidence gates.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CODE -->
+      <section class="ciwu-view" data-view="codex">
+        <div class="ciwu-section-title">
+          <div>
+            <h2>Code Intelligence Workspace</h2>
+            <p>
+              Candidate generation and sandbox certification.
+            </p>
+          </div>
+        </div>
+
+        <div class="ciwu-card ciwu-card-pad">
+          <div class="ciwu-terminal">CIWU CODE INTELLIGENCE
+
+STATUS
+  repository intelligence ........ READY
+  candidate patch contract ....... READY
+  base-commit binding ............ READY
+  sandbox proof .................. REQUIRED
+  regression proof ............... REQUIRED
+  provider evidence .............. REQUIRED
+  production mutation ............ DISABLED
+  autonomous Git push ............ DISABLED
+  force push ..................... DISABLED
+
+No production mutation is performed from this interface.</div>
+        </div>
+      </section>
+
+      <!-- NEUROTEX -->
+      <section class="ciwu-view" data-view="neurotex">
+        <div class="ciwu-section-title">
+          <div>
+            <h2>NEUROTEX Evidence Memory</h2>
+            <p>
+              Certified experience does not bypass provenance.
+            </p>
+          </div>
+        </div>
+
+        <div class="ciwu-grid">
+          <div class="ciwu-card ciwu-stat">
+            <div class="ciwu-stat-label">Active</div>
+            <div class="ciwu-stat-value">≥ 0.65</div>
+            <div class="ciwu-meter">
+              <span style="width:65%"></span>
+            </div>
+          </div>
+
+          <div class="ciwu-card ciwu-stat">
+            <div class="ciwu-stat-label">Quarantine</div>
+            <div class="ciwu-stat-value">0.25–0.64</div>
+            <div class="ciwu-meter">
+              <span style="width:45%"></span>
+            </div>
+          </div>
+
+          <div class="ciwu-card ciwu-stat">
+            <div class="ciwu-stat-label">Rejected</div>
+            <div class="ciwu-stat-value">&lt; 0.25</div>
+            <div class="ciwu-meter">
+              <span style="width:20%"></span>
+            </div>
+          </div>
+
+          <div class="ciwu-card ciwu-stat">
+            <div class="ciwu-stat-label">Revocation</div>
+            <div class="ciwu-stat-value">OVERRIDE</div>
+            <div class="ciwu-stat-sub">
+              Revoked knowledge cannot promote
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECT WORKBENCH -->
+      <section class="ciwu-view" data-view="workbench">
+        <div class="ciwu-section-title">
+          <div>
+            <h2>Interactive Project Workbench</h2>
+            <p>
+              Project state, repository intelligence,
+              provider truth and evidence inspection.
+            </p>
+          </div>
+        </div>
+
+        <div class="ciwu-workbench">
+          <aside class="ciwu-card ciwu-workbench-nav">
+            <button class="active" data-workbench-target="projects">
+              Projects
+            </button>
+            <button data-workbench-target="repository">
+              Repository
+            </button>
+            <button data-workbench-target="providers">
+              Providers
+            </button>
+            <button data-workbench-target="codexdiff">
+              CODEX Diff
+            </button>
+            <button data-workbench-target="xeon">
+              XEON Sandbox
+            </button>
+            <button data-workbench-target="evidence">
+              NEUROTEX Evidence
+            </button>
+            <button data-workbench-target="timeline">
+              Activity
+            </button>
+          </aside>
+
+          <div>
+            <section
+              class="ciwu-workbench-panel"
+              data-workbench-panel="projects"
+            >
+              <div class="ciwu-workbench-meta">
+                <div class="ciwu-card ciwu-stat">
+                  <div class="ciwu-stat-label">
+                    Active project
+                  </div>
+                  <div class="ciwu-stat-value">
+                    CIWU OMNI
+                  </div>
+                </div>
+
+                <div class="ciwu-card ciwu-stat">
+                  <div class="ciwu-stat-label">
+                    Branch
+                  </div>
+                  <div class="ciwu-stat-value">
+                    main
+                  </div>
+                </div>
+
+                <div class="ciwu-card ciwu-stat">
+                  <div class="ciwu-stat-label">
+                    Mutation
+                  </div>
+                  <div class="ciwu-stat-value">
+                    LOCKED
+                  </div>
+                </div>
+              </div>
+
+              <div class="ciwu-card ciwu-card-pad">
+                <div
+                  id="ciwu-workbench-live-status"
+                  class="ciwu-status"
+                  style="margin-bottom:14px"
+                >
+                  Loading live project telemetry...
+                </div>
+
+                <div class="ciwu-workbench-meta">
+                  <div class="ciwu-card ciwu-stat">
+                    <div class="ciwu-stat-label">Runtime project</div>
+                    <div id="ciwu-live-project" class="ciwu-stat-value">Loading</div>
+                  </div>
+
+                  <div class="ciwu-card ciwu-stat">
+                    <div class="ciwu-stat-label">Generation</div>
+                    <div id="ciwu-live-generation" class="ciwu-stat-value">Loading</div>
+                  </div>
+
+                  <div class="ciwu-card ciwu-stat">
+                    <div class="ciwu-stat-label">Milestone</div>
+                    <div id="ciwu-live-milestone" class="ciwu-stat-value">Loading</div>
+                  </div>
+
+                  <div class="ciwu-card ciwu-stat">
+                    <div class="ciwu-stat-label">Render commit</div>
+                    <div id="ciwu-live-render-commit" class="ciwu-stat-value">Loading</div>
+                  </div>
+                </div>
+
+                <div class="ciwu-eyebrow">
+                  PROJECT SESSION
+                </div>
+                <h3>CIWU OMNI Sovereign Intelligence Fabric</h3>
+                <p class="ciwu-lead">
+                  This workbench exposes certified project
+                  state without granting autonomous production
+                  mutation authority.
+                </p>
+              </div>
+            </section>
+
+            <section
+              class="ciwu-workbench-panel"
+              data-workbench-panel="repository"
+              hidden
+            >
+              <div class="ciwu-card ciwu-card-pad">
+                <div class="ciwu-eyebrow">
+                  REPOSITORY EXPLORER
+                </div>
+
+                <div class="ciwu-row">
+                  <span>Selected file</span>
+                  <strong id="ciwu-selected-file">
+                    None
+                  </strong>
+                </div>
+
+                <div class="ciwu-row">
+                  <span>Live file count</span>
+                  <strong id="ciwu-live-file-count">Loading</strong>
+                </div>
+
+                <div
+                  id="ciwu-live-repository-tree"
+                  class="ciwu-tree"
+                ></div>
+
+                <div class="ciwu-section-title">
+                  <div>
+                    <h2>Live Symbol Index</h2>
+                    <p>Read-only symbols from current JavaScript source.</p>
+                  </div>
+                  <strong id="ciwu-live-symbol-count">Loading</strong>
+                </div>
+
+                <div
+                  id="ciwu-live-symbol-list"
+                  class="ciwu-panel-list"
+                ></div>
+
+                <details style="margin-top:16px">
+                  <summary>Original navigation shortcuts</summary>
+
+                <div class="ciwu-tree">
+                  <button data-file-path="src/">
+                    ▸ src/
+                  </button>
+                  <button data-file-path="src/sovereign/">
+                    ▸ src/sovereign/
+                  </button>
+                  <button data-file-path="src/frontend/">
+                    ▸ src/frontend/
+                  </button>
+                  <button data-file-path="public/">
+                    ▸ public/
+                  </button>
+                  <button data-file-path="public/index.html">
+                    ◇ public/index.html
+                  </button>
+                  <button data-file-path="public/ciwu-omni-app.js">
+                    ◇ public/ciwu-omni-app.js
+                  </button>
+                  <button data-file-path="public/ciwu-omni.css">
+                    ◇ public/ciwu-omni.css
+                  </button>
+                </div>
+                </details>
+              </div>
+            </section>
+
+            <section
+              class="ciwu-workbench-panel"
+              data-workbench-panel="providers"
+              hidden
+            >
+              <div class="ciwu-card ciwu-card-pad">
+                <div class="ciwu-eyebrow">
+                  PROVIDER TRUTH
+                </div>
+
+                <div class="ciwu-row">
+                  <span>Selected provider</span>
+                  <strong id="ciwu-selected-provider">
+                    None
+                  </strong>
+                </div>
+
+                <div
+                  id="ciwu-live-provider-grid"
+                  class="ciwu-provider-grid"
+                ></div>
+
+                <details style="margin-top:16px">
+                  <summary>Architecture examples</summary>
+
+                <div class="ciwu-provider-grid">
+                  <article
+                    class="ciwu-card ciwu-provider-card"
+                    data-provider-name="OpenAI Adapter"
+                  >
+                    <strong>OpenAI Adapter</strong>
+                    <p>Configured state is separate from certification.</p>
+                    <div class="ciwu-chip-row">
+                      <span class="ciwu-chip">Federated</span>
+                      <span class="ciwu-chip">Cost gated</span>
+                    </div>
+                  </article>
+
+                  <article
+                    class="ciwu-card ciwu-provider-card"
+                    data-provider-name="Groq Adapter"
+                  >
+                    <strong>Groq Adapter</strong>
+                    <p>Requires independent runtime certification.</p>
+                    <div class="ciwu-chip-row">
+                      <span class="ciwu-chip">Federated</span>
+                      <span class="ciwu-chip">Evidence gated</span>
+                    </div>
+                  </article>
+
+                  <article
+                    class="ciwu-card ciwu-provider-card"
+                    data-provider-name="Local/Open Weight"
+                  >
+                    <strong>Local / Open Weight</strong>
+                    <p>Native substrate remains independently admissible.</p>
+                    <div class="ciwu-chip-row">
+                      <span class="ciwu-chip">Sovereign path</span>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </section>
+                </details>
+            <section
+              class="ciwu-workbench-panel"
+              data-workbench-panel="codexdiff"
+              hidden
+            >
+              <div class="ciwu-card ciwu-card-pad">
+                <div class="ciwu-eyebrow">
+                  CODE INTELLIGENCE DIFF
+                </div>
+
+                <div class="ciwu-diff">Candidate patch inspection surface
+
+BASE COMMIT ........ BOUND
+DIFF HASH .......... REQUIRED
+SANDBOX ............ REQUIRED
+REGRESSION ......... REQUIRED
+HUMAN APPROVAL ..... REQUIRED
+PRODUCTION MUTATION  DISABLED
+AUTONOMOUS GIT PUSH  DISABLED
+
+No patch is applied from this viewer.</div>
+              </div>
+            </section>
+
+            <section
+              class="ciwu-workbench-panel"
+              data-workbench-panel="xeon"
+              hidden
+            >
+              <div class="ciwu-card ciwu-card-pad">
+                <div class="ciwu-eyebrow">
+                  XEON SANDBOX RESULTS
+                </div>
+
+                <div class="ciwu-panel-list">
+                  <div class="ciwu-row">
+                    <span>Execution location</span>
+                    <strong>Temporary sandbox only</strong>
+                  </div>
+                  <div class="ciwu-row">
+                    <span>Production shell</span>
+                    <strong>DISABLED</strong>
+                  </div>
+                  <div class="ciwu-row">
+                    <span>Allowlisted commands</span>
+                    <strong>REQUIRED</strong>
+                  </div>
+                  <div class="ciwu-row">
+                    <span>Workspace destruction</span>
+                    <strong>REQUIRED</strong>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section
+              class="ciwu-workbench-panel"
+              data-workbench-panel="evidence"
+              hidden
+            >
+              <div class="ciwu-card ciwu-card-pad">
+                <div class="ciwu-eyebrow">
+                  NEUROTEX EVIDENCE EXPLORER
+                </div>
+
+                <div class="ciwu-row">
+                  <span>Live evidence sources</span>
+                  <strong id="ciwu-live-neurotex-count">Loading</strong>
+                </div>
+
+                <div id="ciwu-live-neurotex-list"></div>
+
+                <div class="ciwu-chip-row">
+                  <button class="ciwu-button" data-evidence-state="ALL">
+                    All
+                  </button>
+                  <button class="ciwu-button" data-evidence-state="ACTIVE">
+                    Active
+                  </button>
+                  <button class="ciwu-button" data-evidence-state="QUARANTINED">
+                    Quarantined
+                  </button>
+                  <button class="ciwu-button" data-evidence-state="REJECTED">
+                    Rejected
+                  </button>
+                </div>
+
+                <div
+                  class="ciwu-evidence-record"
+                  data-evidence-record="ACTIVE"
+                >
+                  <strong>ACTIVE evidence</strong>
+                  <p>
+                    Promotion requires confidence, provenance,
+                    regression proof and non-revoked state.
+                  </p>
+                </div>
+
+                <div
+                  class="ciwu-evidence-record"
+                  data-evidence-record="QUARANTINED"
+                >
+                  <strong>QUARANTINED evidence</strong>
+                  <p>
+                    Unproven or insufficiently supported knowledge
+                    remains isolated from active learning.
+                  </p>
+                </div>
+
+                <div
+                  class="ciwu-evidence-record"
+                  data-evidence-record="REJECTED"
+                >
+                  <strong>REJECTED evidence</strong>
+                  <p>
+                    Invalid or low-confidence evidence is not promoted.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section
+              class="ciwu-workbench-panel"
+              data-workbench-panel="timeline"
+              hidden
+            >
+              <div class="ciwu-card ciwu-card-pad">
+                <div class="ciwu-eyebrow">
+                  ACTIVITY TIMELINE
+                </div>
+
+                <div class="ciwu-row">
+                  <span>Certified release events</span>
+                  <strong id="ciwu-live-event-count">Loading</strong>
+                </div>
+
+                <div
+                  id="ciwu-live-activity"
+                  class="ciwu-timeline"
+                ></div>
+
+                <div class="ciwu-timeline">
+                  <div class="ciwu-timeline-event">
+                    <strong>M1704 certified</strong>
+                    <p>Front-End Genesis exact Render commit verified.</p>
+                  </div>
+
+                  <div class="ciwu-timeline-event">
+                    <strong>M1584 certified</strong>
+                    <p>Provider truth and EONS admission control certified.</p>
+                  </div>
+
+                  <div class="ciwu-timeline-event">
+                    <strong>Safety boundary active</strong>
+                    <p>
+                      Inference, execution, Git mutation and purchasing
+                      remain fail-closed.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <!-- SAFETY -->
+      <section class="ciwu-view" data-view="safety">
+        <div class="ciwu-section-title">
+          <div>
+            <h2>Safety & Authorization Plane</h2>
+            <p>
+              Optimization is structurally separated from authority.
+            </p>
+          </div>
+        </div>
+
+        <div class="ciwu-card ciwu-card-pad">
+          <div class="ciwu-panel-list">
+            <div class="ciwu-row">
+              <span>/infer</span>
+              <strong>403 BY DEFAULT</strong>
+            </div>
+
+            <div class="ciwu-row">
+              <span>/execute</span>
+              <strong>403</strong>
+            </div>
+
+            <div class="ciwu-row">
+              <span>/git/push</span>
+              <strong>403</strong>
+            </div>
+
+            <div class="ciwu-row">
+              <span>/purchase</span>
+              <strong>403</strong>
+            </div>
+
+            <div class="ciwu-row">
+              <span>Silent paid fallback</span>
+              <strong>FALSE</strong>
+            </div>
+
+            <div class="ciwu-row">
+              <span>Monthly required spend</span>
+              <strong>$0</strong>
+            </div>
+
+            <div class="ciwu-row">
+              <span>Monthly hard ceiling</span>
+              <strong>$100</strong>
+            </div>
+
+            <div class="ciwu-row">
+              <span>Force push</span>
+              <strong>DISABLED</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="ciwu-footer-note">
+        CIWU OMNI • Sovereign Intelligence Fabric •
+        UNKNOWN ≠ ZERO • MISSING ≠ SAFE
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="/ciwu-omni-app.js" defer></script>
+<script src="/ciwu-workbench.js" defer></script>
+<script src="/ciwu-workbench-live.js" defer></script>
+<script src="/ciwu-project-intelligence.js" defer></script>
+<script src="/ciwu-project-brain.js" defer></script>
+<script src="/ciwu-xeon-sandbox.js" defer></script>
+<script src="/ciwu-repair-search.js" defer></script>
+<script src="/ciwu-repair-approval.js" defer></script>
+<script src="/ciwu-cortex-intelligence.js" defer></script>
+</body>
+</html>

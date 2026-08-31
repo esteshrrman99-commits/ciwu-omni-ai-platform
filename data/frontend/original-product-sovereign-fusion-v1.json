@@ -1,0 +1,22 @@
+{
+  "schema": "CIWU_ORIGINAL_PRODUCT_SOVEREIGN_FUSION_V1",
+  "generation": "OMEGA120_M2785_M2904",
+  "originalCandidate": "bbab3c80968b1eea7a3b5166a28712cb0f9738db",
+  "certifiedParent": "f74e1f82275e87bccf2f0aee855b524fc118e860",
+  "productSurface": "/",
+  "sovereignSurface": "/sovereign/",
+  "originalProductPrimary": true,
+  "sovereignCommandCenterPreserved": true,
+  "m3Infused": true,
+  "cortexInfused": true,
+  "projectBrainInfused": true,
+  "neurotexInfused": true,
+  "eonsInfused": true,
+  "xeonInfused": true,
+  "automaticProviderCalls": false,
+  "productionMutationAuthority": false,
+  "autonomousGitCommit": false,
+  "autonomousGitPush": false,
+  "autonomousDeployment": false,
+  "purchaseAuthority": false
+}

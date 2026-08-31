@@ -1,0 +1,11 @@
+{
+  "schema": "CIWU_FUSION_ROLLBACK_MANIFEST_V1",
+  "parentSha": "f74e1f82275e87bccf2f0aee855b524fc118e860",
+  "originalCandidate": "bbab3c80968b1eea7a3b5166a28712cb0f9738db",
+  "oldPublicIndexSha": "06d3917292fafad0fabf87c3e533f31eeb45266fd4564c714d66ab0da390c949",
+  "newProductSha": "3fc033414141c909d3b119b27a3beb3e01454822fd913ac1f46cd32e1af70540",
+  "rollbackMethod": "git restore --source=<CERTIFIED_PARENT> --staged --worktree -- .",
+  "protectedUntrackedDataPreserved": true,
+  "gitCleanForbidden": true,
+  "forcePushForbidden": true
+}

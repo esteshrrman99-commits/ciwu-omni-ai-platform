@@ -884,4 +884,77 @@ for (
   );
 }
 
+
+// CIWU_DUAL_SURFACE_FUSION_API_V1
+const fsDualSurface =
+  require('node:fs');
+
+router.get(
+  '/fusion/status',
+  (req,res) => {
+    noStore(res);
+
+    const dual=
+      JSON.parse(
+        fsDualSurface.readFileSync(
+          'data/frontend/dual-surface-integrity-v1.json',
+          'utf8'
+        )
+      );
+
+    res.json({
+      ok:true,
+      schema:
+        'CIWU_DUAL_SURFACE_FUSION_STATUS_V1',
+      generation:
+        'OMEGA120_M2785_M2904',
+      productSurface:{
+        path:'/',
+        originalProductPrimary:true,
+        originalCandidate:
+          dual.originalCandidate
+      },
+      sovereignSurface:{
+        path:'/sovereign/',
+        preserved:true,
+        role:'ADMIN_OPERATOR_CONSOLE'
+      },
+      intelligenceInfusion:{
+        m3:true,
+        cortex:true,
+        projectBrain:true,
+        neurotex:true,
+        eons:true,
+        xeon:true
+      },
+      automaticProviderCall:false,
+      productionMutationAuthority:false,
+      autonomousGitAuthority:false,
+      autonomousDeploymentAuthority:false,
+      purchaseAuthority:false
+    });
+  }
+);
+
+router.get(
+  '/fusion/authority',
+  (req,res) => {
+    noStore(res);
+
+    res.json({
+      ok:true,
+      schema:
+        'CIWU_FUSION_AUTHORITY_STATUS_V1',
+      productUiPromotion:
+        'CERTIFIED_BUILD_PIPELINE_ONLY',
+      aiProductionMutation:false,
+      autonomousGitCommit:false,
+      autonomousGitPush:false,
+      autonomousDeployment:false,
+      purchaseAuthority:false,
+      forcePush:false
+    });
+  }
+);
+
 module.exports=router;

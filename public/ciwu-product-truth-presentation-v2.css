@@ -1,0 +1,76 @@
+/*
+ * CIWU M2785-M2904
+ * Product Truth Presentation V2
+ *
+ * Presentation-only policy.
+ * Sovereign/admin intelligence remains intact.
+ */
+
+html[data-ciwu-truth-surface="product"]
+[data-ciwu-public-engineering-internal="true"] {
+  display: none !important;
+}
+
+html[data-ciwu-truth-surface="product"]
+[data-ciwu-public-raw-engineering-data="true"] {
+  display: none !important;
+}
+
+html[data-ciwu-truth-surface="product"]
+[data-ciwu-public-engineering-overlay="true"] {
+  display: none !important;
+}
+
+html[data-ciwu-truth-surface="product"]
+[data-ciwu-public-engineering-dock="true"] {
+  display: none !important;
+}
+
+html[data-ciwu-truth-surface="product"]
+[data-ciwu-evidence-normalized="true"] {
+  background:
+    rgba(130, 85, 255, 0.16) !important;
+  border-color:
+    rgba(150, 110, 255, 0.28) !important;
+  color:
+    #c9b8ff !important;
+}
+
+/*
+ * Historical product language can remain visible for reconstruction,
+ * but visually distinguish it from evidence-certified runtime state.
+ */
+html[data-ciwu-truth-surface="product"]
+[data-ciwu-historical-product-claim="true"] {
+  position: relative;
+}
+
+/*
+ * Keep page content above mobile browser chrome and product controls.
+ */
+html[data-ciwu-truth-surface="product"] body {
+  padding-bottom:
+    calc(
+      56px +
+      env(safe-area-inset-bottom, 0px)
+    ) !important;
+}
+
+@media (max-width: 760px) {
+  html[data-ciwu-truth-surface="product"] body {
+    padding-bottom:
+      calc(
+        72px +
+        env(safe-area-inset-bottom, 0px)
+      ) !important;
+  }
+
+  html[data-ciwu-truth-surface="product"] main,
+  html[data-ciwu-truth-surface="product"] .container {
+    scroll-padding-bottom:
+      calc(
+        72px +
+        env(safe-area-inset-bottom, 0px)
+      );
+  }
+}
