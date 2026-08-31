@@ -50,10 +50,51 @@ function assertLoopbackOrigin(req) {
       req.headers['sec-fetch-site'] || ''
     ).toLowerCase();
 
+  // CIWU_SAFE_PUBLIC_NAVIGATION_V2
+  // A cross-site top-level browser navigation may load the exact
+  // explicitly configured CIWU public host, but gains no API,
+  // mutation, provider, tool, write or execution authority.
   if (site === 'cross-site') {
-    throw new Error(
-      'CROSS_SITE_REQUEST_BLOCKED'
-    );
+    const method =
+      String(req.method || 'GET')
+        .toUpperCase();
+
+    const host =
+      String(
+        req.headers.host || ''
+      )
+        .trim()
+        .toLowerCase()
+        .split(':')[0];
+
+    const mode =
+      String(
+        req.headers['sec-fetch-mode'] || ''
+      ).toLowerCase();
+
+    const destination =
+      String(
+        req.headers['sec-fetch-dest'] || ''
+      ).toLowerCase();
+
+    const allowedPublicHost =
+      configuredPublicHost();
+
+    const safePublicNavigation =
+      Boolean(allowedPublicHost) &&
+      host === allowedPublicHost &&
+      (
+        method === 'GET' ||
+        method === 'HEAD'
+      ) &&
+      mode === 'navigate' &&
+      destination === 'document';
+
+    if (!safePublicNavigation) {
+      throw new Error(
+        'CROSS_SITE_REQUEST_BLOCKED'
+      );
+    }
   }
 
   const origin =
