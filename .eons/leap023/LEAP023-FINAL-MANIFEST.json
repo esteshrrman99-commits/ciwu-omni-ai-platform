@@ -1,0 +1,34 @@
+{
+  "version": "CIWU_LEAP023_FINAL_V1",
+  "parent_commit": "acce974e8babc844c8b4047248e47b06e2cca216",
+  "native_test_files": 54,
+  "native_test_files_pass": 54,
+  "native_test_files_fail": 0,
+  "files": {
+    "provider_capability_router": "7a20c191d72b7e7838c93b51ec4782f408690f77a3ebe9717d27686ed26746df",
+    "provider_capability_router_test": "1e859f2f5dcead506ac88058c938c0cd53c7631c3ac7271bc63492a368698f91",
+    "provider_certified_routing_binding": "c5573552387549ef497f23d3c547677dbf57c8c85edaf32029d37a5255407795",
+    "provider_certified_routing_binding_test": "6a5687eb5edc0ac257c4e972e0e2f8e8b83507ad6f827452be5b6aecd62a3765",
+    "provider_certified_routing_service": "ea4c4d98af83149cb6cbc29c003d620e18c9d7ef99e0e4365df14fe024d0285c",
+    "provider_certified_routing_service_test": "faf6a10d7c135c6801874b4bf1a332300ffceff6f52271bfd3a24dcb50620c28",
+    "provider_routing_provenance": "f155b69b6226634f1ecc5dda7125da8ccc18a08d4f542e747f677612484663c2",
+    "provider_routing_provenance_test": "3745b1a746fe1bf9918ad4acb29ebe841af17f327bf58c7a5bf30943c564cea3",
+    "provider_routing_ledger": "bcefa79857316e51a5d7c52be078d7fd97f13a8a4371024062a98c35d33ac164",
+    "provider_routing_ledger_test": "58fe7076ed037d49e950ef6ebf33b10f0c3c9e72a1234b1df8baec3300e23975"
+  },
+  "authority": {
+    "operational": false,
+    "tool": false,
+    "write_runtime": false,
+    "execute_runtime": false,
+    "commit": false,
+    "push": false,
+    "deploy": false
+  },
+  "network": {
+    "model_network_call": false,
+    "external_provider_called": false,
+    "real_provider_credential_used": false
+  },
+  "verdict": "LEAP023_RELEASE_CANDIDATE_CERTIFIED"
+}
