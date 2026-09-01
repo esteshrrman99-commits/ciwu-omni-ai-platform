@@ -1,5 +1,12 @@
 'use strict';
 
+const {
+  buildProductionRealProviderPolicyFromEnv,
+  describeProductionRealProvider
+} = require(
+  './production-real-provider-composition-v1'
+);
+
 const path =
   require('node:path');
 
@@ -65,6 +72,18 @@ async function main() {
   process.env.CIWU_PUBLIC_HOST =
     process.env.CIWU_PUBLIC_HOST ||
     'ciwu-omni-ai-platform.onrender.com';
+
+
+const productionRealProviderPolicy =
+  buildProductionRealProviderPolicyFromEnv(
+    process.env
+  );
+
+const productionRealProviderState =
+  describeProductionRealProvider({
+    policy:
+      productionRealProviderPolicy
+  });
 
   const runtime =
     createRuntime({
