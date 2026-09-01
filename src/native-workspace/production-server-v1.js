@@ -15,6 +15,18 @@ const {
   './http-server-v1'
 );
 
+const {
+  LocalDryRunProviderAdapter
+} = require(
+  './local-dry-run-provider-adapter-v1'
+);
+
+const {
+  ChatProviderDispatchBridge
+} = require(
+  './chat-provider-dispatch-bridge-v1'
+);
+
 async function main() {
   const projectRoot =
     path.resolve(
@@ -60,7 +72,29 @@ async function main() {
       stateRoot,
       projectId:
         'ciwu-omega-infinity-production',
-      providers: []
+      providers: [
+        {
+          name: 'CIWU_DRY_RUN',
+          adapter:
+            new ChatProviderDispatchBridge({
+              provider:
+                'CIWU_DRY_RUN',
+              adapter:
+                new LocalDryRunProviderAdapter(),
+              timeoutMs:
+                5000,
+              retryLimit:
+                0
+            }),
+          metadata: {
+            enabled: true,
+            healthy: true,
+            server_side: true,
+            network: false,
+            operational_authority: false
+          }
+        }
+      ]
     });
 
   if (
