@@ -79,7 +79,7 @@ COMMIT / PUSH / DEPLOY remain disabled.
 <section>
 <h2>Chat</h2>
 <input id="conversation" value="default">
-<input id="provider" value="MOCK">
+<input id="provider" value="CIWU_DRY_RUN">
 <textarea
   id="message"
   rows="6"
